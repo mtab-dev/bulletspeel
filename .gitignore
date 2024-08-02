@@ -1,0 +1,7 @@
+.import/
+.godot/
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
