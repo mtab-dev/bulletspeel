@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="Bulletspeel"
+run/main_scene="res://scenes/levels/level_one.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 

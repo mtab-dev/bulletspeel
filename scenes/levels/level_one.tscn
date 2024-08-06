@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxbh7ps7n8olg"]
+
+[ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
+
+[node name="levelOne" type="Node"]
+
+[node name="player" parent="." instance=ExtResource("1_bvwrk")]
+speed = 500
