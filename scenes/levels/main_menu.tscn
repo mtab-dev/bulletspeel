@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://7xb8qisie2k1"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_flcms"]
+[ext_resource type="Texture2D" uid="uid://dmb88otl4h7f3" path="res://sprites/ui/menu/fe17a73e-9b9b-4ec3-84e9-d6a9a4a76a43.png" id="1_vcjmk"]
+[ext_resource type="Texture2D" uid="uid://bq1i6fjuqkc7n" path="res://sprites/ui/menu/play_button.webp" id="3_nd371"]
+[ext_resource type="Texture2D" uid="uid://ddc8bm6odvyvg" path="res://sprites/ui/menu/exit_button.webp" id="4_65ocu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmvbs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwgg0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23tjf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73i01"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_664yq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6to5"]
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_flcms")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574, 324)
+scale = Vector2(3.02105, 2.70833)
+texture = ExtResource("1_vcjmk")
+
+[node name="menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="menuButtons" type="VBoxContainer" parent="menu"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 456.0
+offset_right = 614.0
+offset_bottom = 535.0
+
+[node name="play" type="Button" parent="menu/menuButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dmvbs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bwgg0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23tjf")
+icon = ExtResource("3_nd371")
+
+[node name="opções" type="Button" parent="menu/menuButtons"]
+visible = false
+layout_mode = 2
+
+[node name="sair" type="Button" parent="menu/menuButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_73i01")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_664yq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n6to5")
+icon = ExtResource("4_65ocu")
+
+[connection signal="pressed" from="menu/menuButtons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="menu/menuButtons/sair" to="." method="_on_sair_pressed"]
