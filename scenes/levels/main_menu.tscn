@@ -191,7 +191,7 @@ position = Vector2(569, 325)
 scale = Vector2(3.03684, 2.78333)
 sprite_frames = SubResource("SpriteFrames_2p16b")
 animation = &"menu-anim"
-frame_progress = 0.89298
+frame_progress = 0.290981
 
 [node name="logo" type="Sprite2D" parent="."]
 position = Vector2(569, 103)

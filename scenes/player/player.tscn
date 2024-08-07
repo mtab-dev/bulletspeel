@@ -1,16 +1,144 @@
-[gd_scene load_steps=3 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=27 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
-[ext_resource type="Texture2D" uid="uid://dce486wyjspni" path="res://icon.svg" id="2_jkncs"]
+[ext_resource type="Texture2D" uid="uid://bn0id7mlvgv81" path="res://sprites/player/death/8b77ff9f-289f-4ccb-8312-cb5208f0a946.png" id="3_mygse"]
+[ext_resource type="Texture2D" uid="uid://iy1yr3r2q5ky" path="res://sprites/player/death/8de552b7-55d9-4c71-9c64-96cc8c05a791.png" id="4_c7xbw"]
+[ext_resource type="Texture2D" uid="uid://dm05rwy10fbj5" path="res://sprites/player/death/9c8d20d6-60fe-4df9-b73a-2fd927e9b901.png" id="5_5yqy4"]
+[ext_resource type="Texture2D" uid="uid://l2d40wv5n1e5" path="res://sprites/player/death/69e29bd0-a493-45ce-81ce-ec26bb2036e7.png" id="6_cxsvp"]
+[ext_resource type="Texture2D" uid="uid://bmk4oorn1cftc" path="res://sprites/player/death/105fcc10-04b9-4323-b530-5b27677d4e1c.png" id="7_g7rkv"]
+[ext_resource type="Texture2D" uid="uid://bfyrcm3wqhk68" path="res://sprites/player/death/683dce97-ba76-4b5b-b37e-7f1b13842887.png" id="8_fou8n"]
+[ext_resource type="Texture2D" uid="uid://b1nvt46qyin0" path="res://sprites/player/death/906fc5c9-e87d-4a58-9859-4bb946ec3242.png" id="9_4pfj1"]
+[ext_resource type="Texture2D" uid="uid://dqc8vvxwcduxx" path="res://sprites/player/down/30e06598-4fa0-4c12-8af9-dd0a0cf64480.png" id="10_j2kdm"]
+[ext_resource type="Texture2D" uid="uid://usg6jjfh1g1r" path="res://sprites/player/down/935bf161-2121-4f90-a9a4-a28d6e3323bb.png" id="11_sflnq"]
+[ext_resource type="Texture2D" uid="uid://8m1u5woi1na2" path="res://sprites/player/down/6031a5b4-7844-40f2-a5ed-b48a0e883cd6.png" id="12_0mfeg"]
+[ext_resource type="Texture2D" uid="uid://b0oe7hta70trw" path="res://sprites/player/down/e732c2c7-420e-43f0-96db-d2cf0f22973a.png" id="13_bjquu"]
+[ext_resource type="Texture2D" uid="uid://cig5cmre0gsbw" path="res://sprites/player/idle/4e9162bd-2640-49b3-86e6-9bdee7564df0.png" id="14_gbn5g"]
+[ext_resource type="Texture2D" uid="uid://fvg2bawk0ulw" path="res://sprites/player/idle/14ff8e61-5f39-4b0b-bbbf-bb1600c70707.png" id="15_obkl4"]
+[ext_resource type="Texture2D" uid="uid://4y5fnkli4gx3" path="res://sprites/player/idle/54ead715-bf56-43d5-9a01-742a1e9e768d.png" id="16_ia33e"]
+[ext_resource type="Texture2D" uid="uid://ccnw3r2rlu1t7" path="res://sprites/player/idle/c7aec954-6694-4f24-8f5f-663dbce59880.png" id="17_ca1co"]
+[ext_resource type="Texture2D" uid="uid://bv7j5slue7lvp" path="res://sprites/player/run/26b70154-50bd-44ae-b479-5dd70f8c8b27.png" id="18_pqbw2"]
+[ext_resource type="Texture2D" uid="uid://c0i3vl60owxax" path="res://sprites/player/run/b0e0a92a-a706-43b5-a803-3762480869e7.png" id="19_if00u"]
+[ext_resource type="Texture2D" uid="uid://b14hcppaeistw" path="res://sprites/player/run/dda6cb99-e98c-4d25-bee2-181cf67037b9.png" id="20_ipwuu"]
+[ext_resource type="Texture2D" uid="uid://o8udokwojumt" path="res://sprites/player/run/e5a81dde-8671-4de8-9eb0-f4cb74527bfa.png" id="21_a65dh"]
+[ext_resource type="Texture2D" uid="uid://bmua2xek7v5fv" path="res://sprites/player/up/2caff5cd-87f7-4657-96d4-d04947f8dd57.png" id="22_3fg6l"]
+[ext_resource type="Texture2D" uid="uid://cr76q1h0x2d0u" path="res://sprites/player/up/084eebaa-822f-4de3-990e-b15ff4303131.png" id="23_viuox"]
+[ext_resource type="Texture2D" uid="uid://c04qob3a6d6qh" path="res://sprites/player/up/979ebf81-8d9c-4751-a032-6e86c405b3a0.png" id="24_4hrux"]
+[ext_resource type="Texture2D" uid="uid://42af20t1kps0" path="res://sprites/player/up/7339ef4b-4aad-435f-a052-249c6dd3be75.png" id="25_gvx1o"]
 
-[node name="player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icnwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mygse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c7xbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5yqy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cxsvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g7rkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fou8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4pfj1")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_j2kdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sflnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0mfeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bjquu")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_gbn5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_obkl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ia33e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ca1co")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_pqbw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_if00u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ipwuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_a65dh")
+}],
+"loop": true,
+"name": &"run",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_3fg6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_viuox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4hrux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gvx1o")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 script = ExtResource("1_qne2s")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jkncs")
+animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_drh78")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_icnwc")
+animation = &"run"
+frame_progress = 0.866035
 
 [node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(2, 2)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
