@@ -1,7 +1,6 @@
 extends Control
 
 @onready var menu: Control = get_node("menu")
-@onready var button_container: VBoxContainer = menu.get_node("menu/buttonContainer")
 @onready var bgroundSprite: AnimatedSprite2D = get_node("bground")
 #@onready var continue_button: Button = button_container.get_node("continue")
 

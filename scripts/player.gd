@@ -7,9 +7,8 @@ extends CharacterBody2D
 func horizontalMovement() -> void:
 	var input_direction: float = Input.get_action_raw_strength("right") - Input.get_action_strength("left")
 	velocity.x = input_direction * speed
-	if velocity.x != 0:
-		animation.play('run')
-		animation.flip_h = (velocity.x < 0)
+	animation.play('run')
+	animation.flip_h = (velocity.x < 0)
 	print(velocity.x)
 	
 func verticalMovement() -> void:
