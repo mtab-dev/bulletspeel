@@ -93,8 +93,8 @@ texture = ExtResource("1_5iv1b")
 position = Vector2(13, -498)
 texture = ExtResource("1_yfrhe")
 
-[node name="noCollision" type="Sprite2D" parent="lvlDesign/floor"]
-position = Vector2(-1, -2)
+[node name="noCollision" type="Sprite2D" parent="lvlDesign"]
+position = Vector2(12, -500)
 texture = ExtResource("3_pe0el")
 
 [node name="decoration" type="Sprite2D" parent="lvlDesign"]
