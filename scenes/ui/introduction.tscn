@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cavnnfmcbe28y"]
+
+[ext_resource type="Script" path="res://scenes/ui/introduction.gd" id="1_3lfde"]
+[ext_resource type="Texture2D" uid="uid://lefgd2k08sw4" path="res://sprites/ui/cutscenes/intro.webp" id="1_5ypy1"]
+[ext_resource type="Texture2D" uid="uid://kyk1bf27t31r" path="res://sprites/ui/menu/press.webp" id="2_ss6yq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rj146"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p71ld"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qd0ug"]
+
+[node name="introduction" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3lfde")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(571.5, 317.5)
+scale = Vector2(1.39273, 1.275)
+texture = ExtResource("1_5ypy1")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 611.0
+offset_right = 678.0
+offset_bottom = 634.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rj146")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p71ld")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qd0ug")
+icon = ExtResource("2_ss6yq")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
