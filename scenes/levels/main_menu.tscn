@@ -205,14 +205,16 @@ offset_bottom = 40.0
 
 [node name="menuButtons" type="VBoxContainer" parent="menu"]
 layout_mode = 0
-offset_left = 553.0
-offset_top = 404.0
-offset_right = 681.0
-offset_bottom = 528.0
+offset_left = 534.0
+offset_top = 414.0
+offset_right = 636.0
+offset_bottom = 520.0
 alignment = 1
 
 [node name="play" type="Button" parent="menu/menuButtons"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dmvbs")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bwgg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_23tjf")
@@ -220,6 +222,8 @@ icon = ExtResource("3_nd371")
 
 [node name="opções" type="Button" parent="menu/menuButtons"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
@@ -228,6 +232,8 @@ alignment = 0
 
 [node name="sair" type="Button" parent="menu/menuButtons"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxEmpty_73i01")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_664yq")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_n6to5")
