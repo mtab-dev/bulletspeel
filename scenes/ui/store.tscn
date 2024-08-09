@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv81u4044gbhq"]
+
+[ext_resource type="Texture2D" uid="uid://bmi43rcqr6hb5" path="res://sprites/tela de compra/store-bg.webp" id="1_kor1q"]
+[ext_resource type="Texture2D" uid="uid://bob4ug84pehxi" path="res://sprites/drops/armadura.png" id="2_xnxr4"]
+[ext_resource type="Texture2D" uid="uid://b2vpi1esqmiyn" path="res://sprites/drops/bota da velocidade.png" id="3_1doho"]
+[ext_resource type="Texture2D" uid="uid://bawpxlhs7bxky" path="res://sprites/drops/coração.png" id="4_85h2v"]
+
+[sub_resource type="Animation" id="Animation_ipbud"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1000), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m30f7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1000)]
+}
+
+[sub_resource type="Animation" id="Animation_lsi0c"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vl6c"]
+_data = {
+"RESET": SubResource("Animation_m30f7"),
+"transIn": SubResource("Animation_ipbud"),
+"transOut": SubResource("Animation_lsi0c")
+}
+
+[node name="store" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -1000)
+transform = Transform2D(1, 0, 0, 1, 0, -1000)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 86.0
+offset_top = 81.0
+offset_right = 974.0
+offset_bottom = 557.0
+
+[node name="textue" type="Sprite2D" parent="Panel"]
+position = Vector2(448.5, 238.5)
+scale = Vector2(1.10357, 0.978846)
+texture = ExtResource("1_kor1q")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 190.0
+offset_right = 178.0
+offset_bottom = 222.0
+scale = Vector2(4.47436, 3.07292)
+icon = ExtResource("2_xnxr4")
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 172.0
+offset_right = 404.0
+offset_bottom = 200.0
+scale = Vector2(5.83833, 4.42122)
+icon = ExtResource("3_1doho")
+
+[node name="Button3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 173.0
+offset_right = 629.0
+offset_bottom = 205.0
+scale = Vector2(7.38446, 4.19544)
+icon = ExtResource("4_85h2v")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3vl6c")
+}
