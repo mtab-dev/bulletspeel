@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/ui/store.gd" id="1_5balh"]
 [ext_resource type="Texture2D" uid="uid://bmi43rcqr6hb5" path="res://sprites/tela de compra/store-bg.webp" id="1_kor1q"]
-[ext_resource type="Texture2D" uid="uid://bob4ug84pehxi" path="res://sprites/drops/armadura.png" id="2_xnxr4"]
-[ext_resource type="Texture2D" uid="uid://b2vpi1esqmiyn" path="res://sprites/drops/bota da velocidade.png" id="3_1doho"]
+[ext_resource type="Texture2D" uid="uid://cule5aninb5qn" path="res://sprites/tela de compra/boots.webp" id="3_qxohv"]
 [ext_resource type="Texture2D" uid="uid://bawpxlhs7bxky" path="res://sprites/drops/coração.png" id="4_85h2v"]
+[ext_resource type="Texture2D" uid="uid://dfwxwt2n6cdn5" path="res://sprites/tela de compra/lollipop.webp" id="4_fd23s"]
 [ext_resource type="Texture2D" uid="uid://d37cmx7mqjvxh" path="res://sprites/ui/menu/back.webp" id="6_wueqx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xl8u1"]
@@ -84,36 +84,43 @@ texture = ExtResource("1_kor1q")
 
 [node name="itemOne" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 154.0
-offset_top = 190.0
-offset_right = 178.0
-offset_bottom = 222.0
+offset_left = 132.0
+offset_top = 167.0
+offset_right = 165.0
+offset_bottom = 212.0
 scale = Vector2(4.47436, 3.07292)
-icon = ExtResource("2_xnxr4")
+icon = ExtResource("3_qxohv")
+icon_alignment = 1
+expand_icon = true
 
 [node name="itemTwo" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 380.0
-offset_top = 172.0
-offset_right = 404.0
-offset_bottom = 200.0
+offset_left = 372.0
+offset_top = 166.0
+offset_right = 398.0
+offset_bottom = 199.0
 scale = Vector2(5.83833, 4.42122)
-icon = ExtResource("3_1doho")
+icon = ExtResource("4_fd23s")
+icon_alignment = 1
+expand_icon = true
 
 [node name="itemThree" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 173.0
-offset_right = 629.0
-offset_bottom = 205.0
+offset_left = 613.0
+offset_top = 169.0
+offset_right = 634.0
+offset_bottom = 203.0
 scale = Vector2(7.38446, 4.19544)
 icon = ExtResource("4_85h2v")
+icon_alignment = 1
+expand_icon = true
 
 [node name="back" type="Button" parent="Panel"]
 offset_left = 43.0
 offset_top = 435.0
 offset_right = 166.0
 offset_bottom = 467.0
+scale = Vector2(1.01466, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xl8u1")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_wy6ak")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8xpal")

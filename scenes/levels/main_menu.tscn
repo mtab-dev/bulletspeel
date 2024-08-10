@@ -165,17 +165,17 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23tjf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2cji"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hg8r7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0gcxr"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73i01"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_664yq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6to5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2cji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hg8r7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0gcxr"]
 
 [node name="mainMenu" type="Control"]
 layout_mode = 3
@@ -203,25 +203,42 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="menuButtons" type="VBoxContainer" parent="menu"]
-layout_mode = 0
-offset_left = 534.0
-offset_top = 414.0
-offset_right = 636.0
-offset_bottom = 520.0
-alignment = 1
-
-[node name="play" type="Button" parent="menu/menuButtons"]
+[node name="play" type="Button" parent="menu"]
 layout_mode = 2
+offset_left = 533.0
+offset_top = 376.0
+offset_right = 633.0
+offset_bottom = 432.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dmvbs")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bwgg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_23tjf")
 icon = ExtResource("3_nd371")
+icon_alignment = 1
+expand_icon = true
 
-[node name="opções" type="Button" parent="menu/menuButtons"]
+[node name="sair" type="Button" parent="menu"]
 layout_mode = 2
+offset_left = 539.0
+offset_top = 466.0
+offset_right = 639.0
+offset_bottom = 499.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_73i01")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_664yq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n6to5")
+icon = ExtResource("4_65ocu")
+icon_alignment = 1
+expand_icon = true
+
+[node name="opções" type="Button" parent="menu"]
+layout_mode = 2
+offset_left = 505.0
+offset_top = 426.0
+offset_right = 667.0
+offset_bottom = 464.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
@@ -229,16 +246,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
 icon = ExtResource("39_248mq")
 alignment = 0
+icon_alignment = 1
+expand_icon = true
 
-[node name="sair" type="Button" parent="menu/menuButtons"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxEmpty_73i01")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_664yq")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_n6to5")
-icon = ExtResource("4_65ocu")
-
-[connection signal="pressed" from="menu/menuButtons/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="menu/menuButtons/opções" to="." method="_on_opções_pressed"]
-[connection signal="pressed" from="menu/menuButtons/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="menu/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="menu/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="menu/opções" to="." method="_on_opções_pressed"]
