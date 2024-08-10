@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var animation: AnimatedSprite2D = null
 @onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
+@onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
 var moneyCount: int = 0
 var isDead: bool = false
 var life: int = 3
@@ -33,6 +34,7 @@ func moneyManagement():
 func lifeManagement():
 	if(Input.is_action_just_pressed("left_click")):
 		life -= 1
+		damageFX.play()
 		if(life <= 0):
 			isDead = true
 			get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
