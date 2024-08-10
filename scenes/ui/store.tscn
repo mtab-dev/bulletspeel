@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqacurjfbfx4i"]
+[gd_scene load_steps=17 format=3 uid="uid://bqacurjfbfx4i"]
 
 [ext_resource type="Script" path="res://scripts/ui/store.gd" id="1_5balh"]
 [ext_resource type="Texture2D" uid="uid://bmi43rcqr6hb5" path="res://sprites/tela de compra/store-bg.webp" id="1_kor1q"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dfwxwt2n6cdn5" path="res://sprites/tela de compra/lollipop.webp" id="4_fd23s"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="5_75dkc"]
 [ext_resource type="Texture2D" uid="uid://d37cmx7mqjvxh" path="res://sprites/ui/menu/back.webp" id="6_wueqx"]
+[ext_resource type="Texture2D" uid="uid://684pdxe3od0q" path="res://assets/dialog/dialog_bubble1-removebg-preview.png" id="8_drcrs"]
+[ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="9_n6f5u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j580e"]
 
@@ -137,4 +139,32 @@ libraries = {
 "": SubResource("AnimationLibrary_3vl6c")
 }
 
+[node name="dialogBox" type="Sprite2D" parent="."]
+position = Vector2(781, 507)
+texture = ExtResource("8_drcrs")
+flip_h = true
+
+[node name="label" type="RichTextLabel" parent="dialogBox"]
+offset_left = -118.0
+offset_top = -40.0
+offset_right = 91.0
+offset_bottom = -16.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("9_n6f5u")
+theme_override_font_sizes/normal_font_size = 13
+text = "Olá, bem-vindo a loja!"
+tab_size = 1
+context_menu_enabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="Panel/item1" to="." method="_on_item_1_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/item1" to="." method="_on_item_1_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/item2" to="." method="_on_item_2_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/item2" to="." method="_on_item_2_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/item3" to="." method="_on_item_3_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/item3" to="." method="_on_item_3_mouse_exited"]
 [connection signal="pressed" from="Panel/exit" to="." method="_on_exit_pressed"]
+[connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

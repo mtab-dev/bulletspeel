@@ -1090,10 +1090,6 @@ shape = SubResource("RectangleShape2D_y8m57")
 position = Vector2(-678, 107)
 shape = SubResource("CapsuleShape2D_il1ml")
 
-[node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(65, -1004)
-speed = 350
-
 [node name="loja" type="Area2D" parent="."]
 position = Vector2(64, -1182)
 script = SubResource("GDScript_b0guc")
@@ -1108,5 +1104,9 @@ shape = SubResource("RectangleShape2D_yramo")
 [node name="merchant" type="Sprite2D" parent="loja"]
 position = Vector2(2, -52)
 texture = ExtResource("8_vffmp")
+
+[node name="player" parent="." instance=ExtResource("1_bvwrk")]
+position = Vector2(65, -1004)
+speed = 350
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
