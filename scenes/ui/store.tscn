@@ -129,6 +129,38 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_qe7nn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_83imk")
 icon = ExtResource("6_wueqx")
 
+[node name="item1Price" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 334.0
+offset_right = 275.0
+offset_bottom = 362.0
+theme_override_fonts/normal_font = ExtResource("9_n6f5u")
+theme_override_font_sizes/normal_font_size = 30
+text = "10
+"
+
+[node name="item2Price" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 333.0
+offset_right = 517.0
+offset_bottom = 361.0
+theme_override_fonts/normal_font = ExtResource("9_n6f5u")
+theme_override_font_sizes/normal_font_size = 30
+text = "5"
+
+[node name="item3Price" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 334.0
+offset_right = 758.0
+offset_bottom = 362.0
+theme_override_fonts/normal_font = ExtResource("9_n6f5u")
+theme_override_font_sizes/normal_font_size = 30
+text = "15
+"
+
 [node name="merchant" type="Sprite2D" parent="Panel"]
 position = Vector2(853, 420)
 scale = Vector2(3.18889, 3.5)
@@ -136,12 +168,13 @@ texture = ExtResource("5_75dkc")
 
 [node name="moneyLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 167.0
+offset_left = 165.0
 offset_top = 37.0
-offset_right = 240.0
-offset_bottom = 60.0
+offset_right = 251.0
+offset_bottom = 73.0
 theme_override_fonts/normal_font = ExtResource("9_n6f5u")
 theme_override_font_sizes/normal_font_size = 30
+text = "0"
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -154,10 +187,17 @@ texture = ExtResource("8_drcrs")
 flip_h = true
 
 [node name="label" type="RichTextLabel" parent="dialogBox"]
-offset_left = -118.0
-offset_top = -40.0
-offset_right = 91.0
-offset_bottom = -16.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.5
+offset_top = -131.5
+offset_right = -45.5
+offset_bottom = -107.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_n6f5u")
@@ -171,9 +211,12 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="Panel/item1" to="." method="_on_item_1_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/item1" to="." method="_on_item_1_mouse_exited"]
+[connection signal="pressed" from="Panel/item1" to="." method="_on_item_1_pressed"]
 [connection signal="mouse_entered" from="Panel/item2" to="." method="_on_item_2_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/item2" to="." method="_on_item_2_mouse_exited"]
+[connection signal="pressed" from="Panel/item2" to="." method="_on_item_2_pressed"]
 [connection signal="mouse_entered" from="Panel/item3" to="." method="_on_item_3_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/item3" to="." method="_on_item_3_mouse_exited"]
+[connection signal="pressed" from="Panel/item3" to="." method="_on_item_3_pressed"]
 [connection signal="pressed" from="Panel/exit" to="." method="_on_exit_pressed"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

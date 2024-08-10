@@ -28,6 +28,7 @@ func moneyManagement():
 	if Input.is_action_just_pressed("shift"):
 		Global.money += 1
 		money.text = str(Global.money)
+	money.text = str(Global.money)
 
 func lifeManagement():
 	if(Input.is_action_just_pressed("left_click")):
@@ -39,10 +40,9 @@ func lifeManagement():
 
 func _ready():
 	pass
-	
+
 func _process(delta):
 	pass
-	
 
 func _physics_process(delta):
 	moneyManagement()
@@ -50,4 +50,3 @@ func _physics_process(delta):
 	animation.animate(velocity, life)
 	movement()
 	move_and_slide()
-	print(life)
