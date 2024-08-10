@@ -1,11 +1,18 @@
-[gd_scene load_steps=31 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=37 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
+[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH1.png" id="2_k2fwk"]
 [ext_resource type="Texture2D" uid="uid://bn0id7mlvgv81" path="res://sprites/player/death/8b77ff9f-289f-4ccb-8312-cb5208f0a946.png" id="2_phti0"]
 [ext_resource type="Texture2D" uid="uid://iy1yr3r2q5ky" path="res://sprites/player/death/8de552b7-55d9-4c71-9c64-96cc8c05a791.png" id="3_io0hd"]
+[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH2.png" id="3_tjhni"]
 [ext_resource type="Texture2D" uid="uid://dm05rwy10fbj5" path="res://sprites/player/death/9c8d20d6-60fe-4df9-b73a-2fd927e9b901.png" id="4_bxuc3"]
+[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH3.png" id="4_upabp"]
+[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH4.png" id="5_j5ojo"]
 [ext_resource type="Texture2D" uid="uid://l2d40wv5n1e5" path="res://sprites/player/death/69e29bd0-a493-45ce-81ce-ec26bb2036e7.png" id="6_jav36"]
+[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH5.png" id="6_xqaq4"]
 [ext_resource type="Texture2D" uid="uid://bmk4oorn1cftc" path="res://sprites/player/death/105fcc10-04b9-4323-b530-5b27677d4e1c.png" id="7_dqrky"]
+[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH6.png" id="7_lccdy"]
+[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH7.png" id="8_x4lvw"]
 [ext_resource type="Texture2D" uid="uid://bfyrcm3wqhk68" path="res://sprites/player/death/683dce97-ba76-4b5b-b37e-7f1b13842887.png" id="8_xa88i"]
 [ext_resource type="Texture2D" uid="uid://b1nvt46qyin0" path="res://sprites/player/death/906fc5c9-e87d-4a58-9859-4bb946ec3242.png" id="9_501tp"]
 [ext_resource type="Texture2D" uid="uid://dqc8vvxwcduxx" path="res://sprites/player/down/30e06598-4fa0-4c12-8af9-dd0a0cf64480.png" id="10_j2kdm"]
@@ -26,13 +33,38 @@
 [ext_resource type="Texture2D" uid="uid://cr76q1h0x2d0u" path="res://sprites/player/up/084eebaa-822f-4de3-990e-b15ff4303131.png" id="23_viuox"]
 [ext_resource type="Texture2D" uid="uid://c04qob3a6d6qh" path="res://sprites/player/up/979ebf81-8d9c-4751-a032-6e86c405b3a0.png" id="24_4hrux"]
 [ext_resource type="Texture2D" uid="uid://42af20t1kps0" path="res://sprites/player/up/7339ef4b-4aad-435f-a052-249c6dd3be75.png" id="25_gvx1o"]
-[ext_resource type="Script" path="res://scripts/ui/stats.gd" id="27_arx1x"]
 [ext_resource type="AudioStream" uid="uid://dn16hwrf6rnmt" path="res://assets/fx/effects/playerDamage.mp3" id="28_dfbwl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yr8oj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k2fwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tjhni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_upabp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j5ojo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xqaq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lccdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_x4lvw")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_phti0")
@@ -147,15 +179,19 @@ editor_draw_limits = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
 sprite_frames = SubResource("SpriteFrames_yr8oj")
-animation = &"death"
+animation = &"dash"
+frame_progress = 0.468844
 script = ExtResource("18_khfyn")
 player = NodePath("..")
 
 [node name="hud" parent="." instance=ExtResource("19_ngtxp")]
 
-[node name="stats" type="Node" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("27_arx1x")
-player = NodePath("..")
+[node name="stats" type="Node" parent="."]
 
 [node name="damageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("28_dfbwl")
+
+[node name="dashTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
