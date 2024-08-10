@@ -126,7 +126,7 @@ position = Vector2(12, -498)
 texture = ExtResource("1_5iv1b")
 
 [node name="floor" type="Sprite2D" parent="lvlDesign"]
-position = Vector2(13, -498)
+position = Vector2(12, -498)
 texture = ExtResource("1_yfrhe")
 
 [node name="noCollision" type="Sprite2D" parent="lvlDesign"]
@@ -138,7 +138,7 @@ position = Vector2(12, -497)
 texture = ExtResource("3_sdwrh")
 
 [node name="shadows" type="Sprite2D" parent="lvlDesign"]
-position = Vector2(12, -496)
+position = Vector2(12, -497)
 texture = ExtResource("4_fpllv")
 
 [node name="collision" type="StaticBody2D" parent="."]
