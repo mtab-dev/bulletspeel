@@ -28,6 +28,7 @@ func lifeManagement():
 		life -= 1
 		if(life <= 0):
 			isDead = true
+			get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
 	stats.updateLife(life)
 
 func _ready():

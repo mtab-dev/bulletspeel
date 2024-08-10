@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmvh5dehkjruw"]
+
+[ext_resource type="Script" path="res://scripts/ui/gameOver.gd" id="1_cxfr2"]
+[ext_resource type="Texture2D" uid="uid://bqhnqtmxhs5cn" path="res://sprites/ui/cutscenes/game-over.webp" id="2_cigat"]
+[ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="3_5fln6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otuhl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lb5df"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipo83"]
+
+[node name="gameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxfr2")
+
+[node name="bground" type="Sprite2D" parent="."]
+position = Vector2(572, 315.5)
+scale = Vector2(3.06842, 2.75417)
+texture = ExtResource("2_cigat")
+
+[node name="restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 36.0
+offset_right = 1091.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("3_5fln6")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_otuhl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lb5df")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ipo83")
+text = "REINICIAR"
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
