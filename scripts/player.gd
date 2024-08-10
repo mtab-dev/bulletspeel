@@ -32,7 +32,7 @@ func moneyManagement():
 	money.text = str(Global.money)
 
 func lifeManagement():
-	if(Input.is_action_just_pressed("left_click")):
+	if(Input.is_action_just_pressed("space")):
 		life -= 1
 		damageFX.play()
 		if(life <= 0):

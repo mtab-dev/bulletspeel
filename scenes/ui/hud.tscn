@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmcxw2nppu7n0"]
+[gd_scene load_steps=6 format=3 uid="uid://bmcxw2nppu7n0"]
 
 [ext_resource type="PackedScene" uid="uid://c66pdwsw13cig" path="res://scenes/ui/life.tscn" id="1_di26l"]
+[ext_resource type="Script" path="res://scripts/ui/hudControl.gd" id="1_rc38y"]
 [ext_resource type="Texture2D" uid="uid://bbho8avfceu51" path="res://sprites/ui/hud/candy_coin.webp" id="3_ljc6p"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="4_4bg5t"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="4_67apo"]
 
 [node name="hud" type="CanvasLayer"]
+script = ExtResource("1_rc38y")
 
 [node name="life" parent="." instance=ExtResource("1_di26l")]
 
@@ -30,3 +33,14 @@ theme_override_fonts/normal_font = ExtResource("4_67apo")
 theme_override_font_sizes/normal_font_size = 23
 text = "0
 "
+
+[node name="Test" type="Node2D" parent="."]
+scale = Vector2(1.00446, 1)
+
+[node name="UI" type="CanvasLayer" parent="Test"]
+
+[node name="Virtual joystick left" parent="Test/UI" instance=ExtResource("4_4bg5t")]
+action_left = "left"
+action_right = "right"
+action_up = "up"
+action_down = "down"
