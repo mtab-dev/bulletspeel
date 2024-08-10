@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://7xb8qisie2k1"]
+[gd_scene load_steps=52 format=3 uid="uid://7xb8qisie2k1"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_flcms"]
 [ext_resource type="Texture2D" uid="uid://b2rvvjv20prg7" path="res://sprites/menu/menu rpg1.png" id="2_2cldj"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://bppx58fxm5ogh" path="res://sprites/menu/menu rpg35.png" id="36_kf887"]
 [ext_resource type="Texture2D" uid="uid://b32j1ax6kvytw" path="res://sprites/ui/menu/logo_bullet.webp" id="37_qiues"]
 [ext_resource type="Texture2D" uid="uid://ww4m6gg06lt4" path="res://sprites/ui/menu/control_button.webp" id="39_248mq"]
+[ext_resource type="AudioStream" uid="uid://bgxjjvu20e8ai" path="res://assets/fx/musics/menuMain.mp3" id="41_o2sml"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p16b"]
 animations = [{
@@ -248,6 +249,10 @@ icon = ExtResource("39_248mq")
 alignment = 0
 icon_alignment = 1
 expand_icon = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("41_o2sml")
+autoplay = true
 
 [connection signal="pressed" from="menu/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="menu/sair" to="." method="_on_sair_pressed"]
