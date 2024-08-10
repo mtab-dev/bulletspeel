@@ -1,6 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=29 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
+[ext_resource type="Texture2D" uid="uid://bn0id7mlvgv81" path="res://sprites/player/death/8b77ff9f-289f-4ccb-8312-cb5208f0a946.png" id="2_phti0"]
+[ext_resource type="Texture2D" uid="uid://iy1yr3r2q5ky" path="res://sprites/player/death/8de552b7-55d9-4c71-9c64-96cc8c05a791.png" id="3_io0hd"]
+[ext_resource type="Texture2D" uid="uid://dm05rwy10fbj5" path="res://sprites/player/death/9c8d20d6-60fe-4df9-b73a-2fd927e9b901.png" id="4_bxuc3"]
+[ext_resource type="Texture2D" uid="uid://l2d40wv5n1e5" path="res://sprites/player/death/69e29bd0-a493-45ce-81ce-ec26bb2036e7.png" id="6_jav36"]
+[ext_resource type="Texture2D" uid="uid://bmk4oorn1cftc" path="res://sprites/player/death/105fcc10-04b9-4323-b530-5b27677d4e1c.png" id="7_dqrky"]
+[ext_resource type="Texture2D" uid="uid://bfyrcm3wqhk68" path="res://sprites/player/death/683dce97-ba76-4b5b-b37e-7f1b13842887.png" id="8_xa88i"]
+[ext_resource type="Texture2D" uid="uid://b1nvt46qyin0" path="res://sprites/player/death/906fc5c9-e87d-4a58-9859-4bb946ec3242.png" id="9_501tp"]
 [ext_resource type="Texture2D" uid="uid://dqc8vvxwcduxx" path="res://sprites/player/down/30e06598-4fa0-4c12-8af9-dd0a0cf64480.png" id="10_j2kdm"]
 [ext_resource type="Texture2D" uid="uid://usg6jjfh1g1r" path="res://sprites/player/down/935bf161-2121-4f90-a9a4-a28d6e3323bb.png" id="11_sflnq"]
 [ext_resource type="Texture2D" uid="uid://8m1u5woi1na2" path="res://sprites/player/down/6031a5b4-7844-40f2-a5ed-b48a0e883cd6.png" id="12_0mfeg"]
@@ -24,6 +31,32 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yr8oj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_phti0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_io0hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bxuc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jav36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dqrky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xa88i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_501tp")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("10_j2kdm")
@@ -110,8 +143,9 @@ drag_vertical_enabled = true
 editor_draw_limits = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
+process_mode = 3
 sprite_frames = SubResource("SpriteFrames_yr8oj")
-animation = &"down"
+animation = &"death"
 script = ExtResource("18_khfyn")
 player = NodePath("..")
 
