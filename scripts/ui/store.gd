@@ -11,6 +11,6 @@ func _process(delta):
 	pass
 
 
-func _on_back_pressed():
+func _on_exit_pressed():
 	get_node("animation").play("transOut")
 	get_tree().paused = false;
