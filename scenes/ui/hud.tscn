@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmcxw2nppu7n0"]
+
+[ext_resource type="PackedScene" uid="uid://c66pdwsw13cig" path="res://scenes/ui/life.tscn" id="1_di26l"]
+
+[node name="hud" type="CanvasLayer"]
+
+[node name="life" parent="." instance=ExtResource("1_di26l")]
