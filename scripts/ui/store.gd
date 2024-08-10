@@ -6,10 +6,11 @@ var charIndex: int = 0
 
 @onready var dialogSprite: Sprite2D = $dialogBox
 @onready var dialogLabel: RichTextLabel = $dialogBox/label
+@onready var moneyLabel: RichTextLabel = $Panel/moneyLabel
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	moneyLabel.text = str(Global.money)
+
 
 func _on_exit_pressed():
 	get_node("animation").play("transOut")

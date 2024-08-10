@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 @export var speed: int = 10
 @export var animation: AnimatedSprite2D = null
+@onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
+var moneyCount: int = 0
 var isDead: bool = false
 var life: int = 3
 var anim: String = 'idle'
@@ -21,7 +23,11 @@ func movement():
 	if(not isDead):
 		verticalMovement()
 		horizontalMovement()
-	
+
+func moneyManagement():
+	if Input.is_action_just_pressed("shift"):
+		Global.money += 1
+		money.text = str(Global.money)
 
 func lifeManagement():
 	if(Input.is_action_just_pressed("left_click")):
@@ -39,6 +45,7 @@ func _process(delta):
 	
 
 func _physics_process(delta):
+	moneyManagement()
 	lifeManagement()
 	animation.animate(velocity, life)
 	movement()

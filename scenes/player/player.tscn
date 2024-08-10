@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=30 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
 [ext_resource type="Texture2D" uid="uid://bn0id7mlvgv81" path="res://sprites/player/death/8b77ff9f-289f-4ccb-8312-cb5208f0a946.png" id="2_phti0"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cr76q1h0x2d0u" path="res://sprites/player/up/084eebaa-822f-4de3-990e-b15ff4303131.png" id="23_viuox"]
 [ext_resource type="Texture2D" uid="uid://c04qob3a6d6qh" path="res://sprites/player/up/979ebf81-8d9c-4751-a032-6e86c405b3a0.png" id="24_4hrux"]
 [ext_resource type="Texture2D" uid="uid://42af20t1kps0" path="res://sprites/player/up/7339ef4b-4aad-435f-a052-249c6dd3be75.png" id="25_gvx1o"]
+[ext_resource type="Script" path="res://scripts/ui/stats.gd" id="27_arx1x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
 
@@ -150,3 +151,7 @@ script = ExtResource("18_khfyn")
 player = NodePath("..")
 
 [node name="hud" parent="." instance=ExtResource("19_ngtxp")]
+
+[node name="stats" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("27_arx1x")
+player = NodePath("..")

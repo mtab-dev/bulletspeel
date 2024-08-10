@@ -1,7 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmcxw2nppu7n0"]
+[gd_scene load_steps=4 format=3 uid="uid://bmcxw2nppu7n0"]
 
 [ext_resource type="PackedScene" uid="uid://c66pdwsw13cig" path="res://scenes/ui/life.tscn" id="1_di26l"]
+[ext_resource type="Texture2D" uid="uid://bbho8avfceu51" path="res://sprites/ui/hud/candy_coin.webp" id="3_ljc6p"]
+[ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="4_67apo"]
 
 [node name="hud" type="CanvasLayer"]
 
 [node name="life" parent="." instance=ExtResource("1_di26l")]
+
+[node name="money" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1095.0
+offset_top = 30.0
+offset_right = 1154.0
+offset_bottom = 76.0
+
+[node name="texture" type="Sprite2D" parent="money"]
+position = Vector2(31, 7)
+texture = ExtResource("3_ljc6p")
+
+[node name="labelMoney" type="RichTextLabel" parent="money"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -2.0
+offset_right = 13.0
+offset_bottom = 21.0
+theme_override_fonts/normal_font = ExtResource("4_67apo")
+theme_override_font_sizes/normal_font_size = 23
+text = "0
+"

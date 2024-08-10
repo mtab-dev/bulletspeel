@@ -5,7 +5,6 @@ var is_dead: bool = false
 
 func animate(direction: Vector2, life: int) -> void:
 	if life == 0 and not is_dead:
-		print("Player is dead, playing death animation")
 		play("death")
 		is_dead = true
 		return
