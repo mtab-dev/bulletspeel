@@ -1,18 +1,18 @@
 [gd_scene load_steps=37 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
-[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH1.png" id="2_k2fwk"]
+[ext_resource type="Texture2D" uid="uid://tm03hwmtc5mp" path="res://sprites/player/dash/dash1.png.tres" id="2_nm2tp"]
 [ext_resource type="Texture2D" uid="uid://bn0id7mlvgv81" path="res://sprites/player/death/8b77ff9f-289f-4ccb-8312-cb5208f0a946.png" id="2_phti0"]
 [ext_resource type="Texture2D" uid="uid://iy1yr3r2q5ky" path="res://sprites/player/death/8de552b7-55d9-4c71-9c64-96cc8c05a791.png" id="3_io0hd"]
-[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH2.png" id="3_tjhni"]
+[ext_resource type="Texture2D" uid="uid://dvypns157n4df" path="res://sprites/player/dash/dash2.png.tres" id="3_urdfn"]
+[ext_resource type="Texture2D" uid="uid://bcx31gaj1c5xa" path="res://sprites/player/dash/dash3.png.tres" id="4_b1jet"]
 [ext_resource type="Texture2D" uid="uid://dm05rwy10fbj5" path="res://sprites/player/death/9c8d20d6-60fe-4df9-b73a-2fd927e9b901.png" id="4_bxuc3"]
-[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH3.png" id="4_upabp"]
-[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH4.png" id="5_j5ojo"]
+[ext_resource type="Texture2D" uid="uid://bcmadkma5rmif" path="res://sprites/player/dash/dash4.png.tres" id="5_4js8d"]
 [ext_resource type="Texture2D" uid="uid://l2d40wv5n1e5" path="res://sprites/player/death/69e29bd0-a493-45ce-81ce-ec26bb2036e7.png" id="6_jav36"]
-[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH5.png" id="6_xqaq4"]
+[ext_resource type="Texture2D" uid="uid://bujg1x5bei3kr" path="res://sprites/player/dash/dash5.png.tres" id="6_v7pc3"]
 [ext_resource type="Texture2D" uid="uid://bmk4oorn1cftc" path="res://sprites/player/death/105fcc10-04b9-4323-b530-5b27677d4e1c.png" id="7_dqrky"]
-[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH6.png" id="7_lccdy"]
-[ext_resource type="Texture2D" path="res://sprites/player/dash/jaoanDASH7.png" id="8_x4lvw"]
+[ext_resource type="Texture2D" uid="uid://cl4ie4g7j2v1y" path="res://sprites/player/dash/dash6.png.tres" id="7_eewy3"]
+[ext_resource type="Texture2D" uid="uid://0c340crqheq5" path="res://sprites/player/dash/dash7.png.tres" id="8_ihhny"]
 [ext_resource type="Texture2D" uid="uid://bfyrcm3wqhk68" path="res://sprites/player/death/683dce97-ba76-4b5b-b37e-7f1b13842887.png" id="8_xa88i"]
 [ext_resource type="Texture2D" uid="uid://b1nvt46qyin0" path="res://sprites/player/death/906fc5c9-e87d-4a58-9859-4bb946ec3242.png" id="9_501tp"]
 [ext_resource type="Texture2D" uid="uid://dqc8vvxwcduxx" path="res://sprites/player/down/30e06598-4fa0-4c12-8af9-dd0a0cf64480.png" id="10_j2kdm"]
@@ -41,25 +41,25 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_k2fwk")
+"texture": ExtResource("2_nm2tp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_tjhni")
+"texture": ExtResource("3_urdfn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_upabp")
+"texture": ExtResource("4_b1jet")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_j5ojo")
+"texture": ExtResource("5_4js8d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_xqaq4")
+"texture": ExtResource("6_v7pc3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_lccdy")
+"texture": ExtResource("7_eewy3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_x4lvw")
+"texture": ExtResource("8_ihhny")
 }],
 "loop": true,
 "name": &"dash",
@@ -160,7 +160,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animation") groups=["Player"]]
 position = Vector2(566, 319)
 script = ExtResource("1_qne2s")
 speed = 3

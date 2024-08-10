@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=39 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://j6gte2fprari" path="res://sprites/primeiro andar pronto/1andar sombras  completo.png" id="4_fpllv"]
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
+[ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 61)
@@ -1106,7 +1107,10 @@ position = Vector2(2, -52)
 texture = ExtResource("8_vffmp")
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(65, -1004)
+position = Vector2(658, 410)
 speed = 350
+
+[node name="bengal" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(314, 413)
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
