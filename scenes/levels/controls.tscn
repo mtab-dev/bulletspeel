@@ -29,7 +29,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="menu"]
+[node name="button" type="Button" parent="menu"]
 layout_mode = 0
 offset_left = 988.0
 offset_top = 30.0
@@ -40,4 +40,4 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_3ops1")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_tda8g")
 icon = ExtResource("3_l5ope")
 
-[connection signal="pressed" from="menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="menu/button" to="." method="_on_button_pressed"]
