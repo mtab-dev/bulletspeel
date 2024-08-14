@@ -6,7 +6,6 @@ extends Control
 
 func _ready():
 	bgroundSprite.play("menu-anim")
-	#var file: File = File.new()
 	pass
 
 func _on_play_pressed():

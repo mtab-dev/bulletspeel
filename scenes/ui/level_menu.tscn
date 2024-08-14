@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://by6s7gq6agcde"]
+
+[ext_resource type="Script" path="res://scripts/ui/levelMenu.gd" id="1_0048k"]
+[ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="1_e77uw"]
+
+[node name="levelMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_0048k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1171.0
+offset_bottom = 649.0
+color = Color(0.337255, 0.337255, 0.337255, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="btn1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e77uw")
+text = "continuar"
+
+[node name="btn2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e77uw")
+text = "menu princiipal
+"
+
+[node name="btn3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e77uw")
+text = "sair
+
+"
+
+[connection signal="pressed" from="VBoxContainer/btn1" to="." method="_on_btn_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn2" to="." method="_on_btn_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn3" to="." method="_on_btn_3_pressed"]
