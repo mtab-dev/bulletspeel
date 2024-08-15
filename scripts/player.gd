@@ -43,6 +43,7 @@ func lifeManagement():
 		life -= 1
 		damageFX.play()
 		if(life <= 0):
+			get_tree().paused = true
 			isDead = true
 			timeAfterDeath()
 	stats.updateLife(life)
