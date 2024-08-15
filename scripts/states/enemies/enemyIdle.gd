@@ -18,7 +18,7 @@ func Enter():
 	texture.play("idle")
 	randomizeWander()
 
-func Uptade(delta: float):
+func Update(delta: float):
 	if wanderTime > 0:
 		wanderTime -= delta
 	else:
