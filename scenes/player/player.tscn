@@ -191,7 +191,7 @@ player = NodePath("..")
 [node name="damageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("28_dfbwl")
 
-[node name="dashTimer" type="Timer" parent="."]
+[node name="deathTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

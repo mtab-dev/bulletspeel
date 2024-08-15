@@ -5,10 +5,17 @@ extends CharacterBody2D
 @onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
 @onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
+@onready var deathTimer: Timer = $deathTimer
 var moneyCount: int = 0
 var isDead: bool = false
 var life: int = 3
 var anim: String = 'idle'
+
+
+func timeAfterDeath():
+	deathTimer.wait_time = 2.0
+	deathTimer.one_shot = true
+	deathTimer.start()
 
 func horizontalMovement() -> void:
 	var input_direction: float = Input.get_action_raw_strength("right") - Input.get_action_strength("left")
@@ -37,7 +44,7 @@ func lifeManagement():
 		damageFX.play()
 		if(life <= 0):
 			isDead = true
-			get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
+			timeAfterDeath()
 	stats.updateLife(life)
 
 func _ready():
@@ -52,3 +59,7 @@ func _physics_process(delta):
 	animation.animate(velocity, life)
 	movement()
 	move_and_slide()
+
+
+func _on_death_timer_timeout():
+	get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
