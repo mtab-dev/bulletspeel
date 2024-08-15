@@ -25,16 +25,11 @@ func _physics_process(delta):
 func onChildTransition(state, newStateName):
 	if state != currentState:
 		return
-	var newState = state.get(newStateName.to_lower())
+	var newState = states.get(newStateName.to_lower())
 	if !newState:
 		return
 	if currentState:
-		currentState.exit()
-	newState.enter()
+		currentState.Exit()
+	newState.Enter()
 	currentState = newState
 	print("Conectado ao sinal de transição para o estado: ", currentState)
-
-
-func _on_detection_area_body_entered(body):
-	if body.is_in_group("Player"):
-		onChildTransition(currentState, "chase")
