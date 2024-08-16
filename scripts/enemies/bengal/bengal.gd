@@ -12,3 +12,8 @@ func _physics_process(delta):
 		animation.flip_h = true
 	move_and_slide()
 
+
+
+func _on_detection_area_body_entered(body):
+	if(body.is_in_group('Player')):
+		Global.life -=1

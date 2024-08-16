@@ -8,7 +8,6 @@ extends CharacterBody2D
 @onready var deathTimer: Timer = $deathTimer
 var moneyCount: int = 0
 var isDead: bool = false
-var life: int = 3
 var anim: String = 'idle'
 
 
@@ -40,13 +39,13 @@ func moneyManagement():
 
 func lifeManagement():
 	if(Input.is_action_just_pressed("space")):
-		life -= 1
+		Global.life -= 1
 		damageFX.play()
-		if(life <= 0):
+		if(Global.life <= 0):
 			get_tree().paused = true
 			isDead = true
 			timeAfterDeath()
-	stats.updateLife(life)
+	stats.updateLife(Global.life)
 
 func _ready():
 	pass
@@ -57,7 +56,7 @@ func _process(delta):
 func _physics_process(delta):
 	moneyManagement()
 	lifeManagement()
-	animation.animate(velocity, life)
+	animation.animate(velocity, Global.life)
 	movement()
 	move_and_slide()
 

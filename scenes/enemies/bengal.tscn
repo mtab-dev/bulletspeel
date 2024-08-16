@@ -103,8 +103,9 @@ animations = [{
 radius = 8.69626
 height = 36.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bhlxg"]
-radius = 68.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7wf06"]
+radius = 12.0
+height = 36.0
 
 [node name="bengal" type="CharacterBody2D"]
 script = ExtResource("1_85urr")
@@ -123,7 +124,7 @@ shape = SubResource("CapsuleShape2D_ca3ds")
 [node name="detectionArea" type="Area2D" parent="."]
 
 [node name="detectionCircle" type="CollisionShape2D" parent="detectionArea"]
-shape = SubResource("CircleShape2D_bhlxg")
+shape = SubResource("CapsuleShape2D_7wf06")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("21_27868")
@@ -139,6 +140,6 @@ script = ExtResource("23_87u8o")
 enemy = NodePath("../..")
 texture = NodePath("../../bengalAnimation")
 
-[connection signal="body_entered" from="detectionArea" to="stateMachine" method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="Transitioned" from="stateMachine/Idle" to="stateMachine" method="_on_idle_transitioned"]
 [connection signal="Transitioned" from="stateMachine/chase" to="stateMachine" method="_on_chase_transitioned"]
