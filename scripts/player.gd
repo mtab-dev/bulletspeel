@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 @export var speed: int = 10
-@export var animation: AnimatedSprite2D = null
+@onready var animation: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
 @onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
 @onready var deathTimer: Timer = $deathTimer
+@onready var lolli: Sprite2D = get_node('hud/items/loli')
 var moneyCount: int = 0
+var hasLolli: bool = false
 var isDead: bool = false
 var anim: String = 'idle'
 
@@ -36,6 +38,10 @@ func moneyManagement():
 		Global.money += 1
 		money.text = str(Global.money)
 	money.text = str(Global.money)
+	
+func updateItems():
+	if hasLolli:
+		lolli.visible = true
 
 func lifeManagement():
 	if(Input.is_action_just_pressed("space")):
@@ -51,7 +57,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	pass
+	updateItems()
 
 func _physics_process(delta):
 	moneyManagement()

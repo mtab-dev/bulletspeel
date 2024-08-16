@@ -160,11 +160,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animation") groups=["Player"]]
+[node name="player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(566, 319)
 script = ExtResource("1_qne2s")
 speed = 3
-animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_drh78")

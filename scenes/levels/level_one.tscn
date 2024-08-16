@@ -1101,7 +1101,8 @@ visible = false
 position = Vector2(6, 10.5)
 shape = SubResource("RectangleShape2D_yramo")
 
-[node name="store" parent="loja" instance=ExtResource("7_a0now")]
+[node name="store" parent="loja" node_paths=PackedStringArray("player") instance=ExtResource("7_a0now")]
+player = NodePath("../../player")
 
 [node name="merchant" type="Sprite2D" parent="loja"]
 position = Vector2(2, -52)

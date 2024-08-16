@@ -7,6 +7,7 @@ var charIndex: int = 0
 @onready var dialogSprite: Sprite2D = $dialogBox
 @onready var dialogLabel: RichTextLabel = $dialogBox/label
 @onready var moneyLabel: RichTextLabel = $Panel/moneyLabel
+@export var player: CharacterBody2D = null
 
 func _process(delta):
 	moneyLabel.text = str(Global.money)
@@ -51,6 +52,7 @@ func _on_item_3_mouse_exited():
 
 func _on_item_1_pressed():
 	buyItem(10, Global.money, 1)
+	player.hasLolli = true
 
 
 func _on_item_2_pressed():
