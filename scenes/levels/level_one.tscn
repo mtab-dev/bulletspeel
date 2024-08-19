@@ -247,7 +247,7 @@ position = Vector2(-1194, -972.25)
 shape = SubResource("RectangleShape2D_nc178")
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="collision"]
-position = Vector2(-1115.75, -440)
+position = Vector2(-1115.75, -431)
 shape = SubResource("RectangleShape2D_nc178")
 
 [node name="CollisionShape2D27" type="CollisionShape2D" parent="collision"]
@@ -1092,17 +1092,14 @@ position = Vector2(-678, 107)
 shape = SubResource("CapsuleShape2D_il1ml")
 
 [node name="loja" type="Area2D" parent="."]
-visible = false
 position = Vector2(64, -1182)
 script = SubResource("GDScript_b0guc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loja"]
-visible = false
 position = Vector2(6, 10.5)
 shape = SubResource("RectangleShape2D_yramo")
 
 [node name="store" parent="loja" node_paths=PackedStringArray("player") instance=ExtResource("7_a0now")]
-visible = false
 player = NodePath("../../player")
 
 [node name="merchant" type="Sprite2D" parent="loja"]
@@ -1110,12 +1107,10 @@ position = Vector2(2, -52)
 texture = ExtResource("8_vffmp")
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-visible = false
 position = Vector2(658, 410)
 speed = 350
 
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
-visible = false
 position = Vector2(314, 413)
 
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
