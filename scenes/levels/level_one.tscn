@@ -51,7 +51,7 @@ size = Vector2(8, 167)
 size = Vector2(463.5, 135.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv0sq"]
-size = Vector2(7.5, 503)
+size = Vector2(7.5, 499.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5qoj"]
 size = Vector2(195, 57)
@@ -144,7 +144,6 @@ position = Vector2(12, -497)
 texture = ExtResource("4_fpllv")
 
 [node name="collision" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(394, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
@@ -256,7 +255,7 @@ position = Vector2(-1340.75, -724.5)
 shape = SubResource("RectangleShape2D_mv0sq")
 
 [node name="CollisionShape2D28" type="CollisionShape2D" parent="collision"]
-position = Vector2(-711, -872)
+position = Vector2(-711, -873.75)
 shape = SubResource("RectangleShape2D_mv0sq")
 
 [node name="CollisionShape2D29" type="CollisionShape2D" parent="collision"]
@@ -300,7 +299,7 @@ position = Vector2(-449, -1000)
 shape = SubResource("RectangleShape2D_mv0sq")
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="collision"]
-position = Vector2(-889, -870)
+position = Vector2(-889, -874)
 shape = SubResource("RectangleShape2D_mv0sq")
 
 [node name="CollisionShape2D37" type="CollisionShape2D" parent="collision"]
@@ -1093,6 +1092,7 @@ position = Vector2(-678, 107)
 shape = SubResource("CapsuleShape2D_il1ml")
 
 [node name="loja" type="Area2D" parent="."]
+visible = false
 position = Vector2(64, -1182)
 script = SubResource("GDScript_b0guc")
 
@@ -1102,6 +1102,7 @@ position = Vector2(6, 10.5)
 shape = SubResource("RectangleShape2D_yramo")
 
 [node name="store" parent="loja" node_paths=PackedStringArray("player") instance=ExtResource("7_a0now")]
+visible = false
 player = NodePath("../../player")
 
 [node name="merchant" type="Sprite2D" parent="loja"]
@@ -1109,12 +1110,15 @@ position = Vector2(2, -52)
 texture = ExtResource("8_vffmp")
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
+visible = false
 position = Vector2(658, 410)
 speed = 350
 
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
+visible = false
 position = Vector2(314, 413)
 
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
+visible = false
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]

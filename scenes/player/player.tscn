@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://dn16hwrf6rnmt" path="res://assets/fx/effects/playerDamage.mp3" id="28_dfbwl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
+height = 36.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yr8oj"]
 animations = [{
@@ -178,8 +179,7 @@ editor_draw_limits = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
 sprite_frames = SubResource("SpriteFrames_yr8oj")
-animation = &"dash"
-frame_progress = 0.468844
+animation = &"idle"
 script = ExtResource("18_khfyn")
 player = NodePath("..")
 
