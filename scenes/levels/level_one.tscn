@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=44 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
 [ext_resource type="PackedScene" uid="uid://by6s7gq6agcde" path="res://scenes/ui/level_menu.tscn" id="10_u4k6n"]
+[ext_resource type="AudioStream" uid="uid://b54uhjroodxkv" path="res://assets/fx/musics/levelOneMusic.mp3" id="13_bf5qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 61)
@@ -1151,6 +1152,11 @@ position = Vector2(314, 413)
 
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
 visible = false
+
+[node name="ambientMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_bf5qo")
+volume_db = -25.0
+autoplay = true
 
 [connection signal="body_entered" from="lvlDesign/collision/chest1" to="." method="_on_chest_1_body_entered"]
 [connection signal="body_entered" from="lvlDesign/collision/chest2" to="." method="_on_chest_2_body_entered"]
