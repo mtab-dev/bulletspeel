@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=38 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
 [ext_resource type="Texture2D" uid="uid://tm03hwmtc5mp" path="res://sprites/player/dash/dash1.png.tres" id="2_nm2tp"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://c04qob3a6d6qh" path="res://sprites/player/up/979ebf81-8d9c-4751-a032-6e86c405b3a0.png" id="24_4hrux"]
 [ext_resource type="Texture2D" uid="uid://42af20t1kps0" path="res://sprites/player/up/7339ef4b-4aad-435f-a052-249c6dd3be75.png" id="25_gvx1o"]
 [ext_resource type="AudioStream" uid="uid://dn16hwrf6rnmt" path="res://assets/fx/effects/playerDamage.mp3" id="28_dfbwl"]
+[ext_resource type="AudioStream" uid="uid://bhdj607ormie" path="res://assets/fx/effects/walkingSound.mp3" id="35_xk8qx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
 height = 36.0
@@ -189,6 +190,11 @@ player = NodePath("..")
 
 [node name="damageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("28_dfbwl")
+volume_db = -10.0
+
+[node name="walkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("35_xk8qx")
+volume_db = -20.0
 
 [node name="deathTimer" type="Timer" parent="."]
 process_mode = 3
