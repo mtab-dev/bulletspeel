@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://rqv6jjbf88yg"]
+
+[ext_resource type="Texture2D" uid="uid://btnmnii02xhhh" path="res://sprites/ui/chests/chest.webp" id="1_pkmw8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl3rt"]
+size = Vector2(61, 36)
+
+[node name="chests" type="Node2D"]
+
+[node name="chest" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_pkmw8")
+
+[node name="collisionArea" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="collisionArea"]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_xl3rt")
