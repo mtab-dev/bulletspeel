@@ -182,7 +182,7 @@ position = Vector2(84, 124.5)
 shape = SubResource("RectangleShape2D_x1m2o")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-358, 180)
+position = Vector2(-358, 178)
 shape = SubResource("RectangleShape2D_bow3g")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="lvlDesign/collision"]
