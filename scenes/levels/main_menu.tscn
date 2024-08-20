@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://7xb8qisie2k1"]
+[gd_scene load_steps=55 format=3 uid="uid://7xb8qisie2k1"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_flcms"]
 [ext_resource type="Texture2D" uid="uid://b2rvvjv20prg7" path="res://sprites/menu/menu rpg1.png" id="2_2cldj"]
@@ -43,6 +43,7 @@
 [ext_resource type="AudioStream" uid="uid://bgxjjvu20e8ai" path="res://assets/fx/musics/menuMain.mp3" id="41_o2sml"]
 [ext_resource type="AudioStream" uid="uid://leo45x77sf2n" path="res://assets/fx/effects/buttonEffect.mp3" id="42_4bb3h"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="43_tdf6v"]
+[ext_resource type="PackedScene" uid="uid://cn2sqjss54663" path="res://scenes/ui/control_overlay.tscn" id="44_p7tby"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p16b"]
 animations = [{
@@ -264,6 +265,8 @@ stream = ExtResource("42_4bb3h")
 stream = ExtResource("43_tdf6v")
 
 [node name="sceneChangingTimer" type="Timer" parent="."]
+
+[node name="controlOverlay" parent="." instance=ExtResource("44_p7tby")]
 
 [connection signal="pressed" from="menu/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="menu/sair" to="." method="_on_sair_pressed"]
