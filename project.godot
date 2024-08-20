@@ -12,7 +12,8 @@ config_version=5
 
 config/name="Bulletspeel"
 run/main_scene="res://scenes/levels/main_menu.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,6 +24,10 @@ Global="*res://scripts/global.gd"
 
 window/size/resizable=false
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Bulletspeel"
 
 [input]
 
@@ -75,3 +80,4 @@ pointing/emulate_touch_from_mouse=true
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
