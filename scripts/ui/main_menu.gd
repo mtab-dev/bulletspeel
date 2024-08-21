@@ -5,7 +5,9 @@ extends Control
 @onready var clickSound: AudioStreamPlayer2D = $buttonClick
 @onready var sceneMorph: AudioStreamPlayer2D = $sceneMorph
 @onready var changeTimer: Timer = $sceneChangingTimer
+@onready var controlOverlay: AnimationPlayer = $controlOverlay/animation
 var path: String
+var canTrackInput: bool = true
 
 func _ready():
 	bgroundSprite.play("menu-anim")
@@ -20,17 +22,20 @@ func _on_play_pressed():
 	path = 'play'
 	sceneMorph.play()
 	timerAwait(0.6)
+	canTrackInput = false
 
 
 func _on_sair_pressed():
-	path = 'quit'
-	clickSound.play()
-	timerAwait(0.9)
+	if canTrackInput:
+		path = 'quit'
+		clickSound.play()
+		timerAwait(0.1)
 
 func _on_opções_pressed():
-	path = 'controls'
-	clickSound.play()
-	timerAwait(0.9)
+	if canTrackInput:
+		path = 'controls'
+		clickSound.play()
+		controlOverlay.play('transIn')
 
 
 func _on_scene_changing_timer_timeout():

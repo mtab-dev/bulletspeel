@@ -1,5 +1,5 @@
 extends Node
-
+@onready var player = $player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +8,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Global.life <= 0:
+		player.isDead = true
+		player.timeAfterDeath()
+
 
 
 func _on_chest_1_body_entered(body):

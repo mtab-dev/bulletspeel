@@ -1145,7 +1145,7 @@ texture = ExtResource("8_vffmp")
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
 position = Vector2(658, 410)
-speed = 350
+speed = 250
 
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(314, 413)

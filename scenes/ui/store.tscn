@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqacurjfbfx4i"]
+[gd_scene load_steps=18 format=3 uid="uid://bqacurjfbfx4i"]
 
 [ext_resource type="Script" path="res://scripts/ui/store.gd" id="1_5balh"]
 [ext_resource type="Texture2D" uid="uid://bmi43rcqr6hb5" path="res://sprites/tela de compra/store-bg.webp" id="1_kor1q"]
 [ext_resource type="Texture2D" uid="uid://cule5aninb5qn" path="res://sprites/tela de compra/boots.webp" id="3_qxohv"]
+[ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="3_ygbah"]
 [ext_resource type="Texture2D" uid="uid://cfudvdex267jh" path="res://sprites/ui/hud/sugar-life.png" id="4_6od6f"]
 [ext_resource type="Texture2D" uid="uid://dfwxwt2n6cdn5" path="res://sprites/tela de compra/lollipop.webp" id="4_fd23s"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="5_75dkc"]
@@ -89,9 +90,10 @@ texture = ExtResource("1_kor1q")
 layout_mode = 0
 offset_left = 131.0
 offset_top = 169.0
-offset_right = 140.0
-offset_bottom = 181.0
+offset_right = 166.0
+offset_bottom = 215.0
 scale = Vector2(4.47436, 3.07292)
+theme = ExtResource("3_ygbah")
 icon = ExtResource("4_fd23s")
 icon_alignment = 1
 expand_icon = true
@@ -103,6 +105,7 @@ offset_top = 164.0
 offset_right = 399.0
 offset_bottom = 197.0
 scale = Vector2(5.83833, 4.42122)
+theme = ExtResource("3_ygbah")
 icon = ExtResource("3_qxohv")
 icon_alignment = 1
 expand_icon = true
@@ -114,6 +117,7 @@ offset_top = 166.0
 offset_right = 632.0
 offset_bottom = 200.0
 scale = Vector2(7.38446, 4.19544)
+theme = ExtResource("3_ygbah")
 icon = ExtResource("4_6od6f")
 icon_alignment = 1
 expand_icon = true

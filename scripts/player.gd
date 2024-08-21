@@ -61,8 +61,6 @@ func lifeManagement():
 		Global.life -= 1
 		if(Global.life <= 0):
 			get_tree().paused = true
-			isDead = true
-			timeAfterDeath()
 	stats.updateLife(Global.life)
 
 func _ready():
@@ -78,6 +76,6 @@ func _physics_process(delta):
 	movement()
 	move_and_slide()
 	walkingEffect()
-
+	
 func _on_death_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")

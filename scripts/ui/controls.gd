@@ -1,5 +1,6 @@
-extends Control
+extends CanvasLayer
 
+@onready var anim: AnimationPlayer = $animation
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/main_menu.tscn")
+	anim.play('transOut')
