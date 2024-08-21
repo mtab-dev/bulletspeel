@@ -61,8 +61,6 @@ func lifeManagement():
 		Global.life -= 1
 		if(Global.life <= 0):
 			get_tree().paused = true
-			isDead = true
-			timeAfterDeath()
 	stats.updateLife(Global.life)
 
 func _ready():
