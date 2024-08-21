@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 @onready var animation: AnimatedSprite2D = $bengalAnimation
 @onready var damageSound: AudioStreamPlayer = $damage
+var player: CharacterBody2D
 var bengalLife: int = 4
 
 func _ready():
-	pass
+	player = get_tree().get_first_node_in_group("Player")
+
 
 func _physics_process(delta):
 	if velocity.x > 0:
@@ -18,8 +20,10 @@ func _physics_process(delta):
 
 func _on_detection_area_body_entered(body):
 	if(body.is_in_group('Player')):
-		damageSound.play()
-		Global.life -=1
+		if !player.isDead:
+			animation.play('attack') 
+			damageSound.play()
+			Global.life -=1
 	if(body.is_in_group('Bullet')):
 		bengalLife -= 1
 		if bengalLife <= 0:
