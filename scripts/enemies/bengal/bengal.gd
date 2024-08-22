@@ -24,7 +24,7 @@ func _on_detection_area_body_entered(body):
 			animation.play('attack') 
 			damageSound.play()
 			Global.life -=1
-	if(body.is_in_group('Bullet')):
+	if(body.is_in_group('Bullets')):
 		bengalLife -= 1
 		if bengalLife <= 0:
 			queue_free()

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
-[ext_resource type="PackedScene" uid="uid://by6s7gq6agcde" path="res://scenes/ui/level_menu.tscn" id="10_u4k6n"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_menu.tscn" id="10_u4k6n"]
 [ext_resource type="AudioStream" uid="uid://b54uhjroodxkv" path="res://assets/fx/musics/levelOneMusic.mp3" id="13_bf5qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
@@ -151,6 +151,7 @@ position = Vector2(12, -497)
 texture = ExtResource("4_fpllv")
 
 [node name="collision" type="StaticBody2D" parent="lvlDesign"]
+visible = false
 position = Vector2(394, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvlDesign/collision"]
