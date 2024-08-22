@@ -1,6 +1,11 @@
 extends Area2D
 
 @onready var startShot: Marker2D = $gunPivot/texture/shots
+@onready var texture: AnimatedSprite2D = $gunPivot/texture
+
+func _ready() -> void:
+	texture.play('default')
+	
 
 func shoot():
 	const BULLET = preload('res://scenes/objects/missile.tscn')

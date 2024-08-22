@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=31 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
 [ext_resource type="Texture2D" uid="uid://bn0id7mlvgv81" path="res://sprites/player/death/8b77ff9f-289f-4ccb-8312-cb5208f0a946.png" id="2_phti0"]
@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://c04qob3a6d6qh" path="res://sprites/player/up/979ebf81-8d9c-4751-a032-6e86c405b3a0.png" id="24_4hrux"]
 [ext_resource type="Texture2D" uid="uid://42af20t1kps0" path="res://sprites/player/up/7339ef4b-4aad-435f-a052-249c6dd3be75.png" id="25_gvx1o"]
 [ext_resource type="AudioStream" uid="uid://dn16hwrf6rnmt" path="res://assets/fx/effects/playerDamage.mp3" id="28_dfbwl"]
-[ext_resource type="PackedScene" uid="uid://06sjvvmppltw" path="res://scenes/objects/guns/slingshot.tscn" id="29_wkg4n"]
 [ext_resource type="AudioStream" uid="uid://bhdj607ormie" path="res://assets/fx/effects/walkingSound.mp3" id="35_xk8qx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
@@ -168,7 +167,5 @@ volume_db = -20.0
 process_mode = 3
 wait_time = 2.0
 one_shot = true
-
-[node name="slingshot" parent="." instance=ExtResource("29_wkg4n")]
 
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

@@ -1,9 +1,13 @@
 extends Node
 @onready var player = $player
+@onready var interactFX: AudioStreamPlayer2D = $interactFX
+@onready var slingDetect: Area2D = $slingDetect
+@onready var slingAnim: AnimatedSprite2D = $slingDetect/slingTexture
+@onready var slingLabel: Label = $slingDetect/slingLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	slingAnim.play('default')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,3 +38,13 @@ func _on_chest_3_body_entered(body):
 		var chest = get_node('lvlDesign/collision/chest3/chest3')
 		if chest:
 			chest.queue_free()
+
+
+func _on_sling_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group('Player'):
+		interactFX.play()
+		slingDetect.queue_free()
+
+
+func _on_sling_detect_body_exited(body: Node2D) -> void:
+	slingLabel.visible = false

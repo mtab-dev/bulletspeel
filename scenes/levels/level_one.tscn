@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=56 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -11,8 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
-[ext_resource type="PackedScene" path="res://scenes/ui/level_menu.tscn" id="10_u4k6n"]
+[ext_resource type="Texture2D" uid="uid://bkhaiehavpxrs" path="res://sprites/guns/slingshot/ixtilingui.png" id="10_dm141"]
+[ext_resource type="PackedScene" uid="uid://by6s7gq6agcde" path="res://scenes/ui/level_menu.tscn" id="10_u4k6n"]
+[ext_resource type="Texture2D" uid="uid://dulqwvtyqk64c" path="res://sprites/guns/slingshot/ixtilingui_balangando1.png" id="11_cxt6q"]
+[ext_resource type="Texture2D" uid="uid://h1bw8gtpdivx" path="res://sprites/guns/slingshot/ixtilingui_balangando2.png" id="12_rcicd"]
+[ext_resource type="Texture2D" uid="uid://dxqqtf1rmhn3k" path="res://sprites/guns/slingshot/ixtilingui_balangando3.png" id="13_04u15"]
 [ext_resource type="AudioStream" uid="uid://b54uhjroodxkv" path="res://assets/fx/musics/levelOneMusic.mp3" id="13_bf5qo"]
+[ext_resource type="Texture2D" uid="uid://opfbao4silod" path="res://sprites/guns/slingshot/ixtilingui_balangando4.png" id="14_38vcl"]
+[ext_resource type="Texture2D" uid="uid://b7c4fuoji3thw" path="res://sprites/guns/slingshot/ixtilingui_balangando5.png" id="15_o7rsn"]
+[ext_resource type="Texture2D" uid="uid://ckqaytp7sd8wa" path="res://sprites/guns/slingshot/ixtilingui_balangando6.png" id="16_mkmh8"]
+[ext_resource type="Texture2D" uid="uid://b5jcl8ld742m0" path="res://sprites/guns/slingshot/ixtilingui_balangando7.png" id="17_eutyk"]
+[ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="18_tdmgt"]
+[ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 61)
@@ -124,6 +134,41 @@ func _on_body_entered(body):
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yramo"]
 size = Vector2(186, 79)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esvlm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_dm141")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cxt6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rcicd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_04u15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_38vcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_o7rsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mkmh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_eutyk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cenjf"]
+radius = 20.025
 
 [node name="levelOne" type="Node"]
 script = ExtResource("1_stlsi")
@@ -1144,12 +1189,35 @@ player = NodePath("../../player")
 position = Vector2(2, -52)
 texture = ExtResource("8_vffmp")
 
+[node name="slingDetect" type="Area2D" parent="."]
+position = Vector2(613, 388)
+
+[node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_esvlm")
+frame = 1
+frame_progress = 0.482063
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slingDetect"]
+shape = SubResource("CircleShape2D_cenjf")
+
+[node name="slingLabel" type="Label" parent="slingDetect"]
+visible = false
+offset_left = -37.0
+offset_top = -24.0
+offset_right = 125.0
+offset_bottom = -1.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("18_tdmgt")
+theme_override_font_sizes/font_size = 16
+text = "PRESSIONE E PARA PEGAR"
+
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
 position = Vector2(658, 410)
 speed = 250
 
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(314, 413)
+position = Vector2(254, 414)
 
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
 visible = false
@@ -1159,7 +1227,15 @@ stream = ExtResource("13_bf5qo")
 volume_db = -25.0
 autoplay = true
 
+[node name="interactFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-33, 3)
+stream = ExtResource("23_haoyv")
+volume_db = -20.0
+
 [connection signal="body_entered" from="lvlDesign/collision/chest1" to="." method="_on_chest_1_body_entered"]
 [connection signal="body_entered" from="lvlDesign/collision/chest2" to="." method="_on_chest_2_body_entered"]
 [connection signal="body_entered" from="lvlDesign/collision/chest3" to="." method="_on_chest_3_body_entered"]
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
+[connection signal="body_entered" from="slingDetect" to="." method="_on_sling_detect_body_entered"]
+[connection signal="body_entered" from="slingDetect" to="player" method="_on_sling_detect_body_entered"]
+[connection signal="body_exited" from="slingDetect" to="." method="_on_sling_detect_body_exited"]

@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var walkingFX: AudioStreamPlayer2D = $walkingSound
 @onready var deathTimer: Timer = $deathTimer
 @onready var lolli: Sprite2D = get_node('hud/items/loli')
+const SLINGSHOT= preload('res://scenes/objects/guns/slingshot.tscn')
 var moneyCount: int = 0
 var hasLolli: bool = false
 var isDead: bool = false
@@ -79,3 +80,9 @@ func _physics_process(delta):
 	
 func _on_death_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
+
+
+func _on_sling_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group('Player'):
+		var newSling = SLINGSHOT.instantiate()
+		add_child(newSling)
