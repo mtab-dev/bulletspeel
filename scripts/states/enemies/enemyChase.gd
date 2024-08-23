@@ -1,7 +1,7 @@
 extends State
 class_name EnemyChase
 
-@export var moveSpeed = 80
+@export var moveSpeed = 150
 @export var enemy: CharacterBody2D
 @export var texture: AnimatedSprite2D
 var player: CharacterBody2D
