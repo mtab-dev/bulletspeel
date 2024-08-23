@@ -1,7 +1,7 @@
 extends State
-class_name EnemyChase
+class_name CookieChase
 
-@export var moveSpeed = 150
+@export var moveSpeed = 80
 @export var enemy: CharacterBody2D
 @export var texture: AnimatedSprite2D
 var player: CharacterBody2D
@@ -15,11 +15,11 @@ func Enter():
 func PhysicsUpdate(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	var distance = direction.length()
-	if distance > 50:
+	if distance > 150:
 		enemy.velocity = direction.normalized() * moveSpeed
-		texture.play('run')
-	if distance > 200:
+	if distance > 300:
 		Transitioned.emit(self, "idle")
+		
 	
 
 func _on_bengal_animation_animation_finished() -> void:
