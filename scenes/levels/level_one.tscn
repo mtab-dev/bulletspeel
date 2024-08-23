@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=57 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b5jcl8ld742m0" path="res://sprites/guns/slingshot/ixtilingui_balangando7.png" id="17_eutyk"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="18_tdmgt"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
+[ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 61)
@@ -1183,6 +1184,7 @@ position = Vector2(6, 10.5)
 shape = SubResource("RectangleShape2D_yramo")
 
 [node name="store" parent="loja" node_paths=PackedStringArray("player") instance=ExtResource("7_a0now")]
+visible = false
 player = NodePath("../../player")
 
 [node name="merchant" type="Sprite2D" parent="loja"]
@@ -1213,7 +1215,7 @@ theme_override_font_sizes/font_size = 16
 text = "PRESSIONE E PARA PEGAR"
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(658, 410)
+position = Vector2(772, -1041)
 speed = 250
 
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
@@ -1231,6 +1233,9 @@ autoplay = true
 position = Vector2(-33, 3)
 stream = ExtResource("23_haoyv")
 volume_db = -20.0
+
+[node name="bigCookie" parent="." instance=ExtResource("24_h0x2e")]
+position = Vector2(747, -1295)
 
 [connection signal="body_entered" from="lvlDesign/collision/chest1" to="." method="_on_chest_1_body_entered"]
 [connection signal="body_entered" from="lvlDesign/collision/chest2" to="." method="_on_chest_2_body_entered"]
