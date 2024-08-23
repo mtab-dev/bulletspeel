@@ -20,3 +20,4 @@ func _physics_process(delta: float) -> void:
 		
 func _process(delta: float) -> void:
 	rotate(get_angle_to(get_global_mouse_position()))
+	texture.rotation_degrees = -rotation_degrees
