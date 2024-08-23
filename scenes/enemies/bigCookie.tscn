@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=59 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -52,6 +52,9 @@
 [ext_resource type="Texture2D" uid="uid://d0kvsabecygsl" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco9.png" id="46_xfcvm"]
 [ext_resource type="Texture2D" uid="uid://c3r546ok130dy" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco10.png" id="47_cou2e"]
 [ext_resource type="Texture2D" uid="uid://cgevesxcto1uo" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco11.png" id="48_qthxc"]
+[ext_resource type="Script" path="res://scripts/states/stateMachine.gd" id="53_8gel7"]
+[ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieIdle.gd" id="54_xf543"]
+[ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieChase.gd" id="55_vemhm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ciu81"]
 animations = [{
@@ -266,3 +269,17 @@ shape = SubResource("RectangleShape2D_ehda5")
 [node name="collisor3" type="CollisionShape2D" parent="."]
 position = Vector2(6, 27)
 shape = SubResource("RectangleShape2D_ehda5")
+
+[node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("53_8gel7")
+initialState = NodePath("idle")
+
+[node name="idle" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
+script = ExtResource("54_xf543")
+enemy = NodePath("../..")
+texture = NodePath("../../animation")
+
+[node name="chase" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
+script = ExtResource("55_vemhm")
+enemy = NodePath("../..")
+texture = NodePath("../../animation")

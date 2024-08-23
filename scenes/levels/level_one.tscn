@@ -1215,7 +1215,7 @@ theme_override_font_sizes/font_size = 16
 text = "PRESSIONE E PARA PEGAR"
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(772, -1041)
+position = Vector2(665, 414)
 speed = 250
 
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
