@@ -146,6 +146,7 @@ stream = ExtResource("24_h6jjf")
 volume_db = -20.0
 
 [connection signal="animation_finished" from="bengalAnimation" to="stateMachine/chase" method="_on_bengal_animation_animation_finished"]
+[connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="Transitioned" from="stateMachine/Idle" to="stateMachine" method="_on_idle_transitioned"]
 [connection signal="Transitioned" from="stateMachine/chase" to="stateMachine" method="_on_chase_transitioned"]

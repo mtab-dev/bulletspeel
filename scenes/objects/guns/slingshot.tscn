@@ -62,3 +62,5 @@ frame_progress = 0.393989
 
 [node name="shots" type="Marker2D" parent="gunPivot/texture"]
 position = Vector2(1, -7)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

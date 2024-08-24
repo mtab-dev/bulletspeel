@@ -24,7 +24,13 @@ func _on_detection_area_body_entered(body):
 			animation.play('attack') 
 			damageSound.play()
 			Global.life -=1
-	if(body.is_in_group('Bullets')):
+
+
+
+func _on_detection_area_area_entered(area: Area2D) -> void:
+	if(area.is_in_group('Bullets')):
+		print('pegou')
+		print(bengalLife)
 		bengalLife -= 1
 		if bengalLife <= 0:
 			queue_free()
