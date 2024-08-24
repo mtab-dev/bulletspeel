@@ -1244,3 +1244,4 @@ position = Vector2(747, -1295)
 [connection signal="body_entered" from="slingDetect" to="." method="_on_sling_detect_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="player" method="_on_sling_detect_body_entered"]
 [connection signal="body_exited" from="slingDetect" to="." method="_on_sling_detect_body_exited"]
+[connection signal="finished" from="ambientMusic" to="." method="_on_ambient_music_finished"]

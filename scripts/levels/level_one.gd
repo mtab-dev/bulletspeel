@@ -9,7 +9,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	slingAnim.play('default')
-	ambientFX.loop()
+	ambientFX.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,3 +50,7 @@ func _on_sling_detect_body_entered(body: Node2D) -> void:
 
 func _on_sling_detect_body_exited(body: Node2D) -> void:
 	slingLabel.visible = false
+
+
+func _on_ambient_music_finished() -> void:
+	ambientFX.play()
