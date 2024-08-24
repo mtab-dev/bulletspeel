@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
 [ext_resource type="Texture2D" uid="uid://bkhaiehavpxrs" path="res://sprites/guns/slingshot/ixtilingui.png" id="10_dm141"]
-[ext_resource type="PackedScene" path="res://scenes/ui/level_menu.tscn" id="10_u4k6n"]
+[ext_resource type="PackedScene" uid="uid://cjabs2o3kadip" path="res://scenes/ui/level_menu.tscn" id="10_u4k6n"]
 [ext_resource type="Texture2D" uid="uid://dulqwvtyqk64c" path="res://sprites/guns/slingshot/ixtilingui_balangando1.png" id="11_cxt6q"]
 [ext_resource type="Texture2D" uid="uid://h1bw8gtpdivx" path="res://sprites/guns/slingshot/ixtilingui_balangando2.png" id="12_rcicd"]
 [ext_resource type="Texture2D" uid="uid://dxqqtf1rmhn3k" path="res://sprites/guns/slingshot/ixtilingui_balangando3.png" id="13_04u15"]

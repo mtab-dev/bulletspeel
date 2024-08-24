@@ -31,6 +31,7 @@ offset_left = 965.0
 offset_top = 36.0
 offset_right = 1091.0
 offset_bottom = 66.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("3_xgjyq")
 theme_override_fonts/font = ExtResource("3_5fln6")
 theme_override_font_sizes/font_size = 20
