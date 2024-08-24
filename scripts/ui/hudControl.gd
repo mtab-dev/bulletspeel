@@ -6,7 +6,8 @@ extends CanvasLayer
 func _ready():
 	if(OS.get_name() == 'Android'):
 		joystick.visible = true
-	joystick.visible = false
+	else:
+		joystick.visible = false
 	print(OS.get_name())
 
 
