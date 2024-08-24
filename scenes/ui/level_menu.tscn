@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui/levelMenu.gd" id="1_0048k"]
 [ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="1_e77uw"]
 
-[node name="levelMenu" type="CanvasLayer"]
+[node name="levelMenu" type="CanvasLayer" groups=["levelMenu"]]
 process_mode = 3
 script = ExtResource("1_0048k")
 
