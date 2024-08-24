@@ -1,6 +1,7 @@
 extends Node
 @onready var player = $player
 @onready var interactFX: AudioStreamPlayer2D = $interactFX
+@onready var ambientFX: AudioStreamPlayer2D = $ambientMusic
 @onready var slingDetect: Area2D = $slingDetect
 @onready var slingAnim: AnimatedSprite2D = $slingDetect/slingTexture
 @onready var slingLabel: Label = $slingDetect/slingLabel
@@ -8,6 +9,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	slingAnim.play('default')
+	ambientFX.loop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

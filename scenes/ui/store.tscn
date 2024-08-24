@@ -11,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://684pdxe3od0q" path="res://assets/dialog/dialog_bubble1-removebg-preview.png" id="8_drcrs"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="9_n6f5u"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j580e"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe7nn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83imk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j580e"]
 
 [sub_resource type="Animation" id="Animation_m30f7"]
 length = 0.001
@@ -128,9 +128,9 @@ offset_left = 17.0
 offset_top = 446.0
 offset_right = 140.0
 offset_bottom = 478.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_j580e")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_qe7nn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_83imk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j580e")
 icon = ExtResource("6_wueqx")
 
 [node name="item1Price" type="RichTextLabel" parent="Panel"]

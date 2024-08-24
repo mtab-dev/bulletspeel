@@ -1224,6 +1224,7 @@ position = Vector2(254, 414)
 visible = false
 
 [node name="ambientMusic" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("13_bf5qo")
 volume_db = -25.0
 autoplay = true
