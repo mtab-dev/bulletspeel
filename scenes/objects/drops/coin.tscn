@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckvcq2wgrw3tq"]
+
+[ext_resource type="Texture2D" uid="uid://bbho8avfceu51" path="res://sprites/ui/hud/candy_coin.webp" id="1_bsh04"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ave0s"]
+radius = 17.0294
+
+[node name="coinArea" type="Area2D"]
+
+[node name="texture" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_bsh04")
+
+[node name="area" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ave0s")
