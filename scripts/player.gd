@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: int = 10
 @onready var animation: AnimatedSprite2D = get_node("AnimatedSprite2D")
+@onready var collision: CollisionShape2D = $collision
 @onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
 @onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
@@ -23,7 +24,7 @@ func walkingEffect():
 		walkingFX.stop()
 
 func timeAfterDeath():
-	deathTimer.wait_time = 2.0
+	deathTimer.wait_time = 1.5
 	deathTimer.one_shot = true
 	deathTimer.start()
 
@@ -61,7 +62,10 @@ func lifeManagement():
 		damageFX.play()	
 		Global.life -= 1
 		if(Global.life <= 0):
+			isDead = true
 			get_tree().paused = true
+			collision.disabled = true
+			timeAfterDeath()
 	stats.updateLife(Global.life)
 
 func _ready():

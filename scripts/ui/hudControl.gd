@@ -10,7 +10,7 @@ func _ready():
 	if(OS.get_name() == 'Android'):
 		joystick.visible = true
 	else:
-		joystick.visible = true
+		joystick.visible = false
 	print(OS.get_name())
 
 

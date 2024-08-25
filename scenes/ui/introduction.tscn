@@ -27,15 +27,16 @@ texture = ExtResource("1_5ypy1")
 
 [node name="goAhead" type="Button" parent="."]
 layout_mode = 0
-offset_left = 433.0
-offset_top = 611.0
-offset_right = 678.0
-offset_bottom = 634.0
+offset_left = 393.0
+offset_top = 589.0
+offset_right = 718.0
+offset_bottom = 659.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_0jjw8")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_p71ld")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qd0ug")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rj146")
 icon = ExtResource("2_ss6yq")
+icon_alignment = 1
 
 [connection signal="pressed" from="goAhead" to="." method="_on_go_ahead_pressed"]

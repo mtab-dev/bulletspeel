@@ -1220,6 +1220,24 @@ speed = 250
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(254, 414)
 
+[node name="bengal2" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(37, 414)
+
+[node name="bengal4" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(-225, 419)
+
+[node name="bengal5" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(-176, 222)
+
+[node name="bengal6" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(-15, 26)
+
+[node name="bengal7" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(65, 152)
+
+[node name="bengal3" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(196, 316)
+
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
 visible = false
 
