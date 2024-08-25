@@ -6,9 +6,9 @@ var target_position = Vector2.ZERO
 var direction = Vector2.ZERO
 
 func set_direction(start_position: Vector2, target_position: Vector2):
-	self.position = start_position
+	position = start_position
 	self.target_position = target_position
-	direction = (start_position - target_position).normalized()
+	direction = (target_position - start_position).normalized()
 	rotation = direction.angle()
 
 func _physics_process(delta):
