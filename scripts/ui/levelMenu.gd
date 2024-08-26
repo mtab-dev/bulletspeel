@@ -27,3 +27,7 @@ func _on_btn_2_pressed():
 func _on_btn_1_pressed():
 	get_tree().paused = false
 	visible = !visible
+
+
+func _on_btn_4_pressed() -> void:
+	pass

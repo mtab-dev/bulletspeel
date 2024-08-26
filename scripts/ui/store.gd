@@ -1,12 +1,12 @@
 extends CanvasLayer
 
-var dialogues: Array = []
-var currDialog: String = ''
-var charIndex: int = 0
+var item: int
+var budget: int
 
 @onready var dialogSprite: Sprite2D = $dialogBox
 @onready var dialogLabel: RichTextLabel = $dialogBox/label
 @onready var moneyLabel: RichTextLabel = $Panel/moneyLabel
+@onready var buySound: AudioStreamPlayer2D = $buySound
 @export var player: CharacterBody2D = null
 
 func _process(delta):
@@ -51,14 +51,24 @@ func _on_item_3_mouse_exited():
 
 
 func _on_item_1_pressed():
-	buyItem(10, Global.money, 1)
-	player.hasLolli = true
+	dialogLabel.text = "Lolli -> + 2 de ataque"
+	budget = 10
+	item = 1
 
 
 func _on_item_2_pressed():
-	buyItem(5, Global.money, 2)
+	dialogLabel.text = "Bota Veloz -> + 2 de Velocidade"
+	budget = 5
+	item = 2
 	
 
 
 func _on_item_3_pressed():
-	buyItem(15, Global.money, 3) 
+	dialogLabel.text = "Doce Vida -> + 1 de Vida"
+	budget = 15
+	item = 3
+
+
+func _on_buy_pressed() -> void:
+	buyItem(budget, Global.money, item)
+	buySound.play()

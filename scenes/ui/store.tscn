@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bqacurjfbfx4i"]
+[gd_scene load_steps=19 format=3 uid="uid://bqacurjfbfx4i"]
 
 [ext_resource type="Script" path="res://scripts/ui/store.gd" id="1_5balh"]
 [ext_resource type="Texture2D" uid="uid://bmi43rcqr6hb5" path="res://sprites/tela de compra/store-bg.webp" id="1_kor1q"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d37cmx7mqjvxh" path="res://sprites/ui/menu/back.webp" id="6_wueqx"]
 [ext_resource type="Texture2D" uid="uid://684pdxe3od0q" path="res://assets/dialog/dialog_bubble1-removebg-preview.png" id="8_drcrs"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="9_n6f5u"]
+[ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="11_o1wg2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe7nn"]
 
@@ -125,19 +126,6 @@ icon = ExtResource("4_6od6f")
 icon_alignment = 1
 expand_icon = true
 
-[node name="exit" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 446.0
-offset_right = 140.0
-offset_bottom = 478.0
-mouse_default_cursor_shape = 2
-theme = ExtResource("3_ygbah")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_qe7nn")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_83imk")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_j580e")
-icon = ExtResource("6_wueqx")
-
 [node name="item1Price" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 169.0
@@ -185,6 +173,30 @@ theme_override_fonts/normal_font = ExtResource("9_n6f5u")
 theme_override_font_sizes/normal_font_size = 30
 text = "0"
 
+[node name="exit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 407.0
+offset_right = 199.0
+offset_bottom = 478.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_ygbah")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qe7nn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_83imk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j580e")
+icon = ExtResource("6_wueqx")
+icon_alignment = 1
+
+[node name="buy" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 439.0
+offset_right = 516.0
+offset_bottom = 476.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_ygbah")
+text = "COMPRAR"
+
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3vl6c")
@@ -219,6 +231,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="buySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_o1wg2")
+
 [connection signal="mouse_entered" from="Panel/item1" to="." method="_on_item_1_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/item1" to="." method="_on_item_1_mouse_exited"]
 [connection signal="pressed" from="Panel/item1" to="." method="_on_item_1_pressed"]
@@ -229,4 +244,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_exited" from="Panel/item3" to="." method="_on_item_3_mouse_exited"]
 [connection signal="pressed" from="Panel/item3" to="." method="_on_item_3_pressed"]
 [connection signal="pressed" from="Panel/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/buy" to="." method="_on_buy_pressed"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]
