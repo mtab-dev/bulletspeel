@@ -48,9 +48,6 @@ func movement():
 		horizontalMovement()
 
 func moneyManagement():
-	if Input.is_action_just_pressed("shift"):
-		Global.money += 1
-		money.text = str(Global.money)
 	money.text = str(Global.money)
 	
 func updateItems():
@@ -58,14 +55,11 @@ func updateItems():
 		lolli.visible = true
 
 func lifeManagement():
-	if(Input.is_action_just_pressed("space")):
-		damageFX.play()	
-		Global.life -= 1
-		if(Global.life <= 0):
-			isDead = true
-			get_tree().paused = true
-			collision.disabled = true
-			timeAfterDeath()
+	if(Global.life <= 0):
+		isDead = true
+		get_tree().paused = true
+		collision.disabled = true
+		timeAfterDeath()
 	stats.updateLife(Global.life)
 
 func _ready():

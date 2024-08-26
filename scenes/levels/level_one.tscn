@@ -1223,6 +1223,9 @@ position = Vector2(254, 414)
 [node name="bengal2" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(37, 414)
 
+[node name="bengal3" parent="." instance=ExtResource("9_egtin")]
+position = Vector2(196, 316)
+
 [node name="bengal4" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(-225, 419)
 
@@ -1234,9 +1237,6 @@ position = Vector2(-15, 26)
 
 [node name="bengal7" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(65, 152)
-
-[node name="bengal3" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(196, 316)
 
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
 visible = false
