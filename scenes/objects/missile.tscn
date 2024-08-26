@@ -82,7 +82,7 @@ script = ExtResource("1_8ebki")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qeo0l")
-animation = &"verde"
+animation = &"yellow"
 
 [node name="contactArea" type="CollisionShape2D" parent="."]
 rotation = 1.5708
