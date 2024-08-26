@@ -5,12 +5,27 @@ extends CharacterBody2D
 var player: CharacterBody2D
 var bengalLife: int = 4
 const COIN = preload("res://scenes/objects/drops/coin.tscn")
+const AMMUN = preload("res://scenes/objects/drops/ammunation.tscn")
 
-func drop_coin():
+func dropCoin():
 	var drop_position = self.global_position
-	var new_coin = COIN.instantiate()
-	new_coin.position = drop_position
-	get_tree().current_scene.add_child(new_coin)  # Adiciona o coin à cena atual
+	var newCoin = COIN.instantiate()
+	newCoin.position = drop_position
+	get_tree().current_scene.add_child(newCoin)  
+	
+func dropAmmun():
+	var drop_position = self.global_position
+	var newAmmun = AMMUN.instantiate()
+	newAmmun.position = drop_position
+	get_tree().current_scene.add_child(newAmmun)
+
+func randomDrop():
+	var randomize = randi() % 2  
+	if randomize == 0:
+		dropCoin()
+	else:
+		dropAmmun()
+
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -24,7 +39,7 @@ func _physics_process(delta):
 
 func _process(delta: float) -> void:
 	if bengalLife <= 0:
-		drop_coin()
+		randomDrop()
 		queue_free()
 
 func _on_detection_area_body_entered(body):
