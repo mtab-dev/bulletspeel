@@ -1,9 +1,9 @@
 extends Area2D
 
-var speed: float = 2.0  # Velocidade da oscilação
-var amplitude: float = 5.0  # Amplitude do movimento oscilante
+var speed: float = 2.0  
+var amplitude: float = 5.0  
 var startY: float
-var timeSpent: float = 0.0  # Tempo decorrido
+var timeSpent: float = 0.0  
 
 func _ready() -> void:
 	startY = position.y
@@ -15,5 +15,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
-		Global.money += 1
+		Global.ammunation += 10
 		queue_free()

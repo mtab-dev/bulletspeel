@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: int = 10
 @onready var animation: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var collision: CollisionShape2D = $collision
+@onready var ammun: Control = get_node("hud/items/ammunation/ammunlabel")
 @onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
 @onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
@@ -50,6 +51,9 @@ func movement():
 func moneyManagement():
 	money.text = str(Global.money)
 	
+func ammunManagement():
+	ammun.text = str(Global.ammunation)
+	
 func updateItems():
 	if hasLolli:
 		lolli.visible = true
@@ -69,6 +73,7 @@ func _process(delta):
 	updateItems()
 
 func _physics_process(delta):
+	ammunManagement()
 	moneyManagement()
 	lifeManagement()
 	animation.animate(velocity, Global.life)
