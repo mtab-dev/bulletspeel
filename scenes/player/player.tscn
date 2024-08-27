@@ -1,18 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=31 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
-[ext_resource type="Texture2D" uid="uid://tm03hwmtc5mp" path="res://sprites/player/dash/dash1.png.tres" id="2_nm2tp"]
 [ext_resource type="Texture2D" uid="uid://bn0id7mlvgv81" path="res://sprites/player/death/8b77ff9f-289f-4ccb-8312-cb5208f0a946.png" id="2_phti0"]
 [ext_resource type="Texture2D" uid="uid://iy1yr3r2q5ky" path="res://sprites/player/death/8de552b7-55d9-4c71-9c64-96cc8c05a791.png" id="3_io0hd"]
-[ext_resource type="Texture2D" uid="uid://dvypns157n4df" path="res://sprites/player/dash/dash2.png.tres" id="3_urdfn"]
-[ext_resource type="Texture2D" uid="uid://bcx31gaj1c5xa" path="res://sprites/player/dash/dash3.png.tres" id="4_b1jet"]
 [ext_resource type="Texture2D" uid="uid://dm05rwy10fbj5" path="res://sprites/player/death/9c8d20d6-60fe-4df9-b73a-2fd927e9b901.png" id="4_bxuc3"]
-[ext_resource type="Texture2D" uid="uid://bcmadkma5rmif" path="res://sprites/player/dash/dash4.png.tres" id="5_4js8d"]
 [ext_resource type="Texture2D" uid="uid://l2d40wv5n1e5" path="res://sprites/player/death/69e29bd0-a493-45ce-81ce-ec26bb2036e7.png" id="6_jav36"]
-[ext_resource type="Texture2D" uid="uid://bujg1x5bei3kr" path="res://sprites/player/dash/dash5.png.tres" id="6_v7pc3"]
 [ext_resource type="Texture2D" uid="uid://bmk4oorn1cftc" path="res://sprites/player/death/105fcc10-04b9-4323-b530-5b27677d4e1c.png" id="7_dqrky"]
-[ext_resource type="Texture2D" uid="uid://cl4ie4g7j2v1y" path="res://sprites/player/dash/dash6.png.tres" id="7_eewy3"]
-[ext_resource type="Texture2D" uid="uid://0c340crqheq5" path="res://sprites/player/dash/dash7.png.tres" id="8_ihhny"]
 [ext_resource type="Texture2D" uid="uid://bfyrcm3wqhk68" path="res://sprites/player/death/683dce97-ba76-4b5b-b37e-7f1b13842887.png" id="8_xa88i"]
 [ext_resource type="Texture2D" uid="uid://b1nvt46qyin0" path="res://sprites/player/death/906fc5c9-e87d-4a58-9859-4bb946ec3242.png" id="9_501tp"]
 [ext_resource type="Texture2D" uid="uid://dqc8vvxwcduxx" path="res://sprites/player/down/30e06598-4fa0-4c12-8af9-dd0a0cf64480.png" id="10_j2kdm"]
@@ -34,37 +27,13 @@
 [ext_resource type="Texture2D" uid="uid://c04qob3a6d6qh" path="res://sprites/player/up/979ebf81-8d9c-4751-a032-6e86c405b3a0.png" id="24_4hrux"]
 [ext_resource type="Texture2D" uid="uid://42af20t1kps0" path="res://sprites/player/up/7339ef4b-4aad-435f-a052-249c6dd3be75.png" id="25_gvx1o"]
 [ext_resource type="AudioStream" uid="uid://dn16hwrf6rnmt" path="res://assets/fx/effects/playerDamage.mp3" id="28_dfbwl"]
+[ext_resource type="AudioStream" uid="uid://bhdj607ormie" path="res://assets/fx/effects/walkingSound.mp3" id="35_xk8qx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
+height = 36.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yr8oj"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_nm2tp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_urdfn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_b1jet")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_4js8d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_v7pc3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_eewy3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ihhny")
-}],
-"loop": true,
-"name": &"dash",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_phti0")
@@ -160,13 +129,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animation") groups=["Player"]]
+[node name="player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(566, 319)
 script = ExtResource("1_qne2s")
-speed = 3
-animation = NodePath("AnimatedSprite2D")
+speed = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_drh78")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -179,8 +147,7 @@ editor_draw_limits = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
 sprite_frames = SubResource("SpriteFrames_yr8oj")
-animation = &"dash"
-frame_progress = 0.468844
+animation = &"idle"
 script = ExtResource("18_khfyn")
 player = NodePath("..")
 
@@ -190,8 +157,15 @@ player = NodePath("..")
 
 [node name="damageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("28_dfbwl")
+volume_db = -10.0
 
-[node name="dashTimer" type="Timer" parent="."]
+[node name="walkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("35_xk8qx")
+volume_db = -20.0
+
+[node name="deathTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 2.0
 one_shot = true
 
-[connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bybpcigtcc037"]
+[gd_scene load_steps=28 format=3 uid="uid://bybpcigtcc037"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bengal/bengal.gd" id="1_85urr"]
 [ext_resource type="Texture2D" uid="uid://ct7garay0ylf8" path="res://sprites/enemies/bengal/attack/2c92ec91-f50c-4794-8949-dfbf6256135d.png" id="1_daq7n"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://scripts/states/stateMachine.gd" id="21_27868"]
 [ext_resource type="Script" path="res://scripts/states/enemies/enemyIdle.gd" id="22_c7au7"]
 [ext_resource type="Script" path="res://scripts/states/enemies/enemyChase.gd" id="23_87u8o"]
+[ext_resource type="AudioStream" uid="uid://db7w840tomvgc" path="res://assets/fx/effects/bengalDamageEffect.mp3" id="24_h6jjf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l3eov"]
 animations = [{
@@ -68,33 +69,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_i045q")
+"texture": ExtResource("17_sui1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4deyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_g2k7c")
 }, {
 "duration": 1.0,
 "texture": ExtResource("12_w0frw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_w0kuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i045q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qcv2r")
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_8wafe")
 }, {
 "duration": 1.0,
 "texture": ExtResource("14_xl22g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_qcv2r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_4deyg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_sui1e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_w0kuf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_g2k7c")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
 "speed": 5.0
 }]
@@ -103,8 +104,9 @@ animations = [{
 radius = 8.69626
 height = 36.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bhlxg"]
-radius = 68.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7wf06"]
+radius = 12.0
+height = 36.0
 
 [node name="bengal" type="CharacterBody2D"]
 script = ExtResource("1_85urr")
@@ -113,7 +115,7 @@ script = ExtResource("1_85urr")
 scale = Vector2(1.00796, 0.990647)
 sprite_frames = SubResource("SpriteFrames_l3eov")
 animation = &"run"
-frame = 8
+frame = 7
 frame_progress = 0.116041
 
 [node name="collision" type="CollisionShape2D" parent="."]
@@ -123,7 +125,7 @@ shape = SubResource("CapsuleShape2D_ca3ds")
 [node name="detectionArea" type="Area2D" parent="."]
 
 [node name="detectionCircle" type="CollisionShape2D" parent="detectionArea"]
-shape = SubResource("CircleShape2D_bhlxg")
+shape = SubResource("CapsuleShape2D_7wf06")
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("21_27868")
@@ -139,6 +141,12 @@ script = ExtResource("23_87u8o")
 enemy = NodePath("../..")
 texture = NodePath("../../bengalAnimation")
 
-[connection signal="body_entered" from="detectionArea" to="stateMachine" method="_on_detection_area_body_entered"]
+[node name="damage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_h6jjf")
+volume_db = -20.0
+
+[connection signal="animation_finished" from="bengalAnimation" to="stateMachine/chase" method="_on_bengal_animation_animation_finished"]
+[connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="Transitioned" from="stateMachine/Idle" to="stateMachine" method="_on_idle_transitioned"]
 [connection signal="Transitioned" from="stateMachine/chase" to="stateMachine" method="_on_chase_transitioned"]

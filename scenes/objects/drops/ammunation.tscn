@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn0wvqmgpqpa7"]
+
+[ext_resource type="Script" path="res://scripts/object/ammunation.gd" id="1_6vee1"]
+[ext_resource type="Texture2D" uid="uid://d4jee2xbus7w5" path="res://sprites/drops/caixa de muniçao.png" id="2_dgyds"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tgqq"]
+
+[node name="ammunation" type="Area2D"]
+script = ExtResource("1_6vee1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3tgqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dgyds")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

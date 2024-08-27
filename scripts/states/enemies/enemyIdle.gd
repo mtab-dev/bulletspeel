@@ -18,7 +18,7 @@ func Enter():
 	texture.play("idle")
 	randomizeWander()
 
-func Uptade(delta: float):
+func Update(delta: float):
 	if wanderTime > 0:
 		wanderTime -= delta
 	else:
@@ -28,6 +28,5 @@ func PhysicsUpdate(_delta: float):
 	if enemy:
 		enemy.velocity = moveDirection * moveSpeed
 	var direction = player.global_position - enemy.global_position
-	if direction.length() < 25:
+	if direction.length() < 50:
 		Transitioned.emit(self, "chase")
-

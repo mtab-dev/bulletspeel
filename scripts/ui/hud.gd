@@ -12,7 +12,7 @@ func _ready():
 	
 
 func hideLife():
-	if get_tree().pause == true:
+	if get_tree().paused:
 		spr1.visible = false
 		spr2.visible = false
 		spr3.visible = false

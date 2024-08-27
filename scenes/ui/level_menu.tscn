@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://by6s7gq6agcde"]
+[gd_scene load_steps=3 format=3 uid="uid://cjabs2o3kadip"]
 
 [ext_resource type="Script" path="res://scripts/ui/levelMenu.gd" id="1_0048k"]
 [ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="1_e77uw"]
 
-[node name="levelMenu" type="CanvasLayer"]
+[node name="levelMenu" type="CanvasLayer" groups=["levelMenu"]]
 process_mode = 3
 script = ExtResource("1_0048k")
 
@@ -28,6 +28,11 @@ layout_mode = 2
 theme = ExtResource("1_e77uw")
 text = "continuar"
 
+[node name="btn4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e77uw")
+text = "reiniciar"
+
 [node name="btn2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_e77uw")
@@ -42,5 +47,6 @@ text = "sair
 "
 
 [connection signal="pressed" from="VBoxContainer/btn1" to="." method="_on_btn_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn4" to="." method="_on_btn_4_pressed"]
 [connection signal="pressed" from="VBoxContainer/btn2" to="." method="_on_btn_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/btn3" to="." method="_on_btn_3_pressed"]

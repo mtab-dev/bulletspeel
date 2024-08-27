@@ -2,12 +2,24 @@ extends Area2D
 
 @export var speed = 200
 @export var damage = 15
+var target_position = Vector2.ZERO
+var direction = Vector2.ZERO
 
-var direction: Vector2
+func set_direction(start_position: Vector2, target_position: Vector2):
+	position = start_position
+	self.target_position = target_position
+	direction = (target_position - start_position).normalized()
+	rotation = direction.angle()
 
-func set_direction(missileDirection):
-	direction = missileDirection
-	rotation_degrees = rad_to_deg(global_position.angle_to_point(global_position + direction))
-	
 func _physics_process(delta):
-	global_position += direction * speed * delta
+	if position.distance_to(target_position) > speed * delta:
+		position += direction * speed * delta
+	else:
+		position = target_position
+		queue_free()
+
+func _on_area_entered(area: Area2D) -> void:
+	pass
+
+func _on_body_entered(body: Node2D) -> void:
+	queue_free()

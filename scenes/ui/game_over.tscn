@@ -5,11 +5,11 @@
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="3_5fln6"]
 [ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="3_xgjyq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otuhl"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lb5df"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipo83"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otuhl"]
 
 [node name="gameOver" type="Control"]
 layout_mode = 3
@@ -31,12 +31,13 @@ offset_left = 965.0
 offset_top = 36.0
 offset_right = 1091.0
 offset_bottom = 66.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("3_xgjyq")
 theme_override_fonts/font = ExtResource("3_5fln6")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxEmpty_otuhl")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lb5df")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ipo83")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_otuhl")
 text = "REINICIAR"
 
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
