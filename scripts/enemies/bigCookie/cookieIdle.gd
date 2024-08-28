@@ -32,6 +32,9 @@ func PhysicsUpdate(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	if direction.length() < 150:
 		Transitioned.emit(self, "chase")
+	if Global.madCookie:
+		texture.play('blackIdle')
+	texture.play('whiteIdle')
 
 
 func _process(delta: float) -> void:

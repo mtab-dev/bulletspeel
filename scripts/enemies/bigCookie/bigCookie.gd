@@ -6,7 +6,6 @@ extends CharacterBody2D
 @onready var entryRoom: AudioStreamPlayer2D = $enterBoss
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
 var health = 20
-var suffix: String
 var player: CharacterBody2D
 
 func _ready():
@@ -22,10 +21,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if Global.madCookie:
-		suffix = 'black'
+	if health <= 10:
+		Global.madCookie = true
 	else:
-		suffix = 'white'
+		Global.madCookie = false
 
 func _on_detection_area_body_entered(body):
 	pass
