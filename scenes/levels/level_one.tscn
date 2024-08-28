@@ -1232,9 +1232,6 @@ position = Vector2(-225, 419)
 [node name="bengal5" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(-176, 222)
 
-[node name="bengal6" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(-15, 26)
-
 [node name="bengal7" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(65, 152)
 
