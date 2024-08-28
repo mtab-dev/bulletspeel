@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=62 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -55,6 +55,11 @@
 [ext_resource type="Script" path="res://scripts/states/stateMachine.gd" id="53_8gel7"]
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieIdle.gd" id="54_xf543"]
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieChase.gd" id="55_vemhm"]
+[ext_resource type="PackedScene" uid="uid://cdiki20gqftah" path="res://scenes/enemies/ui/healthBar.tscn" id="56_4vulb"]
+[ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="57_t1fg4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0itdb"]
+radius = 30.0666
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ciu81"]
 animations = [{
@@ -251,6 +256,13 @@ size = Vector2(10, 46)
 [node name="bigCookie" type="CharacterBody2D"]
 script = ExtResource("1_1dg2b")
 
+[node name="detectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]
+position = Vector2(-2, -5)
+shape = SubResource("CircleShape2D_0itdb")
+debug_color = Color(0.829474, 0.00146394, 0.946416, 0.42)
+
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
@@ -283,3 +295,31 @@ texture = NodePath("../../animation")
 script = ExtResource("55_vemhm")
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
+
+[node name="canvasBar" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="HealthBar" parent="canvasBar" instance=ExtResource("56_4vulb")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -251.0
+offset_top = -34.0
+offset_right = 249.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="canvasBar"]
+offset_left = 326.0
+offset_top = 583.0
+offset_right = 382.0
+offset_bottom = 606.0
+theme_override_fonts/font = ExtResource("57_t1fg4")
+theme_override_font_sizes/font_size = 25
+text = "BOLACHA"
+
+[connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]

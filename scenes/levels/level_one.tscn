@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=59 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -135,6 +135,12 @@ func _on_body_entered(body):
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yramo"]
 size = Vector2(186, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdb3e"]
+size = Vector2(20, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khe0q"]
+size = Vector2(43, 86)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_esvlm"]
 animations = [{
@@ -1189,8 +1195,21 @@ player = NodePath("../../player")
 position = Vector2(2, -52)
 texture = ExtResource("8_vffmp")
 
+[node name="enemyAreaExited" type="Area2D" parent="."]
+position = Vector2(240, -1091)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyAreaExited"]
+position = Vector2(27, 35)
+shape = SubResource("RectangleShape2D_tdb3e")
+
+[node name="enemyAreaEnter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyAreaEnter"]
+position = Vector2(455.5, -1058)
+shape = SubResource("RectangleShape2D_khe0q")
+
 [node name="slingDetect" type="Area2D" parent="."]
-position = Vector2(613, 388)
+position = Vector2(314, -1044)
 
 [node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
 scale = Vector2(0.8, 0.8)
@@ -1213,7 +1232,7 @@ theme_override_font_sizes/font_size = 16
 text = "PRESSIONE E PARA PEGAR"
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(665, 414)
+position = Vector2(262, -1046)
 speed = 250
 
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
@@ -1255,6 +1274,8 @@ position = Vector2(747, -1295)
 [connection signal="body_entered" from="lvlDesign/collision/chest2" to="." method="_on_chest_2_body_entered"]
 [connection signal="body_entered" from="lvlDesign/collision/chest3" to="." method="_on_chest_3_body_entered"]
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
+[connection signal="body_entered" from="enemyAreaExited" to="bigCookie" method="_on_enemy_area_exited_body_entered"]
+[connection signal="body_entered" from="enemyAreaEnter" to="bigCookie" method="_on_enemy_area_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="." method="_on_sling_detect_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="player" method="_on_sling_detect_body_entered"]
 [connection signal="body_exited" from="slingDetect" to="." method="_on_sling_detect_body_exited"]
