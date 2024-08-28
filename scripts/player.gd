@@ -10,9 +10,9 @@ extends CharacterBody2D
 @onready var walkingFX: AudioStreamPlayer2D = $walkingSound
 @onready var deathTimer: Timer = $deathTimer
 @onready var lolli: Sprite2D = get_node('hud/items/loli')
+@onready var boots: Sprite2D = get_node("hud/items/boots")
 const SLINGSHOT= preload('res://scenes/objects/guns/slingshot.tscn')
 var moneyCount: int = 0
-var hasLolli: bool = false
 var isWalking: bool = false
 var anim: String = 'idle'
 
@@ -53,9 +53,6 @@ func moneyManagement():
 func ammunManagement():
 	ammun.text = str(Global.ammunation)
 	
-func updateItems():
-	if hasLolli:
-		lolli.visible = true
 
 func lifeManagement():
 	if(Global.life <= 0):
@@ -68,8 +65,6 @@ func lifeManagement():
 func _ready():
 	pass
 
-func _process(delta):
-	updateItems()
 
 func _physics_process(delta):
 	ammunManagement()

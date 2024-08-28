@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
-size = Vector2(192, 61)
+size = Vector2(192, 50.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_baite"]
 size = Vector2(3, 314)
@@ -35,7 +35,7 @@ size = Vector2(3, 314)
 size = Vector2(5, 270.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50w1f"]
-size = Vector2(4, 159.5)
+size = Vector2(6, 151)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1m2o"]
 size = Vector2(193.5, 27)
@@ -197,11 +197,10 @@ position = Vector2(12, -497)
 texture = ExtResource("4_fpllv")
 
 [node name="collision" type="StaticBody2D" parent="lvlDesign"]
-visible = false
 position = Vector2(394, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(82, 15)
+position = Vector2(82, 9.75)
 shape = SubResource("RectangleShape2D_bm27d")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -217,7 +216,7 @@ position = Vector2(371.5, 17.875)
 shape = SubResource("RectangleShape2D_wxprg")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(174, -38.25)
+position = Vector2(175, -42.5)
 shape = SubResource("RectangleShape2D_50w1f")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="lvlDesign/collision"]

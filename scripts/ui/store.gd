@@ -17,10 +17,15 @@ func buyItem(price: int, budget: int, item: int):
 		Global.money -= price
 		if item == 1: 
 			dialogLabel.text = "Você comprou o Lolli, faça bom uso"
+			Global.life += 1
+			Global.hasLolli = true
 		elif item == 2:
 			dialogLabel.text = "Você vai ser mais rápido do que nunca"
+			player.speed = 300
+			Global.hasBoots = true
 		elif item == 3:
-			dialogLabel.text = "Assim como um gato, você pode ter sete vi"
+			dialogLabel.text = "Assim como um gato, você pode ter sete vidas"
+			Global.life += 1
 	else:
 		dialogLabel.text = 'Seu saldo é insuficiente!'
 

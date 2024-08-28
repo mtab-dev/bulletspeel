@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var joystick: CanvasLayer = $"Test/UI"
 @onready var pauseButton: Button = $Test/UI/pauseScene
+@onready var lolli: Sprite2D = $items/loli
+@onready var boots: Sprite2D = $items/boots
 @onready var levelMenu: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +18,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Global.hasLolli == true:
+		lolli.visible = true
+	if Global.hasBoots == true:
+		boots.visible = true
 	if levelMenu.visible:
 		pauseButton.visible = false
 	else:
