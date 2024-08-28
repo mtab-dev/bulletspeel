@@ -15,7 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Global.life <= 0:
-		player.isDead = true
+		Global.isDead = true
 		player.timeAfterDeath()
 
 

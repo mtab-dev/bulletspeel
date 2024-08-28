@@ -13,7 +13,6 @@ extends CharacterBody2D
 const SLINGSHOT= preload('res://scenes/objects/guns/slingshot.tscn')
 var moneyCount: int = 0
 var hasLolli: bool = false
-var isDead: bool = false
 var isWalking: bool = false
 var anim: String = 'idle'
 
@@ -44,7 +43,7 @@ func verticalMovement() -> void:
 	print(velocity.y)
 	
 func movement():
-	if(not isDead):
+	if(not Global.isDead):
 		verticalMovement()
 		horizontalMovement()
 
@@ -60,7 +59,7 @@ func updateItems():
 
 func lifeManagement():
 	if(Global.life <= 0):
-		isDead = true
+		Global.isDead = true
 		get_tree().paused = true
 		collision.disabled = true
 		timeAfterDeath()
