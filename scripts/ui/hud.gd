@@ -29,4 +29,3 @@ func updateLife(life):
 func _process(delta):
 	hideLife
 	updateLife(life)
-
