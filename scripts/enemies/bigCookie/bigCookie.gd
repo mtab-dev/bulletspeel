@@ -3,7 +3,9 @@ extends CharacterBody2D
 @onready var animation: AnimatedSprite2D = $animation
 @onready var canvasForBar: CanvasLayer = $canvasBar
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
-var health: int = 20
+@onready var entryRoom: AudioStreamPlayer2D = $enterBoss
+@onready var afterDeath: AudioStreamPlayer2D = $killDeath
+var health = 20
 var suffix: String
 var player: CharacterBody2D
 
@@ -35,14 +37,19 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 		health -= 1
 		healthBar.health = health  # Use "value" instead of "health" if that's the property name for updating the ProgressBar
 		if health <= 0:
-			queue_free()  # Example to remove the enemy when health is depleted
+			queue_free()
 
 
 func _on_enemy_area_body_entered(body: Node2D) -> void:
 	if(body.is_in_group('Player')):
+		entryRoom.play()
 		canvasForBar.visible = true
 
 
 func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
 	if(body.is_in_group('Player')):
 		canvasForBar.visible = false
+
+
+func _on_kill_death_finished() -> void:
+	queue_free()

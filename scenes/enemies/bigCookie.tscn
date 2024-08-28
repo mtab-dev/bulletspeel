@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=64 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -57,6 +57,8 @@
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieChase.gd" id="55_vemhm"]
 [ext_resource type="PackedScene" uid="uid://cdiki20gqftah" path="res://scenes/enemies/ui/healthBar.tscn" id="56_4vulb"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="57_t1fg4"]
+[ext_resource type="AudioStream" uid="uid://df6ubp4jwyxax" path="res://assets/fx/effects/enterBossRoom.mp3" id="58_a4fmr"]
+[ext_resource type="AudioStream" uid="uid://mdgd050krid8" path="res://assets/fx/effects/afterBossDeath.mp3" id="59_e4sso"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0itdb"]
 radius = 30.0666
@@ -321,5 +323,13 @@ theme_override_fonts/font = ExtResource("57_t1fg4")
 theme_override_font_sizes/font_size = 25
 text = "BOLACHA"
 
+[node name="enterBoss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("58_a4fmr")
+volume_db = -25.0
+
+[node name="killDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("59_e4sso")
+
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="finished" from="killDeath" to="." method="_on_kill_death_finished"]
