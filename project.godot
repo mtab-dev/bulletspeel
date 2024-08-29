@@ -32,8 +32,8 @@ project/assembly_name="Bulletspeel"
 
 [global_group]
 
-levelMenu=""
 Bullets=""
+levelMenu=""
 
 [input]
 

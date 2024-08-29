@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://djo05dbahoox8"]
+
+[ext_resource type="PackedScene" uid="uid://0lfyt8ei13fy" path="res://scenes/objects/chest.tscn" id="1_4lohv"]
+[ext_resource type="Script" path="res://scripts/object/chestArea.gd" id="1_wixwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ss8n"]
+size = Vector2(56, 33)
+
+[node name="chestArea" type="Node2D"]
+script = ExtResource("1_wixwb")
+
+[node name="chst1" type="Area2D" parent="."]
+
+[node name="chest" parent="chst1" instance=ExtResource("1_4lohv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chst1"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_7ss8n")
+
+[node name="chst2" type="Area2D" parent="."]
+position = Vector2(83, 0)
+
+[node name="chest2" parent="chst2" instance=ExtResource("1_4lohv")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="chst2"]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_7ss8n")
+
+[node name="chst3" type="Area2D" parent="."]
+position = Vector2(168, 0)
+
+[node name="chest3" parent="chst3" instance=ExtResource("1_4lohv")]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="chst3"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_7ss8n")
+
+[connection signal="area_entered" from="chst1" to="." method="_on_chst_1_area_entered"]
+[connection signal="area_entered" from="chst2" to="." method="_on_chst_2_area_entered"]
+[connection signal="area_entered" from="chst3" to="." method="_on_chst_3_area_entered"]

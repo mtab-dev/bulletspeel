@@ -44,10 +44,9 @@ func _process(delta: float) -> void:
 
 func _on_detection_area_body_entered(body):
 	if body.is_in_group('Player'):
-		if not Global.isDead:
-			animation.play('attack')
-			damageSound.play()
-			Global.life -= 1
+		animation.play('attack')
+		damageSound.play()
+		Global.life -= 1
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0lfyt8ei13fy"]
+
+[ext_resource type="Texture2D" uid="uid://cjr77bl1fjfbe" path="res://sprites/cenario/objetos/Baú.png" id="1_v6xks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcos3"]
+size = Vector2(57, 28)
+
+[node name="chest" type="StaticBody2D"]
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_v6xks")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_lcos3")

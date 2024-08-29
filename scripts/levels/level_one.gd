@@ -54,3 +54,7 @@ func _on_sling_detect_body_exited(body: Node2D) -> void:
 
 func _on_ambient_music_finished() -> void:
 	ambientFX.play()
+
+
+func _on_chest_area_area_entered(area: Area2D) -> void:
+	print('bateu')

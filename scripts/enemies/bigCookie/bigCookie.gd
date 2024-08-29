@@ -27,7 +27,10 @@ func _process(delta: float) -> void:
 		Global.madCookie = false
 
 func _on_detection_area_body_entered(body):
-	pass
+	if not Global.isDead:
+		if body.is_in_group('Player'):
+			Global.life -= 1
+			animation.play('attack')
 
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
