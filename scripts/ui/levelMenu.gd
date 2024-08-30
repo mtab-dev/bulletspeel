@@ -21,6 +21,7 @@ func _on_btn_3_pressed():
 
 
 func _on_btn_2_pressed():
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/levels/main_menu.tscn")
 
 
@@ -30,4 +31,5 @@ func _on_btn_1_pressed():
 
 
 func _on_btn_4_pressed() -> void:
-	pass
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/levels/level_one.tscn")
