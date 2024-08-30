@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
 [ext_resource type="Script" path="res://scripts/levels/level_one.gd" id="1_stlsi"]
 [ext_resource type="Texture2D" uid="uid://bpp13dcogdove" path="res://sprites/primeiro andar pronto/andar 1 chão.png" id="1_yfrhe"]
-[ext_resource type="Texture2D" uid="uid://boc58ttlx5c0c" path="res://sprites/primeiro andar pronto/1andar sem colisao.png" id="3_pe0el"]
-[ext_resource type="Texture2D" uid="uid://j6gte2fprari" path="res://sprites/primeiro andar pronto/1andar sombras  completo.png" id="4_fpllv"]
-[ext_resource type="Texture2D" uid="uid://bulvoi70mqyfb" path="res://sprites/primeiro andar pronto/collisionLayer.webp" id="5_y6idn"]
-[ext_resource type="PackedScene" uid="uid://djo05dbahoox8" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
+[ext_resource type="Texture2D" uid="uid://cu8vgabuo1gw6" path="res://sprites/primeiro andar pronto/andar 1 sem colisão.png" id="4_6ysvh"]
+[ext_resource type="Texture2D" uid="uid://c3740m0duu0uu" path="res://sprites/primeiro andar pronto/andar 1 colisão.png" id="5_luhrd"]
+[ext_resource type="Texture2D" uid="uid://fo8lr1dcihef" path="res://sprites/primeiro andar pronto/andar 1 sombras.png" id="6_gwf0a"]
+[ext_resource type="PackedScene" uid="uid://hru6rshq0crp" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
@@ -189,15 +189,15 @@ texture = ExtResource("1_yfrhe")
 
 [node name="noCollision" type="Sprite2D" parent="lvlDesign"]
 position = Vector2(12, -500)
-texture = ExtResource("3_pe0el")
+texture = ExtResource("4_6ysvh")
 
 [node name="decoration" type="Sprite2D" parent="lvlDesign"]
-position = Vector2(12, -497)
-texture = ExtResource("5_y6idn")
+position = Vector2(12, -498)
+texture = ExtResource("5_luhrd")
 
 [node name="shadows" type="Sprite2D" parent="lvlDesign"]
 position = Vector2(12, -497)
-texture = ExtResource("4_fpllv")
+texture = ExtResource("6_gwf0a")
 
 [node name="collision" type="StaticBody2D" parent="lvlDesign"]
 position = Vector2(394, 350)
@@ -1151,7 +1151,7 @@ shape = SubResource("CapsuleShape2D_il1ml")
 position = Vector2(-900, -511)
 
 [node name="loja" type="Area2D" parent="."]
-position = Vector2(64, -1182)
+position = Vector2(65, -1182)
 script = SubResource("GDScript_b0guc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loja"]
@@ -1201,10 +1201,6 @@ theme_override_fonts/font = ExtResource("18_tdmgt")
 theme_override_font_sizes/font_size = 16
 text = "PRESSIONE E PARA PEGAR"
 
-[node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(604, 367)
-speed = 250
-
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(254, 414)
 
@@ -1239,6 +1235,10 @@ volume_db = -20.0
 
 [node name="bigCookie" parent="." instance=ExtResource("24_h0x2e")]
 position = Vector2(747, -1295)
+
+[node name="player" parent="." instance=ExtResource("1_bvwrk")]
+position = Vector2(604, 367)
+speed = 250
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="bigCookie" method="_on_enemy_area_exited_body_entered"]

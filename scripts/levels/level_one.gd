@@ -6,13 +6,11 @@ extends Node
 @onready var slingAnim: AnimatedSprite2D = $slingDetect/slingTexture
 @onready var slingLabel: Label = $slingDetect/slingLabel
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	slingAnim.play('default')
 	ambientFX.play()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Global.life <= 0:
 		Global.isDead = true
