@@ -15,10 +15,10 @@ func Enter():
 func PhysicsUpdate(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	var distance = direction.length()
-	if distance > 50:
+	if distance > 150:
 		enemy.velocity = direction.normalized() * moveSpeed
 		texture.play('run')
-	if distance > 200:
+	if distance > 250:
 		Transitioned.emit(self, "idle")
 	
 
