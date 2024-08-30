@@ -63,6 +63,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0itdb"]
 radius = 30.0666
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehda5"]
+size = Vector2(10, 46)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ciu81"]
 animations = [{
 "frames": [{
@@ -252,18 +255,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_al0xa"]
 radius = 30.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehda5"]
-size = Vector2(10, 46)
-
 [node name="bigCookie" type="CharacterBody2D"]
 script = ExtResource("1_1dg2b")
 
 [node name="detectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]
+[node name="collisor" type="CollisionShape2D" parent="detectionArea"]
 position = Vector2(-2, -5)
 shape = SubResource("CircleShape2D_0itdb")
 debug_color = Color(0.829474, 0.00146394, 0.946416, 0.42)
+
+[node name="collisor2" type="CollisionShape2D" parent="detectionArea"]
+position = Vector2(-12, 28)
+shape = SubResource("RectangleShape2D_ehda5")
+
+[node name="collisor3" type="CollisionShape2D" parent="detectionArea"]
+position = Vector2(6, 27)
+shape = SubResource("RectangleShape2D_ehda5")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
