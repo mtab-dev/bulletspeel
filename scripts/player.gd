@@ -53,6 +53,8 @@ func moneyManagement():
 func ammunManagement():
 	ammun.text = str(Global.ammunation)
 	
+func enterElevator():
+	animation.play('up')
 
 func lifeManagement():
 	if(Global.life <= 0):
