@@ -36,6 +36,9 @@
 [ext_resource type="Script" path="res://scripts/enemies/mimic/idleState.gd" id="34_1s0x5"]
 [ext_resource type="Script" path="res://scripts/enemies/mimic/chaseState.gd" id="35_y4i3l"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1msd"]
+size = Vector2(68, 45)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_td4oq"]
 animations = [{
 "frames": [{
@@ -63,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_lwvl8")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -149,19 +152,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1msd"]
-size = Vector2(60, 44)
-
 [node name="mimic" type="CharacterBody2D"]
 script = ExtResource("1_5cwa8")
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_l1msd")
+debug_color = Color(0.786512, 0.304374, 0.772888, 0.42)
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_td4oq")
 animation = &"goingUp"
-frame = 12
-frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_l1msd")
 
@@ -185,4 +190,7 @@ script = ExtResource("35_y4i3l")
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
 
+[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="hitBox" to="stateMachine/chase" method="_on_hit_box_body_entered"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

@@ -15,7 +15,6 @@ func randomizeWander():
 	
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	texture.play('idle')
 	randomizeWander()
 
 func Update(delta: float):
