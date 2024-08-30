@@ -14,6 +14,7 @@ func _process(delta):
 
 func buyItem(price: int, budget: int, item: int):
 	if budget >= price:
+		buySound.play()
 		Global.money -= price
 		if item == 1: 
 			dialogLabel.text = "Você comprou o Lolli, faça bom uso"
@@ -76,4 +77,3 @@ func _on_item_3_pressed():
 
 func _on_buy_pressed() -> void:
 	buyItem(budget, Global.money, item)
-	buySound.play()
