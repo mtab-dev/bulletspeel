@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmvh5dehkjruw"]
+[gd_scene load_steps=9 format=3 uid="uid://dmvh5dehkjruw"]
 
 [ext_resource type="Script" path="res://scripts/ui/gameOver.gd" id="1_cxfr2"]
 [ext_resource type="Texture2D" uid="uid://bqhnqtmxhs5cn" path="res://sprites/ui/cutscenes/game-over.webp" id="2_cigat"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="3_5fln6"]
 [ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="3_xgjyq"]
+[ext_resource type="Texture2D" uid="uid://d37cmx7mqjvxh" path="res://sprites/ui/menu/back.webp" id="5_c3wvx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lb5df"]
 
@@ -26,6 +27,8 @@ scale = Vector2(3.06842, 2.75417)
 texture = ExtResource("2_cigat")
 
 [node name="restart" type="Button" parent="."]
+process_mode = 3
+z_index = 5
 layout_mode = 0
 offset_left = 965.0
 offset_top = 36.0
@@ -38,6 +41,6 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lb5df")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ipo83")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_otuhl")
-text = "REINICIAR"
+icon = ExtResource("5_c3wvx")
 
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

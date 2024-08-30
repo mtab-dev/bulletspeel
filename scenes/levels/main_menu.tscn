@@ -204,11 +204,13 @@ scale = Vector2(0.452001, 0.43276)
 texture = ExtResource("37_qiues")
 
 [node name="menu" type="Control" parent="."]
+process_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="play" type="Button" parent="menu"]
+process_mode = 3
 layout_mode = 2
 offset_left = 489.0
 offset_top = 349.0
@@ -226,6 +228,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="sair" type="Button" parent="menu"]
+process_mode = 3
 layout_mode = 2
 offset_left = 516.0
 offset_top = 487.0
@@ -243,6 +246,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="opções" type="Button" parent="menu"]
+process_mode = 3
 layout_mode = 0
 offset_left = 445.0
 offset_top = 424.0

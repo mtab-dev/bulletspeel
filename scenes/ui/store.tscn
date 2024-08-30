@@ -88,6 +88,7 @@ scale = Vector2(1.10357, 0.978846)
 texture = ExtResource("1_kor1q")
 
 [node name="item1" type="Button" parent="Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 134.0
 offset_top = 166.0
@@ -101,6 +102,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="item2" type="Button" parent="Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 383.0
 offset_top = 169.0
@@ -114,6 +116,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="item3" type="Button" parent="Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 615.0
 offset_top = 170.0
@@ -174,6 +177,7 @@ theme_override_font_sizes/normal_font_size = 30
 text = "0"
 
 [node name="exit" type="Button" parent="Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 17.0
 offset_top = 407.0
@@ -188,6 +192,7 @@ icon = ExtResource("6_wueqx")
 icon_alignment = 1
 
 [node name="buy" type="Button" parent="Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 376.0
 offset_top = 439.0
