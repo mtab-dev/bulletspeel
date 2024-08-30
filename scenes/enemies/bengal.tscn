@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://bybpcigtcc037"]
+[gd_scene load_steps=31 format=3 uid="uid://bybpcigtcc037"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bengal/bengal.gd" id="1_85urr"]
 [ext_resource type="Texture2D" uid="uid://ct7garay0ylf8" path="res://sprites/enemies/bengal/attack/2c92ec91-f50c-4794-8949-dfbf6256135d.png" id="1_daq7n"]
+[ext_resource type="Shader" path="res://scenes/enemies/bengal.gdshader" id="2_iq6pa"]
 [ext_resource type="Texture2D" uid="uid://q6wtgk1nh60g" path="res://sprites/enemies/bengal/attack/333e689f-a263-4c71-a5ac-a4897af65ebd.png" id="2_rdrsa"]
 [ext_resource type="Texture2D" uid="uid://px444g7a24cw" path="res://sprites/enemies/bengal/attack/41479565-36b1-4e8f-9abe-d43a21d8e91a.png" id="3_n68bh"]
 [ext_resource type="Texture2D" uid="uid://cj6tnejlmv8lb" path="res://sprites/enemies/bengal/attack/a9b7fece-253b-4c1e-b366-d18b9ad7865e.png" id="4_whfvx"]
@@ -26,6 +27,11 @@
 [ext_resource type="AudioStream" uid="uid://db7w840tomvgc" path="res://assets/fx/effects/bengalDamageEffect.mp3" id="24_h6jjf"]
 [ext_resource type="Texture2D" uid="uid://b1km6mhr62sgm" path="res://sprites/enemies/groundShadow.png" id="25_fhe5l"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6wjy"]
+shader = ExtResource("2_iq6pa")
+shader_parameter/blinkColor = Color(1, 1, 1, 1)
+shader_parameter/blinkIntesity = 0.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_l3eov"]
 animations = [{
 "frames": [{
@@ -49,6 +55,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hit",
 "speed": 5.0
 }, {
 "frames": [{
@@ -113,11 +124,10 @@ height = 36.0
 script = ExtResource("1_85urr")
 
 [node name="bengalAnimation" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_r6wjy")
 scale = Vector2(1.00796, 0.990647)
 sprite_frames = SubResource("SpriteFrames_l3eov")
-animation = &"run"
-frame = 7
-frame_progress = 0.116041
+animation = &"idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
@@ -148,13 +158,13 @@ texture = NodePath("../../bengalAnimation")
 stream = ExtResource("24_h6jjf")
 volume_db = -20.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="shadow" type="Sprite2D" parent="."]
 position = Vector2(-4, 20)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_fhe5l")
 
 [node name="flashTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 3.0
 
 [connection signal="animation_finished" from="bengalAnimation" to="stateMachine/chase" method="_on_bengal_animation_animation_finished"]
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
