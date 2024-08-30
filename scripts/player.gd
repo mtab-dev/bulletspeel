@@ -52,9 +52,6 @@ func moneyManagement():
 	
 func ammunManagement():
 	ammun.text = str(Global.ammunation)
-	
-func enterElevator():
-	animation.play('up')
 
 func lifeManagement():
 	if(Global.life <= 0):
@@ -63,6 +60,19 @@ func lifeManagement():
 		collision.disabled = true
 		timeAfterDeath()
 	stats.updateLife(Global.life)
+	
+	
+func enterElevator(elevatorPosition):
+	animation.play('up')
+	moveToElevator(elevatorPosition)
+
+func moveToElevator(elevatorPosition):
+	var target_position  = elevatorPosition
+	var direction = (target_position - position).normalized()
+	var distance_to_target = position.distance_to(target_position)
+	velocity = direction * speed
+	move_and_slide()
+
 
 func _ready():
 	pass

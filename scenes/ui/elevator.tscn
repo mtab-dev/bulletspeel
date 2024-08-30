@@ -63,4 +63,10 @@ animation = &"static"
 position = Vector2(0, 15)
 shape = SubResource("CapsuleShape2D_vyq75")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="timerAfterDeath" type="Timer" parent="."]
+wait_time = 0.7
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="timerAfterDeath" to="." method="_on_timer_after_death_timeout"]

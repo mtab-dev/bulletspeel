@@ -39,6 +39,7 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 		health -= 1
 		healthBar.health = health  # Use "value" instead of "health" if that's the property name for updating the ProgressBar
 		if health <= 0:
+			Global.deadCookie = true
 			queue_free()
 
 
