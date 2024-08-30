@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://scripts/levels/level_one.gd" id="1_stlsi"]
 [ext_resource type="Texture2D" uid="uid://bpp13dcogdove" path="res://sprites/primeiro andar pronto/andar 1 chão.png" id="1_yfrhe"]
 [ext_resource type="Texture2D" uid="uid://boc58ttlx5c0c" path="res://sprites/primeiro andar pronto/1andar sem colisao.png" id="3_pe0el"]
-[ext_resource type="Texture2D" uid="uid://b1yn52nxvcwet" path="res://sprites/primeiro andar pronto/1andar  colisao completo.png" id="3_sdwrh"]
 [ext_resource type="Texture2D" uid="uid://j6gte2fprari" path="res://sprites/primeiro andar pronto/1andar sombras  completo.png" id="4_fpllv"]
+[ext_resource type="Texture2D" uid="uid://bulvoi70mqyfb" path="res://sprites/primeiro andar pronto/collisionLayer.webp" id="5_y6idn"]
 [ext_resource type="PackedScene" uid="uid://djo05dbahoox8" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
@@ -193,7 +193,7 @@ texture = ExtResource("3_pe0el")
 
 [node name="decoration" type="Sprite2D" parent="lvlDesign"]
 position = Vector2(12, -497)
-texture = ExtResource("3_sdwrh")
+texture = ExtResource("5_y6idn")
 
 [node name="shadows" type="Sprite2D" parent="lvlDesign"]
 position = Vector2(12, -497)
