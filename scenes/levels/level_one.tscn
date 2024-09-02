@@ -1244,12 +1244,16 @@ speed = 250
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]
 position = Vector2(712, -1433)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.277528, 0.277528, 0.277528, 1)
+[node name="mask" type="CanvasModulate" parent="."]
+color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
+[connection signal="body_entered" from="enemyAreaExited" to="." method="_on_enemy_area_exited_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="bigCookie" method="_on_enemy_area_exited_body_entered"]
+[connection signal="body_entered" from="enemyAreaExited" to="player" method="_on_enemy_area_exited_body_entered"]
+[connection signal="body_entered" from="enemyAreaEnter" to="." method="_on_enemy_area_enter_body_entered"]
 [connection signal="body_entered" from="enemyAreaEnter" to="bigCookie" method="_on_enemy_area_body_entered"]
+[connection signal="body_entered" from="enemyAreaEnter" to="player" method="_on_enemy_area_enter_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="." method="_on_sling_detect_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="player" method="_on_sling_detect_body_entered"]
 [connection signal="body_exited" from="slingDetect" to="." method="_on_sling_detect_body_exited"]

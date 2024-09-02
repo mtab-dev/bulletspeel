@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var ammun: Control = get_node("hud/items/ammunation/ammunlabel")
 @onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
+@onready var light: PointLight2D = $lighter
 @onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
 @onready var walkingFX: AudioStreamPlayer2D = $walkingSound
 @onready var deathTimer: Timer = $deathTimer
@@ -96,3 +97,13 @@ func _on_sling_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
 		var newSling = SLINGSHOT.instantiate()
 		add_child(newSling)
+
+
+func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		light.enabled = false
+
+
+func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		light.enabled = true
