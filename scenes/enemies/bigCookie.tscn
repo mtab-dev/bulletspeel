@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=73 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -73,6 +73,9 @@ radius = 30.0666
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehda5"]
 size = Vector2(10, 46)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4satg"]
+radius = 54.4518
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ciu81"]
 animations = [{
@@ -238,9 +241,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("48_qthxc")
 }],
-"loop": true,
+"loop": false,
 "name": &"whiteAttack",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -286,7 +289,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"whiteRun",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_al0xa"]
@@ -310,12 +313,16 @@ shape = SubResource("RectangleShape2D_ehda5")
 position = Vector2(6, 27)
 shape = SubResource("RectangleShape2D_ehda5")
 
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+shape = SubResource("CircleShape2D_4satg")
+debug_color = Color(0.818469, 0.333316, 0.594779, 0.42)
+
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
-animation = &"whiteRun"
-frame = 5
-frame_progress = 0.751175
+animation = &"whiteAttack"
 
 [node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4)
@@ -377,4 +384,7 @@ stream = ExtResource("59_e4sso")
 
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="hitBox" to="stateMachine/chase" method="_on_hit_box_body_entered"]
+[connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]
 [connection signal="finished" from="killDeath" to="." method="_on_kill_death_finished"]

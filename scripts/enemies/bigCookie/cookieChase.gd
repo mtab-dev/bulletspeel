@@ -23,5 +23,6 @@ func PhysicsUpdate(_delta: float):
 		
 	
 
-func _on_bengal_animation_animation_finished() -> void:
-	texture.frame = 8
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	enemy.velocity = Vector2.ZERO

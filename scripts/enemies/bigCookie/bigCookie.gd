@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
 @onready var entryRoom: AudioStreamPlayer2D = $enterBoss
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
+var isHit: bool = false
 var health = 20
 var player: CharacterBody2D
 
@@ -14,6 +15,7 @@ func _ready():
 	healthBar.initHealth(health)
 
 func _physics_process(delta):
+	isHit = false
 	if velocity.x > 0:
 		animation.flip_h = false
 	else:
@@ -27,11 +29,7 @@ func _process(delta: float) -> void:
 		Global.madCookie = false
 
 func _on_detection_area_body_entered(body):
-	if not Global.isDead:
-		if body.is_in_group('Player'):
-			Global.life -= 1
-			animation.play('attack')
-
+	pass
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
@@ -56,3 +54,15 @@ func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
 
 func _on_kill_death_finished() -> void:
 	queue_free()
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if not Global.isDead:
+		if body.is_in_group('Player'):
+			isHit = true
+			animation.play('whiteAttack')
+
+
+func _on_animation_animation_finished() -> void:
+	if isHit == true:
+		Global.life -= 1
