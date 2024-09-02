@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
 @onready var entryRoom: AudioStreamPlayer2D = $enterBoss
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
-var isHit: bool = false
+var isPlayerInDetectionArea: bool = false  # Controla se o jogador está na área de detecção
 var health = 20
 var player: CharacterBody2D
 
@@ -15,7 +15,6 @@ func _ready():
 	healthBar.initHealth(health)
 
 func _physics_process(delta):
-	isHit = false
 	if velocity.x > 0:
 		animation.flip_h = false
 	else:
@@ -29,40 +28,39 @@ func _process(delta: float) -> void:
 		Global.madCookie = false
 
 func _on_detection_area_body_entered(body):
-	pass
+	if not Global.isDead and body.is_in_group('Player'):
+		isPlayerInDetectionArea = true  # Jogador entrou na área de detecção
+		animation.play('whiteAttack')
+
+func _on_detection_area_body_exited(body):
+	if body.is_in_group('Player'):
+		isPlayerInDetectionArea = false  # Jogador saiu da área de detecção
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
 		print('atingiu')
 		health -= 1
-		healthBar.health = health  # Use "value" instead of "health" if that's the property name for updating the ProgressBar
+		healthBar.health = health  
 		if health <= 0:
 			Global.deadCookie = true
 			queue_free()
 
-
 func _on_enemy_area_body_entered(body: Node2D) -> void:
-	if(body.is_in_group('Player')):
+	if body.is_in_group('Player'):
 		entryRoom.play()
 		canvasForBar.visible = true
 
-
 func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
-	if(body.is_in_group('Player')):
+	if body.is_in_group('Player'):
 		canvasForBar.visible = false
-
 
 func _on_kill_death_finished() -> void:
 	queue_free()
 
-
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	if not Global.isDead:
-		if body.is_in_group('Player'):
-			isHit = true
-			animation.play('whiteAttack')
-
+func hitWhenAnim():
+	# Aplicar dano somente se o jogador estiver na área de detecção
+	if isPlayerInDetectionArea:
+		Global.life -= 1
 
 func _on_animation_animation_finished() -> void:
-	if isHit == true:
-		Global.life -= 1
+	hitWhenAnim()

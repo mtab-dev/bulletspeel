@@ -24,7 +24,7 @@
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="18_tdmgt"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
 [ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
-[ext_resource type="PackedScene" uid="uid://bltn0883iny41" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
+[ext_resource type="PackedScene" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 50.5)
