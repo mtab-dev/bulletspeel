@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=72 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -53,12 +53,20 @@
 [ext_resource type="Texture2D" uid="uid://c3r546ok130dy" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco10.png" id="47_cou2e"]
 [ext_resource type="Texture2D" uid="uid://cgevesxcto1uo" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco11.png" id="48_qthxc"]
 [ext_resource type="Script" path="res://scripts/states/stateMachine.gd" id="53_8gel7"]
+[ext_resource type="Texture2D" uid="uid://cd8cmgmqfjwcv" path="res://sprites/enemies/bigCookie/white/run/trankingAndando1.png" id="53_j7r20"]
+[ext_resource type="Texture2D" uid="uid://cm1jemdf4uoob" path="res://sprites/enemies/bigCookie/white/run/trakingAndando2.png" id="54_o7f2c"]
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieIdle.gd" id="54_xf543"]
+[ext_resource type="Texture2D" uid="uid://bvvfphlueq8lf" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (1).png" id="55_hn3v5"]
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieChase.gd" id="55_vemhm"]
 [ext_resource type="PackedScene" uid="uid://cdiki20gqftah" path="res://scenes/enemies/ui/healthBar.tscn" id="56_4vulb"]
+[ext_resource type="Texture2D" uid="uid://c15vvc2m71luk" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (2).png" id="56_c1qs3"]
+[ext_resource type="Texture2D" uid="uid://dqb8lpde0dygs" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (3).png" id="57_j1wox"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="57_t1fg4"]
 [ext_resource type="AudioStream" uid="uid://df6ubp4jwyxax" path="res://assets/fx/effects/enterBossRoom.mp3" id="58_a4fmr"]
+[ext_resource type="Texture2D" uid="uid://c60lsj2yp4uyd" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (4).png" id="58_jwoc1"]
 [ext_resource type="AudioStream" uid="uid://mdgd050krid8" path="res://assets/fx/effects/afterBossDeath.mp3" id="59_e4sso"]
+[ext_resource type="Texture2D" uid="uid://dfybvn224ai07" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (5).png" id="59_y2wdv"]
+[ext_resource type="Texture2D" uid="uid://b7stc7b53ceis" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (6).png" id="60_24r6t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0itdb"]
 radius = 30.0666
@@ -250,6 +258,35 @@ animations = [{
 "loop": true,
 "name": &"whiteIdle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("53_j7r20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_o7f2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_hn3v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_c1qs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_j1wox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_jwoc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_y2wdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_24r6t")
+}],
+"loop": true,
+"name": &"whiteRun",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_al0xa"]
@@ -276,9 +313,9 @@ shape = SubResource("RectangleShape2D_ehda5")
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
-animation = &"whiteAttack"
+animation = &"whiteRun"
 frame = 5
-frame_progress = 0.44284
+frame_progress = 0.751175
 
 [node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4)
