@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/afterBossDeath.mp3-5b979c95ab82c98e8e8f051278
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

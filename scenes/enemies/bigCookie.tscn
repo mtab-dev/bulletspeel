@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=74 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -67,6 +67,7 @@
 [ext_resource type="AudioStream" uid="uid://mdgd050krid8" path="res://assets/fx/effects/afterBossDeath.mp3" id="59_e4sso"]
 [ext_resource type="Texture2D" uid="uid://dfybvn224ai07" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (5).png" id="59_y2wdv"]
 [ext_resource type="Texture2D" uid="uid://b7stc7b53ceis" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (6).png" id="60_24r6t"]
+[ext_resource type="AudioStream" uid="uid://xo6ais462mb5" path="res://assets/fx/effects/bossDamage.mp3" id="68_7jfre"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4satg"]
 radius = 54.4518
@@ -379,8 +380,15 @@ volume_db = -25.0
 
 [node name="killDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("59_e4sso")
+volume_db = -20.0
+
+[node name="bossDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("68_7jfre")
+volume_db = -40.0
 
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]
 [connection signal="finished" from="killDeath" to="." method="_on_kill_death_finished"]

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var canvasForBar: CanvasLayer = $canvasBar
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
 @onready var entryRoom: AudioStreamPlayer2D = $enterBoss
+@onready var bossDamage: AudioStreamPlayer2D = $bossDamage
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
 var isPlayerInDetectionArea: bool = false  # Controla se o jogador está na área de detecção
 var health = 20
@@ -29,16 +30,16 @@ func _process(delta: float) -> void:
 
 func _on_detection_area_body_entered(body):
 	if not Global.isDead and body.is_in_group('Player'):
-		isPlayerInDetectionArea = true  # Jogador entrou na área de detecção
+		isPlayerInDetectionArea = true 
 		animation.play('whiteAttack')
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group('Player'):
-		isPlayerInDetectionArea = false  # Jogador saiu da área de detecção
+		isPlayerInDetectionArea = false
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
-		print('atingiu')
+		bossDamage.play()
 		health -= 1
 		healthBar.health = health  
 		if health <= 0:
@@ -58,7 +59,6 @@ func _on_kill_death_finished() -> void:
 	queue_free()
 
 func hitWhenAnim():
-	# Aplicar dano somente se o jogador estiver na área de detecção
 	if isPlayerInDetectionArea:
 		Global.life -= 1
 

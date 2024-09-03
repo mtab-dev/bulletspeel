@@ -21,8 +21,9 @@ func PhysicsUpdate(_delta: float):
 	if distance > 300:
 		Transitioned.emit(self, "idle")
 		
-	
+	if Global.deadCookie:
+		enemy.velocity = Vector2.ZERO
 
-
-func _on_hit_box_body_entered(body: Node2D) -> void:
+func _on_detection_area_body_entered(body: Node2D) -> void:
 	enemy.velocity = Vector2.ZERO
+	

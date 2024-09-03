@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://hru6rshq0crp"]
 
-[ext_resource type="PackedScene" uid="uid://dfscqyrtpoqbm" path="res://scenes/objects/chest.tscn" id="1_4lohv"]
+[ext_resource type="PackedScene" uid="uid://0lfyt8ei13fy" path="res://scenes/objects/chest.tscn" id="1_4lohv"]
 [ext_resource type="Script" path="res://scripts/object/chestArea.gd" id="1_wixwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ss8n"]
