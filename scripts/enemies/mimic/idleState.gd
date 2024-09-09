@@ -14,6 +14,7 @@ func randomizeWander():
 	wanderTime = randf_range(1, 2)
 	
 func Enter():
+	texture.play('idle')
 	player = get_tree().get_first_node_in_group("Player")
 	randomizeWander()
 

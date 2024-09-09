@@ -323,14 +323,17 @@ sprite_frames = SubResource("SpriteFrames_ciu81")
 animation = &"whiteAttack"
 
 [node name="collisor" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, -4)
 shape = SubResource("CircleShape2D_al0xa")
 
 [node name="collisor2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-12, 28)
 shape = SubResource("RectangleShape2D_ehda5")
 
 [node name="collisor3" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(6, 27)
 shape = SubResource("RectangleShape2D_ehda5")
 

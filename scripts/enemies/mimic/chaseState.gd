@@ -19,9 +19,9 @@ func PhysicsUpdate(_delta: float):
 		enemy.velocity = direction.normalized() * moveSpeed
 	if distance > 300:
 		Transitioned.emit(self, "idle")
-		
-	
+
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	texture.play('attack')
+	if body.is_in_group('Player'):
+		enemy.velocity = Vector2.ZERO

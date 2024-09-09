@@ -7,7 +7,7 @@ var player: CharacterBody2D
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
-	animation.play('goingUp')
+	animation.play('idle')
 	health = 6
 	healthBar.initHealth(health)
 
@@ -21,14 +21,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group('Player'):
-		Global.life -= 1
-		animation.play('attack')
+	animation.play('attack')
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
-		animation.play('attack')
 		health -= 1
 		healthBar.health = health  
 		if health <= 0:
@@ -36,4 +33,4 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 
 func _on_animation_animation_finished() -> void:
-	animation.play('idle')
+	Global.life -= 1
