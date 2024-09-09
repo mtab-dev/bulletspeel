@@ -31,6 +31,5 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		if health <= 0:
 			queue_free()
 
-
 func _on_animation_animation_finished() -> void:
 	Global.life -= 1

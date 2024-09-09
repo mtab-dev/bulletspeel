@@ -7,6 +7,8 @@ extends Node
 @onready var slingAnim: AnimatedSprite2D = $slingDetect/slingTexture
 @onready var slingLabel: Label = $slingDetect/slingLabel
 
+var passedFirstDoor: bool = false
+
 func _ready():
 	slingAnim.play('default')
 	ambientFX.play()

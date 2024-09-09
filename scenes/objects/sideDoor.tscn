@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpqonow3wggk4"]
+
+[ext_resource type="Script" path="res://scripts/object/sideDoor.gd" id="1_sas15"]
+[ext_resource type="Texture2D" uid="uid://jp5in1c1j3e2" path="res://sprites/ui/doors/porta de lado1.png" id="2_ybhb2"]
+[ext_resource type="Texture2D" uid="uid://dw3luwpimqlrw" path="res://sprites/ui/doors/porta de lado2.png" id="3_bc380"]
+[ext_resource type="Texture2D" uid="uid://c7pi30eyd6rqj" path="res://sprites/ui/doors/porta de lado3.png" id="4_3o3g8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c51u7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ybhb2")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3o3g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bc380")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ybhb2")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ybhb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bc380")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3o3g8")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hokst"]
+size = Vector2(20, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxplw"]
+size = Vector2(51.5, 110)
+
+[node name="sideDoor" type="StaticBody2D"]
+script = ExtResource("1_sas15")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c51u7")
+animation = &"closing"
+flip_h = true
+
+[node name="collisorOne" type="CollisionShape2D" parent="."]
+position = Vector2(12, 22)
+shape = SubResource("RectangleShape2D_hokst")
+disabled = true
+
+[node name="detectionEntry" type="Area2D" parent="."]
+
+[node name="entry" type="CollisionShape2D" parent="detectionEntry"]
+position = Vector2(15.25, 19)
+shape = SubResource("RectangleShape2D_fxplw")
+debug_color = Color(0.297779, 0.614517, 0.385437, 0.42)
+
+[connection signal="body_entered" from="detectionEntry" to="." method="_on_detection_entry_body_entered"]
+[connection signal="body_exited" from="detectionEntry" to="." method="_on_detection_entry_body_exited"]

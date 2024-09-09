@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=60 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cu8vgabuo1gw6" path="res://sprites/primeiro andar pronto/andar 1 sem colisão.png" id="4_6ysvh"]
 [ext_resource type="Texture2D" uid="uid://c3740m0duu0uu" path="res://sprites/primeiro andar pronto/andar 1 colisão.png" id="5_luhrd"]
 [ext_resource type="Texture2D" uid="uid://fo8lr1dcihef" path="res://sprites/primeiro andar pronto/andar 1 sombras.png" id="6_gwf0a"]
-[ext_resource type="PackedScene" uid="uid://hru6rshq0crp" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
+[ext_resource type="PackedScene" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
 [ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
 [ext_resource type="PackedScene" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
+[ext_resource type="PackedScene" uid="uid://dpqonow3wggk4" path="res://scenes/objects/sideDoor.tscn" id="26_64x3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 50.5)
@@ -1180,7 +1181,7 @@ position = Vector2(430, -1029)
 shape = SubResource("RectangleShape2D_khe0q")
 
 [node name="slingDetect" type="Area2D" parent="."]
-position = Vector2(608, 382)
+position = Vector2(642, 396)
 
 [node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
 scale = Vector2(0.8, 0.8)
@@ -1238,7 +1239,7 @@ volume_db = -20.0
 position = Vector2(747, -1295)
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(604, 367)
+position = Vector2(693, 416)
 speed = 250
 
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]
@@ -1246,6 +1247,9 @@ position = Vector2(712, -1433)
 
 [node name="mask" type="CanvasModulate" parent="."]
 color = Color(0.47788, 0.47788, 0.47788, 1)
+
+[node name="sideDoor" parent="." instance=ExtResource("26_64x3g")]
+position = Vector2(551, 384)
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="." method="_on_enemy_area_exited_body_entered"]
