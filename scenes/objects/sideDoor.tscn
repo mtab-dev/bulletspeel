@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpqonow3wggk4"]
+[gd_scene load_steps=10 format=3 uid="uid://snyingw4wbef"]
 
 [ext_resource type="Script" path="res://scripts/object/sideDoor.gd" id="1_sas15"]
 [ext_resource type="Texture2D" uid="uid://jp5in1c1j3e2" path="res://sprites/ui/doors/porta de lado1.png" id="2_ybhb2"]
@@ -50,18 +50,25 @@ size = Vector2(20, 107)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxplw"]
 size = Vector2(51.5, 110)
 
+[sub_resource type="Animation" id="Animation_am6g0"]
+resource_name = "closed"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmfli"]
+_data = {
+"closed": SubResource("Animation_am6g0")
+}
+
 [node name="sideDoor" type="StaticBody2D"]
 script = ExtResource("1_sas15")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c51u7")
-animation = &"closing"
+animation = &"closed"
 flip_h = true
 
 [node name="collisorOne" type="CollisionShape2D" parent="."]
 position = Vector2(12, 22)
 shape = SubResource("RectangleShape2D_hokst")
-disabled = true
 
 [node name="detectionEntry" type="Area2D" parent="."]
 
@@ -69,6 +76,11 @@ disabled = true
 position = Vector2(15.25, 19)
 shape = SubResource("RectangleShape2D_fxplw")
 debug_color = Color(0.297779, 0.614517, 0.385437, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jmfli")
+}
 
 [connection signal="body_entered" from="detectionEntry" to="." method="_on_detection_entry_body_entered"]
 [connection signal="body_exited" from="detectionEntry" to="." method="_on_detection_entry_body_exited"]

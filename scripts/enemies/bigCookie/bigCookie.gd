@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 
 func _on_detection_area_body_entered(body):
 	if not Global.isDead and body.is_in_group('Player'):
-		isPlayerInDetectionArea = true  # Jogador entrou na área de detecção
+		isPlayerInDetectionArea = true 
 		animation.play('whiteAttack')
 
 func _on_detection_area_body_exited(body):
@@ -61,6 +61,7 @@ func hitWhenAnim():
 	# Aplicar dano somente se o jogador estiver na área de detecção
 	if isPlayerInDetectionArea:
 		Global.life -= 1
+		animation.play('whiteAttack')
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=59 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -25,7 +25,6 @@
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
 [ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
 [ext_resource type="PackedScene" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
-[ext_resource type="PackedScene" uid="uid://dpqonow3wggk4" path="res://scenes/objects/sideDoor.tscn" id="26_64x3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 50.5)
@@ -1247,9 +1246,6 @@ position = Vector2(712, -1433)
 
 [node name="mask" type="CanvasModulate" parent="."]
 color = Color(0.47788, 0.47788, 0.47788, 1)
-
-[node name="sideDoor" parent="." instance=ExtResource("26_64x3g")]
-position = Vector2(551, 384)
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="." method="_on_enemy_area_exited_body_entered"]
