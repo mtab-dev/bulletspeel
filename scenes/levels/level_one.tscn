@@ -1180,7 +1180,7 @@ position = Vector2(430, -1029)
 shape = SubResource("RectangleShape2D_khe0q")
 
 [node name="slingDetect" type="Area2D" parent="."]
-position = Vector2(642, 396)
+position = Vector2(662, -1007)
 
 [node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
 scale = Vector2(0.8, 0.8)
@@ -1238,7 +1238,7 @@ volume_db = -20.0
 position = Vector2(747, -1295)
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(693, 416)
+position = Vector2(611, -1073)
 speed = 250
 
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]

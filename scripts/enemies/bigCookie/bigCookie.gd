@@ -21,6 +21,10 @@ func _physics_process(delta):
 		animation.flip_h = true
 	move_and_slide()
 
+func transformCookie():
+	if health <= 10:
+		animation.play('white2black')
+
 func _process(delta: float) -> void:
 	if health <= 10:
 		Global.madCookie = true
@@ -30,7 +34,10 @@ func _process(delta: float) -> void:
 func _on_detection_area_body_entered(body):
 	if not Global.isDead and body.is_in_group('Player'):
 		isPlayerInDetectionArea = true 
-		animation.play('whiteAttack')
+		if health <= 10:
+			animation.play('blackAttack')
+		else:
+			animation.play('whiteAttack')
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group('Player'):
@@ -58,10 +65,12 @@ func _on_kill_death_finished() -> void:
 	queue_free()
 
 func hitWhenAnim():
-	# Aplicar dano somente se o jogador estiver na área de detecção
 	if isPlayerInDetectionArea:
 		Global.life -= 1
-		animation.play('whiteAttack')
+		if health <= 10:
+			animation.play('blackAttack')
+		else:
+			animation.play('whiteAttack')
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()

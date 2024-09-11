@@ -17,7 +17,10 @@ func PhysicsUpdate(_delta: float):
 	var distance = direction.length()
 	if distance > 150:
 		enemy.velocity = direction.normalized() * moveSpeed
-		texture.play("whiteRun")
+		if Global.madCookie == false:
+			texture.play("whiteRun")
+		elif Global.madCookie == true:
+			texture.play('blackAttack')
 	if distance > 300:
 		Transitioned.emit(self, "idle")
 		
