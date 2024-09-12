@@ -20,7 +20,7 @@ func PhysicsUpdate(_delta: float):
 		if Global.madCookie == false:
 			texture.play("whiteRun")
 		elif Global.madCookie == true:
-			texture.play('blackAttack')
+			texture.play('blackRun')
 	if distance > 300:
 		Transitioned.emit(self, "idle")
 		

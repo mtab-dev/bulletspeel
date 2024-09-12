@@ -15,7 +15,7 @@ func randomizeWander():
 	
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	if Global.madCookie == false:
+	if Global.madCookie == true:
 		texture.play('blackIdle')
 	else:
 		texture.play('whiteIdle')
