@@ -9,6 +9,8 @@ var isPlayerInDetectionArea: bool = false  # Controla se o jogador está na áre
 var health = 20
 var player: CharacterBody2D
 
+signal cookieTransform
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	health = 20
@@ -26,6 +28,8 @@ func transformCookie():
 		animation.play('white2black')
 
 func _process(delta: float) -> void:
+	if health == 10:
+		emit_signal("cookieTransform")
 	if health <= 10:
 		Global.madCookie = true
 	else:

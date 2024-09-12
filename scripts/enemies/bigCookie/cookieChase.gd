@@ -29,3 +29,7 @@ func PhysicsUpdate(_delta: float):
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	enemy.velocity = Vector2.ZERO
+
+
+func _on_big_cookie_cookie_transform() -> void:
+	enemy.velocity = Vector2.ZERO

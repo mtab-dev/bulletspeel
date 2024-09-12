@@ -9,6 +9,7 @@ extends Node
 
 var passedFirstDoor: bool = false
 
+
 func _ready():
 	slingAnim.play('default')
 	ambientFX.play()
