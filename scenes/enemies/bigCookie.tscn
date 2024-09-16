@@ -334,6 +334,7 @@ animations = [{
 radius = 30.0
 
 [node name="bigCookie" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_1dg2b")
 
 [node name="detectionArea" type="Area2D" parent="."]

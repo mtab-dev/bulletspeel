@@ -132,6 +132,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(566, 319)
+motion_mode = 1
 script = ExtResource("1_qne2s")
 
 [node name="collision" type="CollisionShape2D" parent="."]
