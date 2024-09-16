@@ -26,7 +26,6 @@ func _physics_process(delta):
 
 func transformCookie():
 	cookieTransform.emit()
-	isTransforming = true
 	animation.play('white2black')  
 
 func _process(delta: float) -> void:
@@ -78,7 +77,4 @@ func hitWhenAnim():
 			animation.play('whiteAttack')
 
 func _on_animation_finished() -> void:
-	if animation.animation == "white2black":
-		isTransforming = false 
-	else:
-		hitWhenAnim()
+	hitWhenAnim()

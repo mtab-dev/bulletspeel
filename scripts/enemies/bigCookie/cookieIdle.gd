@@ -17,15 +17,13 @@ func randomizeWander():
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	
-	# Instancia o Timer diretamente no código
 	if not transformTimer:
 		transformTimer = Timer.new()
-		transformTimer.wait_time = 2.0  # Duração da transformação (ajuste conforme necessário)
-		transformTimer.one_shot = true  # O timer dispara apenas uma vez
-		add_child(transformTimer)  # Adiciona o Timer ao nó atual
+		transformTimer.wait_time = 1.6
+		transformTimer.one_shot = true  
+		add_child(transformTimer)  
 		
-		# Conecta o sinal 'timeout' do Timer corretamente
+		
 		transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
 	else:
 		print("Timer já instanciado.")
@@ -46,7 +44,7 @@ func Update(delta: float):
 
 func PhysicsUpdate(_delta: float):
 	if isTransforming:
-		enemy.velocity = Vector2.ZERO  # Parado durante a transformação
+		enemy.velocity = Vector2.ZERO  
 	else:
 		if enemy:
 			enemy.velocity = moveDirection * moveSpeed
@@ -66,9 +64,9 @@ func _on_big_cookie_cookie_transform() -> void:
 		print("Iniciando transformação.")
 		transformTimer.start()
 		isTransforming = true
-		texture.play("white2black")  # Animação de transformação
+		texture.play("white2black")  
 	else:
 		print("Timer não está disponível.")
 
 func _on_transform_timer_timeout() -> void:
-	isTransforming = false  # A transformação terminou
+	isTransforming = false  
