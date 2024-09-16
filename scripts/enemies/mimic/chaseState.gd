@@ -6,6 +6,7 @@ class_name MimicChase
 @export var texture: AnimatedSprite2D
 var player: CharacterBody2D
 var alreadyAnim: bool = false
+var isInHit: bool = false
 
 
 func Enter():
@@ -19,9 +20,18 @@ func PhysicsUpdate(_delta: float):
 		enemy.velocity = direction.normalized() * moveSpeed
 	if distance > 300:
 		Transitioned.emit(self, "idle")
-		
-	
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
+	isInHit = true
 	texture.play('attack')
+
+
+func _on_hit_box_body_exited(body: Node2D) -> void:
+	isInHit = false
+
+
+func _on_animation_animation_finished() -> void:
+	if isInHit == true:
+		Global.life -= 1 
+		texture.play('attack')
