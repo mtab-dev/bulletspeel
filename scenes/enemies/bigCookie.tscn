@@ -423,6 +423,9 @@ volume_db = -20.0
 stream = ExtResource("68_7jfre")
 volume_db = -40.0
 
+[node name="transformTimer" type="Timer" parent="." groups=["Timers"]]
+wait_time = 5.0
+
 [connection signal="cookieTransform" from="." to="stateMachine/idle" method="_on_big_cookie_cookie_transform"]
 [connection signal="cookieTransform" from="." to="stateMachine/chase" method="_on_big_cookie_cookie_transform"]
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
@@ -431,3 +434,5 @@ volume_db = -40.0
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]
 [connection signal="finished" from="killDeath" to="." method="_on_kill_death_finished"]
+[connection signal="timeout" from="transformTimer" to="stateMachine/idle" method="_on_transform_timer_timeout"]
+[connection signal="timeout" from="transformTimer" to="stateMachine/chase" method="_on_transform_timer_timeout"]
