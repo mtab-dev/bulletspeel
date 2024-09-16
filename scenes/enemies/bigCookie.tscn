@@ -321,7 +321,8 @@ shape = SubResource("RectangleShape2D_ehda5")
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
-animation = &"whiteAttack"
+animation = &"blackRun"
+frame_progress = 0.771297
 
 [node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4)
