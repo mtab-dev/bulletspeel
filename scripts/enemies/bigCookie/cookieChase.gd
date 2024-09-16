@@ -10,15 +10,16 @@ var player: CharacterBody2D
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	
-	# Instancia o Timer diretamente no código
-	transformTimer = Timer.new()
-	transformTimer.wait_time = 2.0  # Duração da transformação (ajuste conforme necessário)
-	transformTimer.one_shot = true  # O timer dispara apenas uma vez
-	add_child(transformTimer)  # Adiciona o Timer ao nó atual
-	
-	# Conecta o sinal 'timeout' do Timer corretamente
-	transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
+
+	# Verifica se o Timer já foi criado
+	if not transformTimer:
+		transformTimer = Timer.new()
+		transformTimer.wait_time = 2.0  # Ajusta o tempo conforme necessário
+		transformTimer.one_shot = true  # Define como uma vez
+		add_child(transformTimer)  # Adiciona o Timer ao nó
+		transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
+	else:
+		print("Timer já instanciado.")
 
 func PhysicsUpdate(_delta: float):
 	if isTransforming:
@@ -36,9 +37,12 @@ func PhysicsUpdate(_delta: float):
 			Transitioned.emit(self, "idle")
 
 func _on_big_cookie_cookie_transform() -> void:
-	transformTimer.start()  # Inicia o timer para a transformação
-	isTransforming = true
-	texture.play("white2black")  # Toca a animação de transformação
+	if transformTimer:
+		transformTimer.start()  # Inicia o timer para a transformação
+		isTransforming = true
+		texture.play("white2black")  # Toca a animação de transformação
+	else:
+		print("Timer não está disponível.")
 
 func _on_transform_timer_timeout() -> void:
 	isTransforming = false  # A transformação terminou
