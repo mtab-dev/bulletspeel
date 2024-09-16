@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmcxw2nppu7n0"]
+[gd_scene load_steps=12 format=3 uid="uid://bmcxw2nppu7n0"]
 
 [ext_resource type="PackedScene" uid="uid://c66pdwsw13cig" path="res://scenes/ui/life.tscn" id="1_di26l"]
 [ext_resource type="Script" path="res://scripts/ui/hudControl.gd" id="1_rc38y"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://cule5aninb5qn" path="res://sprites/tela de compra/boots.webp" id="6_nrim4"]
 [ext_resource type="Texture2D" uid="uid://b5wtc2ntq5lss" path="res://sprites/ui/hud/bullet_candy.webp" id="6_w835x"]
 [ext_resource type="Texture2D" uid="uid://cpfiymya4kuf8" path="res://assets/ui/pause-button.png" id="7_blqxo"]
+[ext_resource type="Shader" path="res://scripts/ui/daltLayer.gdshader" id="10_xj6ab"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsia7"]
+shader = ExtResource("10_xj6ab")
+shader_parameter/mode = 0
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_rc38y")
@@ -93,5 +98,8 @@ offset_bottom = 56.0
 icon = ExtResource("7_blqxo")
 icon_alignment = 1
 expand_icon = true
+
+[node name="daltFilter" type="CanvasModulate" parent="."]
+material = SubResource("ShaderMaterial_wsia7")
 
 [connection signal="pressed" from="Test/UI/pauseScene" to="." method="_on_pause_scene_pressed"]

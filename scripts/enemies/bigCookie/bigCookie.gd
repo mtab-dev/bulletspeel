@@ -4,11 +4,12 @@ extends CharacterBody2D
 @onready var canvasForBar: CanvasLayer = $canvasBar
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
 @onready var entryRoom: AudioStreamPlayer2D = $enterBoss
-@onready var bossDamage: AudioStreamPlayer2D = $bossDamage
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
 var isPlayerInDetectionArea: bool = false  # Controla se o jogador está na área de detecção
 var health = 20
 var player: CharacterBody2D
+
+signal cookieTransform
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -22,7 +23,13 @@ func _physics_process(delta):
 		animation.flip_h = true
 	move_and_slide()
 
+func transformCookie():
+	if health <= 10:
+		animation.play('white2black')
+
 func _process(delta: float) -> void:
+	if health == 10:
+		emit_signal("cookieTransform")
 	if health <= 10:
 		Global.madCookie = true
 	else:
@@ -31,15 +38,18 @@ func _process(delta: float) -> void:
 func _on_detection_area_body_entered(body):
 	if not Global.isDead and body.is_in_group('Player'):
 		isPlayerInDetectionArea = true 
-		animation.play('whiteAttack')
+		if health <= 10:
+			animation.play('blackAttack')
+		else:
+			animation.play('whiteAttack')
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group('Player'):
-		isPlayerInDetectionArea = false
+		isPlayerInDetectionArea = false  # Jogador saiu da área de detecção
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
-		bossDamage.play()
+		print('atingiu')
 		health -= 1
 		healthBar.health = health  
 		if health <= 0:
@@ -61,6 +71,11 @@ func _on_kill_death_finished() -> void:
 func hitWhenAnim():
 	if isPlayerInDetectionArea:
 		Global.life -= 1
+	if isPlayerInDetectionArea:
+		if health <= 10:
+			animation.play('blackAttack')
+		else:
+			animation.play('whiteAttack')
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()

@@ -19,8 +19,6 @@ func _process(delta):
 		Global.isDead = true
 		player.timeAfterDeath()
 
-
-
 func _on_chest_1_body_entered(body):
 	if body.is_in_group('Player'):
 		var chest = get_node('lvlDesign/collision/chest1/chest')

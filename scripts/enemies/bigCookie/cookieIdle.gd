@@ -15,9 +15,10 @@ func randomizeWander():
 	
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	if Global.madCookie:
+	if Global.madCookie == true:
 		texture.play('blackIdle')
-	texture.play('whiteIdle')
+	else:
+		texture.play('whiteIdle')
 	randomizeWander()
 
 func Update(delta: float):
@@ -32,11 +33,16 @@ func PhysicsUpdate(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	if direction.length() < 150:
 		Transitioned.emit(self, "chase")
-	if Global.madCookie:
+	if Global.madCookie == true:
 		texture.play('blackIdle')
-	texture.play('whiteIdle')
+	else:
+		texture.play('whiteIdle')
 
 
 func _process(delta: float) -> void:
 	var direction = player.global_position - enemy.global_position
 	
+
+
+func _on_big_cookie_cookie_transform() -> void:
+	enemy.velocity = Vector2.ZERO

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=82 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -32,13 +32,21 @@
 [ext_resource type="Texture2D" uid="uid://8upow4rinkpc" path="res://sprites/enemies/bigCookie/black/idle/trakingPparado3.png" id="26_v0usv"]
 [ext_resource type="Texture2D" uid="uid://bgcxduxpsfult" path="res://sprites/enemies/bigCookie/black/idle/trakingPparado4.png" id="27_1458s"]
 [ext_resource type="Texture2D" uid="uid://cp1rnu2y5egcu" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform1.png" id="28_4ynmr"]
+[ext_resource type="Texture2D" uid="uid://bf2urtbr3oqa0" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto1.png" id="28_ujvyy"]
+[ext_resource type="Texture2D" uid="uid://dlkvyl3l1g0qc" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto2.png" id="29_ccvne"]
 [ext_resource type="Texture2D" uid="uid://dffdhmrt06d6" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform2.png" id="29_ffail"]
+[ext_resource type="Texture2D" uid="uid://bs24eldhveh1q" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto3.png" id="30_gtc5k"]
 [ext_resource type="Texture2D" uid="uid://coqk8qk8ej6k2" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform3.png" id="30_r6vgq"]
+[ext_resource type="Texture2D" uid="uid://d0jguca1agft3" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto4.png" id="31_kq2vj"]
 [ext_resource type="Texture2D" uid="uid://bgb6vc0pnu2t0" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform4.png" id="31_r0ubd"]
 [ext_resource type="Texture2D" uid="uid://duo34sbi7ov31" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform5.png" id="32_6rrsy"]
+[ext_resource type="Texture2D" uid="uid://htpocmlpba8u" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto5.png" id="32_w6t32"]
+[ext_resource type="Texture2D" uid="uid://c2om71dve77mr" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto6.png" id="33_a2bxk"]
 [ext_resource type="Texture2D" uid="uid://dp684tc5erjlr" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform6.png" id="33_wi4sh"]
+[ext_resource type="Texture2D" uid="uid://856v1lf33n8" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto7.png" id="34_6s3d0"]
 [ext_resource type="Texture2D" uid="uid://dl1vkc4mn5mmn" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform7.png" id="34_e1oee"]
 [ext_resource type="Texture2D" uid="uid://dd1jfv4a06gr3" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform8.png" id="35_kqp8y"]
+[ext_resource type="Texture2D" uid="uid://b4rkabmx82fme" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto8.png" id="35_punda"]
 [ext_resource type="Texture2D" uid="uid://r0w3woyx68p3" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform9.png" id="36_m1ivy"]
 [ext_resource type="Texture2D" uid="uid://bpa56pgaudflm" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform10.png" id="37_y3ywg"]
 [ext_resource type="Texture2D" uid="uid://d1xa8vht8hbml" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco1.png" id="38_su00f"]
@@ -154,7 +162,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"blackAttack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -172,6 +180,35 @@ animations = [{
 "loop": true,
 "name": &"blackIdle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_ujvyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ccvne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_gtc5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_kq2vj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_w6t32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_a2bxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_6s3d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_punda")
+}],
+"loop": true,
+"name": &"blackRun",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -321,8 +358,7 @@ shape = SubResource("RectangleShape2D_ehda5")
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
-animation = &"blackRun"
-frame_progress = 0.771297
+animation = &"blackAttack"
 
 [node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4)
@@ -387,6 +423,8 @@ volume_db = -20.0
 stream = ExtResource("68_7jfre")
 volume_db = -40.0
 
+[connection signal="cookieTransform" from="." to="stateMachine/idle" method="_on_big_cookie_cookie_transform"]
+[connection signal="cookieTransform" from="." to="stateMachine/chase" method="_on_big_cookie_cookie_transform"]
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_entered"]
