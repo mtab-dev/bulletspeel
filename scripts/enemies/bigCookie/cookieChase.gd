@@ -10,12 +10,11 @@ var player: CharacterBody2D
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	if not transformTimer:
-		transformTimer = Timer.new()
-		transformTimer.wait_time = 1.6 
-		transformTimer.one_shot = true  
-		add_child(transformTimer)  
-		transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
+	transformTimer = Timer.new()
+	transformTimer.wait_time = 1.6 
+	transformTimer.one_shot = true  
+	add_child(transformTimer)  
+	transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
 
 func PhysicsUpdate(_delta: float):
 	if isTransforming:
@@ -39,4 +38,5 @@ func _on_big_cookie_cookie_transform() -> void:
 		texture.play("white2black")  
 
 func _on_transform_timer_timeout() -> void:
+	print('foi')
 	isTransforming = false  

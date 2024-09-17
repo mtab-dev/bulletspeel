@@ -27,6 +27,12 @@ func _physics_process(delta):
 func transformCookie():
 	cookieTransform.emit()
 	animation.play('white2black')  
+	
+func atkAnim():
+	if Global.madCookie == true:
+		animation.play('blackAttack')
+	else:
+		animation.play('whiteAttack')
 
 func _process(delta: float) -> void:
 	if health == 10:
@@ -37,12 +43,10 @@ func _process(delta: float) -> void:
 		Global.madCookie = false
 
 func _on_detection_area_body_entered(body):
-	if not Global.isDead and body.is_in_group('Player'):
+	if body.is_in_group('Player'):
+		velocity = Vector2.ZERO
 		isPlayerInDetectionArea = true 
-		if Global.madCookie:
-			animation.play('blackAttack')
-		else:
-			animation.play('whiteAttack')
+		atkAnim()
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group('Player'):
@@ -69,12 +73,9 @@ func _on_kill_death_finished() -> void:
 	queue_free()
 
 func hitWhenAnim():
-	if isPlayerInDetectionArea:
+	if isPlayerInDetectionArea == true:
+		atkAnim()
 		Global.life -= 1
-		if Global.madCookie:
-			animation.play('blackAttack')
-		else:
-			animation.play('whiteAttack')
 
-func _on_animation_finished() -> void:
+func _on_animation_animation_finished() -> void:
 	hitWhenAnim()
