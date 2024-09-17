@@ -16,8 +16,6 @@ func Enter():
 		transformTimer.one_shot = true  
 		add_child(transformTimer)  
 		transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
-	else:
-		print("Timer já instanciado.")
 
 func PhysicsUpdate(_delta: float):
 	if isTransforming:

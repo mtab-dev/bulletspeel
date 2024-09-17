@@ -34,14 +34,14 @@ func horizontalMovement() -> void:
 	velocity.x = input_direction * speed
 	if velocity.x != 0:
 		isWalking = true
-	print(velocity.x)
+
 	
 func verticalMovement() -> void:
 	var input_direction: float = Input.get_action_strength("down") - Input.get_action_strength("up")
 	velocity.y = input_direction * speed
 	if velocity.y != 0:
 		isWalking = true
-	print(velocity.y)
+
 	
 func movement():
 	if(not Global.isDead):

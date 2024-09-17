@@ -22,12 +22,7 @@ func Enter():
 		transformTimer.wait_time = 1.6
 		transformTimer.one_shot = true  
 		add_child(transformTimer)  
-		
-		
 		transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
-	else:
-		print("Timer já instanciado.")
-	
 	if Global.madCookie:
 		texture.play('blackIdle')
 	else:
@@ -35,8 +30,6 @@ func Enter():
 	randomizeWander()
 
 func Update(delta: float):
-	if transformTimer:
-		print(transformTimer)
 	if wanderTime > 0:
 		wanderTime -= delta
 	else:
@@ -61,12 +54,9 @@ func _process(delta: float) -> void:
 
 func _on_big_cookie_cookie_transform() -> void:
 	if transformTimer:
-		print("Iniciando transformação.")
 		transformTimer.start()
 		isTransforming = true
 		texture.play("white2black")  
-	else:
-		print("Timer não está disponível.")
 
 func _on_transform_timer_timeout() -> void:
 	isTransforming = false  
