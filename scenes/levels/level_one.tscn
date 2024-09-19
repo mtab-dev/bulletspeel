@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cu8vgabuo1gw6" path="res://sprites/primeiro andar pronto/andar 1 sem colisão.png" id="4_6ysvh"]
 [ext_resource type="Texture2D" uid="uid://c3740m0duu0uu" path="res://sprites/primeiro andar pronto/andar 1 colisão.png" id="5_luhrd"]
 [ext_resource type="Texture2D" uid="uid://fo8lr1dcihef" path="res://sprites/primeiro andar pronto/andar 1 sombras.png" id="6_gwf0a"]
-[ext_resource type="PackedScene" uid="uid://hru6rshq0crp" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
+[ext_resource type="PackedScene" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
@@ -24,7 +24,7 @@
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="18_tdmgt"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
 [ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
-[ext_resource type="PackedScene" uid="uid://bltn0883iny41" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
+[ext_resource type="PackedScene" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 50.5)

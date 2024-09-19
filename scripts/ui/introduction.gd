@@ -1,9 +1,18 @@
 extends Control
 
+@onready var goAheadBtn: Button = $goAhead
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if Global.lang == 'port':
+		goAheadBtn.text = 'APERTE AQUI PARA PULAR'
+	if Global.lang == 'eng':
+		goAheadBtn.text = 'PRESS HERE TO PLAY'
+	if Global.lang == 'esp':
+		goAheadBtn.text = 'PRESIONE AQUÍ PARA JUGAR'
+		
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

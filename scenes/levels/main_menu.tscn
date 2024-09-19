@@ -231,9 +231,9 @@ expand_icon = true
 process_mode = 3
 layout_mode = 2
 offset_left = 516.0
-offset_top = 487.0
+offset_top = 535.0
 offset_right = 648.0
-offset_bottom = 530.0
+offset_bottom = 578.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
@@ -247,11 +247,35 @@ expand_icon = true
 
 [node name="opções" type="Button" parent="menu"]
 process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 511.0
+offset_top = 430.0
+offset_right = 596.0
+offset_bottom = 430.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("38_koc4b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
+text = "options"
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="opções2" type="Button" parent="menu"]
+process_mode = 3
 layout_mode = 0
 offset_left = 445.0
-offset_top = 424.0
+offset_top = 480.0
 offset_right = 715.0
-offset_bottom = 483.0
+offset_bottom = 539.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
@@ -340,6 +364,7 @@ visible = false
 [connection signal="pressed" from="menu/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="menu/sair" to="." method="_on_sair_pressed"]
 [connection signal="pressed" from="menu/opções" to="." method="_on_opções_pressed"]
+[connection signal="pressed" from="menu/opções2" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="menu/port" to="." method="_on_port_pressed"]
 [connection signal="pressed" from="menu/eng" to="." method="_on_eng_pressed"]
 [connection signal="pressed" from="menu/esp" to="." method="_on_esp_pressed"]
