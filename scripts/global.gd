@@ -13,3 +13,7 @@ var deadCookie: bool = false
 ##itens do player
 var hasLolli: bool = false
 var hasBoots: bool = false
+
+
+#var de linguagema
+var lang: String = "eng"

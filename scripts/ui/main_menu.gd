@@ -45,3 +45,15 @@ func _on_scene_changing_timer_timeout():
 		get_tree().change_scene_to_file("res://scenes/levels/controls.tscn")
 	elif path == 'quit':
 		get_tree().quit()
+
+
+func _on_esp_pressed() -> void:
+	Global.lang = "esp"
+
+
+func _on_eng_pressed() -> void:
+	Global.lang = "eng"
+
+
+func _on_port_pressed() -> void:
+	Global.lang = "port"

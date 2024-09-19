@@ -264,6 +264,63 @@ alignment = 0
 icon_alignment = 1
 expand_icon = true
 
+[node name="port" type="Button" parent="menu"]
+process_mode = 3
+layout_mode = 0
+offset_left = 21.0
+offset_top = 357.0
+offset_right = 107.0
+offset_bottom = 405.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("38_koc4b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
+text = "PORT"
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="eng" type="Button" parent="menu"]
+process_mode = 3
+layout_mode = 0
+offset_left = 21.0
+offset_top = 401.0
+offset_right = 107.0
+offset_bottom = 449.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("38_koc4b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
+text = "ENG"
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="esp" type="Button" parent="menu"]
+process_mode = 3
+layout_mode = 0
+offset_left = 20.0
+offset_top = 445.0
+offset_right = 106.0
+offset_bottom = 493.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("38_koc4b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
+text = "ESP"
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
 [node name="menuAmbient" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("41_o2sml")
 volume_db = -10.0
@@ -278,8 +335,12 @@ stream = ExtResource("43_tdf6v")
 [node name="sceneChangingTimer" type="Timer" parent="."]
 
 [node name="controlOverlay" parent="." instance=ExtResource("44_p7tby")]
+visible = false
 
 [connection signal="pressed" from="menu/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="menu/sair" to="." method="_on_sair_pressed"]
 [connection signal="pressed" from="menu/opções" to="." method="_on_opções_pressed"]
+[connection signal="pressed" from="menu/port" to="." method="_on_port_pressed"]
+[connection signal="pressed" from="menu/eng" to="." method="_on_eng_pressed"]
+[connection signal="pressed" from="menu/esp" to="." method="_on_esp_pressed"]
 [connection signal="timeout" from="sceneChangingTimer" to="." method="_on_scene_changing_timer_timeout"]
