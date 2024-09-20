@@ -14,6 +14,8 @@ var deadCookie: bool = false
 var hasLolli: bool = false
 var hasBoots: bool = false
 
+#cor do joão
+var playerColor: String = "W"
 
-#var de linguagema
-var lang: String = "eng"
+#var de linguagem
+var lang: String = "port"

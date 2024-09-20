@@ -8,12 +8,34 @@ extends Control
 @onready var controlOverlay: AnimationPlayer = $controlOverlay/animation
 @onready var optionsOverlay: AnimationPlayer = $OptionsOverlay/animation
 @onready var optionsTable: CanvasLayer = $OptionsOverlay
+#botões
+@onready var playButton: Button = $menu/play
+@onready var exitButton: Button = $menu/sair
+@onready var optionsButton: Button = $"menu/opções"
+@onready var controlsButton: Button = $"menu/opções2"
 var path: String
 var canTrackInput: bool = true
 
 func _ready():
 	optionsTable.offset.y = -1000
 	bgroundSprite.play("menu-anim")
+	
+func _process(delta: float) -> void:
+	if Global.lang == 'eng':
+		playButton.icon = load("res://sprites/ui/menu/playEng.webp")
+		exitButton.icon = load("res://sprites/ui/menu/exitEng.webp")
+		optionsButton.icon = load("res://sprites/ui/menu/optionEng.webp")
+		controlsButton.icon = load("res://sprites/ui/menu/controlEng.webp")
+	if Global.lang == 'port':
+		playButton.icon = load("res://sprites/ui/menu/play_button.webp")
+		exitButton.icon = load("res://sprites/ui/menu/exit_button.webp")
+		optionsButton.icon = load("res://sprites/ui/menu/options.webp")
+		controlsButton.icon = load("res://sprites/ui/menu/control_button.webp")
+	if Global.lang == 'esp':
+		playButton.icon = load("res://sprites/ui/menu/jugar.webp")
+		exitButton.icon = load("res://sprites/ui/menu/salir.webp")
+		optionsButton.icon = load("res://sprites/ui/menu/opciones.webp")
+		controlsButton.icon = load("res://sprites/ui/menu/control_button.webp")
 
 
 func timerAwait(time: float):
