@@ -7,10 +7,12 @@ extends Control
 @onready var changeTimer: Timer = $sceneChangingTimer
 @onready var controlOverlay: AnimationPlayer = $controlOverlay/animation
 @onready var optionsOverlay: AnimationPlayer = $OptionsOverlay/animation
+@onready var optionsTable: CanvasLayer = $OptionsOverlay
 var path: String
 var canTrackInput: bool = true
 
 func _ready():
+	optionsTable.offset.y = -1000
 	bgroundSprite.play("menu-anim")
 
 
