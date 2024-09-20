@@ -9,6 +9,8 @@ func animate(direction: Vector2, life: int) -> void:
 			play("whiteDeath")
 		if Global.playerColor == 'M':
 			play("midDeath")
+		if Global.playerColor == 'B':
+			play("blackDeath")
 		is_dead = true
 		return
 	
@@ -33,11 +35,15 @@ func vertical_behavior(direction: Vector2) -> void:
 			play("whiteUp")
 		if Global.playerColor == 'M':
 			play("midUp")
+		if Global.playerColor == 'B':
+			play("blackUp")
 	elif direction.y > 0:
 		if Global.playerColor == 'W':
 			play("whiteDown")
 		if Global.playerColor == 'M':
 			play("midDown")
+		if Global.playerColor == 'B':
+			play("blackDown")
 
 
 func horizontal_behavior(direction: Vector2) -> void:
@@ -46,9 +52,13 @@ func horizontal_behavior(direction: Vector2) -> void:
 			play("whiteRun")
 		if Global.playerColor == 'M':
 			play("midRun")
+		if Global.playerColor == 'B':
+			play("blackRun")
 
 func idle_behavior() -> void:
 	if Global.playerColor == 'W':
 		play("whiteIdle")
 	if Global.playerColor == 'M':
 		play("midIdle")
+	if Global.playerColor == 'B':
+		play("blackIdle")

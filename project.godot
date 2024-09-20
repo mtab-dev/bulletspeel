@@ -27,7 +27,7 @@ Global="*res://scripts/global.gd"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 

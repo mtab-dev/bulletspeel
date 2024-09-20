@@ -1,15 +1,23 @@
-[gd_scene load_steps=22 format=3 uid="uid://caq6g7ot52f6i"]
+[gd_scene load_steps=30 format=3 uid="uid://caq6g7ot52f6i"]
 
 [ext_resource type="Script" path="res://scripts/ui/chosePlayer.gd" id="1_o5jkr"]
 [ext_resource type="Texture2D" uid="uid://dwu18gldx5boy" path="res://sprites/ui/menu/pauseOverlay.webp" id="1_qgvrw"]
+[ext_resource type="Texture2D" uid="uid://1jh5twgehce8" path="res://sprites/player/jaopreto/Jaoparado/jaoparado1.png" id="3_8l0ou"]
 [ext_resource type="Texture2D" uid="uid://crqyjpv2p15xt" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado1.png" id="3_45b2n"]
 [ext_resource type="Texture2D" uid="uid://texr7ix83oq8" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado2.png" id="4_gqmmg"]
+[ext_resource type="Texture2D" uid="uid://cy70li6wkamli" path="res://sprites/player/jaopreto/Jaoparado/jaoparado2.png" id="4_iinqr"]
 [ext_resource type="Texture2D" uid="uid://ypwnyx7cauid" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado3.png" id="5_5q26r"]
+[ext_resource type="Texture2D" uid="uid://6clqj8v3a5nb" path="res://sprites/player/jaopreto/Jaoparado/jaoparado3.png" id="5_xprp6"]
 [ext_resource type="Texture2D" uid="uid://c0km8lvngh8lb" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado4.png" id="6_6whfl"]
+[ext_resource type="Texture2D" uid="uid://dcvra41ej2s66" path="res://sprites/player/jaopreto/Jaoparado/jaoparado4.png" id="6_fgm3o"]
+[ext_resource type="Texture2D" uid="uid://br2yhtpqlenvs" path="res://sprites/player/jaopreto/Jaoparado/jaoparado5.png" id="7_r5wwh"]
 [ext_resource type="Texture2D" uid="uid://c5xx8aa3s2cc" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado5.png" id="7_t8d7g"]
 [ext_resource type="Texture2D" uid="uid://d22weuf6pmxf7" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado6.png" id="8_0vg1d"]
+[ext_resource type="Texture2D" uid="uid://bvwjni7lx8jdp" path="res://sprites/player/jaopreto/Jaoparado/jaoparado6.png" id="8_ravc7"]
+[ext_resource type="Texture2D" uid="uid://dbmn6f17yvxes" path="res://sprites/player/jaopreto/Jaoparado/jaoparado7.png" id="9_08oqx"]
 [ext_resource type="Texture2D" uid="uid://bx3qp3qygexmb" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado7.png" id="9_fnah6"]
 [ext_resource type="Texture2D" uid="uid://blnag6tm3k32t" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado8.png" id="10_cmt4j"]
+[ext_resource type="Texture2D" uid="uid://dndu8ydtows8x" path="res://sprites/player/jaopreto/Jaoparado/jaoparado8.png" id="10_m4xi8"]
 [ext_resource type="Texture2D" uid="uid://n2n481dwfbrv" path="res://sprites/player/jaobranco/Jaoparado/jaoparado1.png" id="11_rtnpo"]
 [ext_resource type="Texture2D" uid="uid://bfc2dgqjfdk18" path="res://sprites/player/jaobranco/Jaoparado/jaoparado2.png" id="12_pvm6n"]
 [ext_resource type="Texture2D" uid="uid://cg85ks26y0qej" path="res://sprites/player/jaobranco/Jaoparado/jaoparado3.png" id="13_li222"]
@@ -23,6 +31,35 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f6r56"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8l0ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iinqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xprp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fgm3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r5wwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ravc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_08oqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m4xi8")
+}],
+"loop": true,
+"name": &"blackIdle",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_45b2n")
@@ -100,7 +137,7 @@ texture = ExtResource("1_qgvrw")
 position = Vector2(584, 340)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_f6r56")
-animation = &"midIdle"
+animation = &"blackIdle"
 
 [node name="startBtn" type="Button" parent="."]
 layout_mode = 0
@@ -114,10 +151,10 @@ text = "JOGAR"
 
 [node name="midColor" type="Button" parent="."]
 layout_mode = 0
-offset_left = 606.0
-offset_top = 402.0
-offset_right = 669.0
-offset_bottom = 494.0
+offset_left = 558.0
+offset_top = 410.0
+offset_right = 621.0
+offset_bottom = 502.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("19_2isa1")
 theme_override_colors/font_color = Color(0.764706, 0.498039, 0.305882, 1)
@@ -125,12 +162,25 @@ theme_override_font_sizes/font_size = 100
 text = "#"
 flat = true
 
+[node name="blackColor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 411.0
+offset_right = 692.0
+offset_bottom = 503.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("19_2isa1")
+theme_override_colors/font_color = Color(0.427451, 0.254902, 0.133333, 1)
+theme_override_font_sizes/font_size = 100
+text = "#"
+flat = true
+
 [node name="whiteColor" type="Button" parent="."]
 layout_mode = 0
-offset_left = 497.0
-offset_top = 402.0
-offset_right = 575.0
-offset_bottom = 494.0
+offset_left = 481.0
+offset_top = 410.0
+offset_right = 559.0
+offset_bottom = 502.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("19_2isa1")
 theme_override_colors/font_color = Color(1, 0.827451, 0.701961, 1)
@@ -154,4 +204,5 @@ bus = &"fx"
 
 [connection signal="pressed" from="startBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="midColor" to="." method="_on_mid_color_pressed"]
+[connection signal="pressed" from="blackColor" to="." method="_on_black_color_pressed"]
 [connection signal="pressed" from="whiteColor" to="." method="_on_white_color_pressed"]

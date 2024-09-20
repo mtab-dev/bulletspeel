@@ -1,52 +1,93 @@
-[gd_scene load_steps=89 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=130 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
 [ext_resource type="Texture2D" uid="uid://2pw1ydkhu3jl" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno1.png" id="2_agyhs"]
+[ext_resource type="Texture2D" uid="uid://c41p2iha1bcjm" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno1.png" id="2_qrcdv"]
 [ext_resource type="Texture2D" uid="uid://bfctwe5pkp3ip" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno2.png" id="3_28062"]
+[ext_resource type="Texture2D" uid="uid://dgml64tdenitj" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno2.png" id="3_ok0ak"]
+[ext_resource type="Texture2D" uid="uid://okd0igk2ab0m" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno3.png" id="4_duj7o"]
 [ext_resource type="Texture2D" uid="uid://8y1fkot038bw" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno3.png" id="4_ujwue"]
+[ext_resource type="Texture2D" uid="uid://biet42ltd1xu7" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno4.png" id="5_mflqk"]
 [ext_resource type="Texture2D" uid="uid://cg7e001sj3xsq" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno4.png" id="5_v8xre"]
+[ext_resource type="Texture2D" uid="uid://b3lec4psrd6o5" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno5.png" id="6_gpi01"]
 [ext_resource type="Texture2D" uid="uid://cxh184eu3t4aw" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno5.png" id="6_hycqf"]
+[ext_resource type="Texture2D" uid="uid://m4l42evj5u1t" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno6.png" id="7_mdwrt"]
 [ext_resource type="Texture2D" uid="uid://b7gis4maa3po8" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno6.png" id="7_u5goj"]
+[ext_resource type="Texture2D" uid="uid://k2t77sowjwwj" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno7.png" id="8_ef663"]
 [ext_resource type="Texture2D" uid="uid://csioo8ner0wha" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno7.png" id="8_wmdf7"]
+[ext_resource type="Texture2D" uid="uid://bsrv0e4icon0" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno8.png" id="9_cpjis"]
 [ext_resource type="Texture2D" uid="uid://bdgr65uwu5tfx" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno8.png" id="9_oy62h"]
 [ext_resource type="Texture2D" uid="uid://bobkotjm5032c" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno9.png" id="10_2igx8"]
+[ext_resource type="Texture2D" uid="uid://b5ti4egeb5g06" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno9.png" id="10_t5ucs"]
+[ext_resource type="Texture2D" uid="uid://dkwl3lkunccpk" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno10.png" id="11_vc8nm"]
 [ext_resource type="Texture2D" uid="uid://bxp6p0wlo526u" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno10.png" id="11_vpefi"]
+[ext_resource type="Texture2D" uid="uid://dxj6viwmvofc5" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno11.png" id="12_b4sxx"]
 [ext_resource type="Texture2D" uid="uid://c8w6jstehehpe" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno11.png" id="12_ynqsw"]
+[ext_resource type="Texture2D" uid="uid://cly516xj8kho" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno12.png" id="13_e2n43"]
 [ext_resource type="Texture2D" uid="uid://dobain5gjl63a" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno12.png" id="13_e8gs3"]
 [ext_resource type="Texture2D" uid="uid://b2a4laxxug2sk" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno13.png" id="14_3fdhk"]
+[ext_resource type="Texture2D" uid="uid://cmdkjsy7vt72m" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno13.png" id="14_l257a"]
+[ext_resource type="Texture2D" uid="uid://yjgrdkg13cih" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno14.png" id="15_20rxg"]
 [ext_resource type="Texture2D" uid="uid://8b1xmb2gm7eb" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno14.png" id="15_oge3s"]
 [ext_resource type="Texture2D" uid="uid://iwfwnfqb3is5" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno15.png" id="16_hjq0l"]
+[ext_resource type="Texture2D" uid="uid://b8b8nu6wv5pa3" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno15.png" id="16_ipkll"]
+[ext_resource type="Texture2D" uid="uid://cq1ie1yxo6ovd" path="res://sprites/player/jaopreto/jaoandano/jaoandandoFRENTE1.png" id="17_djj4x"]
 [ext_resource type="Texture2D" uid="uid://cd1mt6k2fk46q" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoFRENTE1.png" id="17_sqnu6"]
 [ext_resource type="Script" path="res://scripts/ui/animations.gd" id="18_khfyn"]
+[ext_resource type="Texture2D" uid="uid://jbih112wn5mg" path="res://sprites/player/jaopreto/jaoandano/jaoandandoFRENTE2.png" id="18_o6wkd"]
 [ext_resource type="Texture2D" uid="uid://cklg3ti6k7ih3" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoFRENTE2.png" id="18_tyd7m"]
 [ext_resource type="Texture2D" uid="uid://bejwimvo64y5k" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoFRENTE3.png" id="19_3ceg7"]
+[ext_resource type="Texture2D" uid="uid://dvhehlr3f72au" path="res://sprites/player/jaopreto/jaoandano/jaoandandoFRENTE3.png" id="19_fxaky"]
 [ext_resource type="PackedScene" uid="uid://bmcxw2nppu7n0" path="res://scenes/ui/hud.tscn" id="19_ngtxp"]
 [ext_resource type="Texture2D" uid="uid://r28endu2hdl6" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoFRENTE4.png" id="20_h88at"]
+[ext_resource type="Texture2D" uid="uid://irfooyaupr3h" path="res://sprites/player/jaopreto/jaoandano/jaoandandoFRENTE4.png" id="20_r8s45"]
 [ext_resource type="Texture2D" uid="uid://7xds4s5tfi42" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoFRENTE5.png" id="21_auuks"]
+[ext_resource type="Texture2D" uid="uid://clcmgggjmdjom" path="res://sprites/player/jaopreto/jaoandano/jaoandandoFRENTE5.png" id="21_ruch6"]
 [ext_resource type="Texture2D" uid="uid://uuq6dgwqd0bl" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoFRENTE6.png" id="22_3xn1c"]
+[ext_resource type="Texture2D" uid="uid://oa68qi04dkki" path="res://sprites/player/jaopreto/jaoandano/jaoandandoFRENTE6.png" id="22_uv0t2"]
+[ext_resource type="Texture2D" uid="uid://1jh5twgehce8" path="res://sprites/player/jaopreto/Jaoparado/jaoparado1.png" id="23_6gd6l"]
 [ext_resource type="Texture2D" uid="uid://crqyjpv2p15xt" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado1.png" id="23_ky4if"]
 [ext_resource type="Texture2D" uid="uid://texr7ix83oq8" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado2.png" id="24_ydtrs"]
+[ext_resource type="Texture2D" uid="uid://cy70li6wkamli" path="res://sprites/player/jaopreto/Jaoparado/jaoparado2.png" id="24_yfc87"]
 [ext_resource type="Texture2D" uid="uid://ypwnyx7cauid" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado3.png" id="25_vmywd"]
+[ext_resource type="Texture2D" uid="uid://6clqj8v3a5nb" path="res://sprites/player/jaopreto/Jaoparado/jaoparado3.png" id="25_ynjq3"]
 [ext_resource type="Texture2D" uid="uid://c0km8lvngh8lb" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado4.png" id="26_4msq7"]
+[ext_resource type="Texture2D" uid="uid://dcvra41ej2s66" path="res://sprites/player/jaopreto/Jaoparado/jaoparado4.png" id="26_p28sd"]
+[ext_resource type="Texture2D" uid="uid://br2yhtpqlenvs" path="res://sprites/player/jaopreto/Jaoparado/jaoparado5.png" id="27_1chvg"]
 [ext_resource type="Texture2D" uid="uid://c5xx8aa3s2cc" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado5.png" id="27_blbwn"]
 [ext_resource type="AudioStream" uid="uid://dn16hwrf6rnmt" path="res://assets/fx/effects/playerDamage.mp3" id="28_dfbwl"]
+[ext_resource type="Texture2D" uid="uid://bvwjni7lx8jdp" path="res://sprites/player/jaopreto/Jaoparado/jaoparado6.png" id="28_kds0g"]
 [ext_resource type="Texture2D" uid="uid://d22weuf6pmxf7" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado6.png" id="28_rr04u"]
 [ext_resource type="Texture2D" uid="uid://b5hmplcy3j70f" path="res://assets/particles/light.png" id="29_7m3hi"]
 [ext_resource type="Texture2D" uid="uid://bx3qp3qygexmb" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado7.png" id="29_ibpuq"]
+[ext_resource type="Texture2D" uid="uid://dbmn6f17yvxes" path="res://sprites/player/jaopreto/Jaoparado/jaoparado7.png" id="29_q5fva"]
+[ext_resource type="Texture2D" uid="uid://dndu8ydtows8x" path="res://sprites/player/jaopreto/Jaoparado/jaoparado8.png" id="30_4r8o2"]
 [ext_resource type="Texture2D" uid="uid://blnag6tm3k32t" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado8.png" id="30_v6kyc"]
 [ext_resource type="Texture2D" uid="uid://dlerk1bu3n5wc" path="res://sprites/player/jaomoreno/jaoandano/jaoandano1.png" id="31_hurqc"]
+[ext_resource type="Texture2D" uid="uid://fyjju4o87do2" path="res://sprites/player/jaopreto/jaoandano/jaoandano1.png" id="31_pefjs"]
+[ext_resource type="Texture2D" uid="uid://ct235jlpa2ua6" path="res://sprites/player/jaopreto/jaoandano/jaoandano2.png" id="32_rmllr"]
 [ext_resource type="Texture2D" uid="uid://ckr6ayokmbuc4" path="res://sprites/player/jaomoreno/jaoandano/jaoandano2.png" id="32_wsfq8"]
 [ext_resource type="Texture2D" uid="uid://br4kj3ps15mof" path="res://sprites/player/jaomoreno/jaoandano/jaoandano3.png" id="33_6hxn6"]
+[ext_resource type="Texture2D" uid="uid://jg5pmhdgjn1p" path="res://sprites/player/jaopreto/jaoandano/jaoandano3.png" id="33_cogyy"]
 [ext_resource type="Texture2D" uid="uid://cbfrw4uugq4nk" path="res://sprites/player/jaomoreno/jaoandano/jaoandano4.png" id="34_hsqkk"]
+[ext_resource type="Texture2D" uid="uid://ut7ab23qwvi7" path="res://sprites/player/jaopreto/jaoandano/jaoandano4.png" id="34_n6vbr"]
+[ext_resource type="Texture2D" uid="uid://b3t18pu3yfevy" path="res://sprites/player/jaopreto/jaoandano/jaoandano5.png" id="35_bp7lb"]
 [ext_resource type="Texture2D" uid="uid://b54xov6h3gure" path="res://sprites/player/jaomoreno/jaoandano/jaoandano5.png" id="35_de10q"]
 [ext_resource type="AudioStream" uid="uid://bhdj607ormie" path="res://assets/fx/effects/walkingSound.mp3" id="35_xk8qx"]
 [ext_resource type="Texture2D" uid="uid://b24fumktkmy68" path="res://sprites/player/jaomoreno/jaoandano/jaoandano6.png" id="36_7ebyk"]
+[ext_resource type="Texture2D" uid="uid://biurujsmrr5fk" path="res://sprites/player/jaopreto/jaoandano/jaoandano6.png" id="36_7uu40"]
 [ext_resource type="Texture2D" uid="uid://cd3wcm0bxtfk5" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoCOSTAs1.png" id="37_eb7o7"]
+[ext_resource type="Texture2D" uid="uid://naoh6mfyn6f5" path="res://sprites/player/jaopreto/jaoandano/jaoandandoCOSTAs1.png" id="37_wnsfk"]
 [ext_resource type="Texture2D" uid="uid://c60nwwdg10q6b" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoCOSTAs2.png" id="38_g3o13"]
+[ext_resource type="Texture2D" uid="uid://b51703tkof2a4" path="res://sprites/player/jaopreto/jaoandano/jaoandandoCOSTAs2.png" id="38_wryno"]
 [ext_resource type="Texture2D" uid="uid://85c5kjkjudh5" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoCOSTAs3.png" id="39_6hxet"]
+[ext_resource type="Texture2D" uid="uid://dw80cxlk3xaki" path="res://sprites/player/jaopreto/jaoandano/jaoandandoCOSTAs3.png" id="39_i8iwh"]
 [ext_resource type="Texture2D" uid="uid://dwg5orqifc7ps" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoCOSTAs4.png" id="40_edjtr"]
+[ext_resource type="Texture2D" uid="uid://chk008r8sbjb3" path="res://sprites/player/jaopreto/jaoandano/jaoandandoCOSTAs4.png" id="40_qqawa"]
 [ext_resource type="Texture2D" uid="uid://yv2g7un3l8tw" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoCOSTAs5.png" id="41_0ad28"]
+[ext_resource type="Texture2D" uid="uid://c4jxbxxu55vwi" path="res://sprites/player/jaopreto/jaoandano/jaoandandoCOSTAs5.png" id="41_jxrn2"]
 [ext_resource type="Texture2D" uid="uid://bf8u743cf4043" path="res://sprites/player/jaomoreno/jaoandano/jaoandandoCOSTAs6.png" id="42_dwooh"]
+[ext_resource type="Texture2D" uid="uid://dnisf7oldokyg" path="res://sprites/player/jaopreto/jaoandano/jaoandandoCOSTAs6.png" id="42_fne7g"]
 [ext_resource type="Texture2D" uid="uid://fs45em8tpxhg" path="res://sprites/player/jaobranco/jaoMortin/jaomorreno1.png" id="43_5gphj"]
 [ext_resource type="Texture2D" uid="uid://ss7s0ji1v46r" path="res://sprites/player/jaobranco/jaoMortin/jaomorreno2.png" id="44_nksep"]
 [ext_resource type="Texture2D" uid="uid://dxkwnnsabvwxf" path="res://sprites/player/jaobranco/jaoMortin/jaomorreno3.png" id="45_lx68m"]
@@ -92,6 +133,154 @@ height = 36.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yr8oj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qrcdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ok0ak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_duj7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mflqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gpi01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mdwrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ef663")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cpjis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t5ucs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vc8nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b4sxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_e2n43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l257a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_20rxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ipkll")
+}],
+"loop": false,
+"name": &"blackDeath",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_djj4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_o6wkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_fxaky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r8s45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ruch6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_uv0t2")
+}],
+"loop": true,
+"name": &"blackDown",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_6gd6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_yfc87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ynjq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_p28sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1chvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_kds0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_q5fva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4r8o2")
+}],
+"loop": true,
+"name": &"blackIdle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_pefjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_rmllr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_cogyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_n6vbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_bp7lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_7uu40")
+}],
+"loop": true,
+"name": &"blackRun",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_wnsfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_wryno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_i8iwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_qqawa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_jxrn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_fne7g")
+}],
+"loop": true,
+"name": &"blackUp",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_agyhs")
@@ -402,7 +591,8 @@ editor_draw_limits = true
 process_mode = 3
 position = Vector2(2, 4)
 sprite_frames = SubResource("SpriteFrames_yr8oj")
-animation = &"midIdle"
+animation = &"blackRun"
+frame_progress = 0.70856
 script = ExtResource("18_khfyn")
 player = NodePath("..")
 

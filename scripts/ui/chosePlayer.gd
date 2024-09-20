@@ -34,3 +34,8 @@ func _on_mid_color_pressed() -> void:
 func _on_start_btn_pressed() -> void:
 	selectFx.play()
 	get_tree().change_scene_to_file("res://scenes/ui/introduction.tscn")
+
+
+func _on_black_color_pressed() -> void:
+	Global.playerColor = 'B'
+	anim.play('blackIdle')
