@@ -592,7 +592,7 @@ process_mode = 3
 position = Vector2(2, 4)
 sprite_frames = SubResource("SpriteFrames_yr8oj")
 animation = &"blackRun"
-frame_progress = 0.70856
+frame_progress = 0.394036
 script = ExtResource("18_khfyn")
 player = NodePath("..")
 
