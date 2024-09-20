@@ -1,0 +1,137 @@
+[gd_scene load_steps=12 format=3 uid="uid://qsxwh0klt3t3"]
+
+[ext_resource type="Texture2D" uid="uid://dwu18gldx5boy" path="res://sprites/ui/menu/pauseOverlay.webp" id="1_4jq23"]
+[ext_resource type="Script" path="res://scripts/ui/menuOptions.gd" id="1_sn8l3"]
+[ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="3_57hhi"]
+[ext_resource type="Texture2D" uid="uid://2kkxsupxyacs" path="res://sprites/ui/menu/brFlag.webp" id="4_rbaf4"]
+[ext_resource type="Texture2D" uid="uid://c76s03pwp8sfl" path="res://sprites/ui/menu/espFlag.webp" id="5_e74mc"]
+[ext_resource type="Texture2D" uid="uid://cxqdk2pun7kyb" path="res://sprites/ui/menu/engFlag.webp" id="6_lo7we"]
+[ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="7_xei08"]
+
+[sub_resource type="Animation" id="Animation_fkj5i"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1000)]
+}
+
+[sub_resource type="Animation" id="Animation_8fwf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1mqk7"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1000), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1y52q"]
+_data = {
+"RESET": SubResource("Animation_8fwf5"),
+"transIn": SubResource("Animation_1mqk7"),
+"transOut": SubResource("Animation_fkj5i")
+}
+
+[node name="OptionsOverlay" type="CanvasLayer"]
+script = ExtResource("1_sn8l3")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="texture" type="Sprite2D" parent="Panel"]
+position = Vector2(574, 319)
+scale = Vector2(3, 3)
+texture = ExtResource("1_4jq23")
+
+[node name="brBtn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 235.0
+offset_right = 571.0
+offset_bottom = 276.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_57hhi")
+icon = ExtResource("4_rbaf4")
+
+[node name="espBtn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 236.0
+offset_right = 752.0
+offset_bottom = 277.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_57hhi")
+icon = ExtResource("5_e74mc")
+
+[node name="engBtn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 235.0
+offset_right = 657.0
+offset_bottom = 276.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_57hhi")
+icon = ExtResource("6_lo7we")
+
+[node name="idiomeBtn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 236.0
+offset_right = 428.0
+offset_bottom = 273.0
+theme = ExtResource("3_57hhi")
+text = "IDIOMA:"
+
+[node name="closeBtn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 460.0
+offset_right = 608.0
+offset_bottom = 497.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_57hhi")
+theme_override_font_sizes/font_size = 30
+text = "Fechar"
+
+[node name="selectButton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xei08")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Panel")
+libraries = {
+"": SubResource("AnimationLibrary_1y52q")
+}
+
+[connection signal="pressed" from="Panel/brBtn" to="." method="_on_br_btn_pressed"]
+[connection signal="pressed" from="Panel/espBtn" to="." method="_on_esp_btn_pressed"]
+[connection signal="pressed" from="Panel/engBtn" to="." method="_on_eng_btn_pressed"]
+[connection signal="pressed" from="Panel/closeBtn" to="." method="_on_close_btn_pressed"]

@@ -6,6 +6,7 @@ extends Control
 @onready var sceneMorph: AudioStreamPlayer2D = $sceneMorph
 @onready var changeTimer: Timer = $sceneChangingTimer
 @onready var controlOverlay: AnimationPlayer = $controlOverlay/animation
+@onready var optionsOverlay: AnimationPlayer = $OptionsOverlay/animation
 var path: String
 var canTrackInput: bool = true
 
@@ -35,7 +36,7 @@ func _on_opções_pressed():
 	if canTrackInput:
 		path = 'controls'
 		clickSound.play()
-		controlOverlay.play('transIn')
+		optionsOverlay.play('transIn')
 
 
 func _on_scene_changing_timer_timeout():

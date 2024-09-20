@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://7xb8qisie2k1"]
+[gd_scene load_steps=57 format=3 uid="uid://7xb8qisie2k1"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_flcms"]
 [ext_resource type="Texture2D" uid="uid://b2rvvjv20prg7" path="res://sprites/menu/menu rpg1.png" id="2_2cldj"]
@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://leo45x77sf2n" path="res://assets/fx/effects/buttonEffect.mp3" id="42_4bb3h"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="43_tdf6v"]
 [ext_resource type="PackedScene" uid="uid://cn2sqjss54663" path="res://scenes/ui/control_overlay.tscn" id="44_p7tby"]
+[ext_resource type="PackedScene" uid="uid://qsxwh0klt3t3" path="res://scenes/ui/optionsOverlay.tscn" id="46_604h3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p16b"]
 animations = [{
@@ -288,63 +289,6 @@ alignment = 0
 icon_alignment = 1
 expand_icon = true
 
-[node name="port" type="Button" parent="menu"]
-process_mode = 3
-layout_mode = 0
-offset_left = 21.0
-offset_top = 357.0
-offset_right = 107.0
-offset_bottom = 405.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme = ExtResource("38_koc4b")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
-text = "PORT"
-alignment = 0
-icon_alignment = 1
-expand_icon = true
-
-[node name="eng" type="Button" parent="menu"]
-process_mode = 3
-layout_mode = 0
-offset_left = 21.0
-offset_top = 401.0
-offset_right = 107.0
-offset_bottom = 449.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme = ExtResource("38_koc4b")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
-text = "ENG"
-alignment = 0
-icon_alignment = 1
-expand_icon = true
-
-[node name="esp" type="Button" parent="menu"]
-process_mode = 3
-layout_mode = 0
-offset_left = 20.0
-offset_top = 445.0
-offset_right = 106.0
-offset_bottom = 493.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme = ExtResource("38_koc4b")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
-text = "ESP"
-alignment = 0
-icon_alignment = 1
-expand_icon = true
-
 [node name="menuAmbient" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("41_o2sml")
 volume_db = -10.0
@@ -358,14 +302,14 @@ stream = ExtResource("43_tdf6v")
 
 [node name="sceneChangingTimer" type="Timer" parent="."]
 
+[node name="OptionsOverlay" parent="." instance=ExtResource("46_604h3")]
+process_mode = 3
+
 [node name="controlOverlay" parent="." instance=ExtResource("44_p7tby")]
-visible = false
+process_mode = 3
 
 [connection signal="pressed" from="menu/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="menu/sair" to="." method="_on_sair_pressed"]
 [connection signal="pressed" from="menu/opções" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="menu/opções2" to="." method="_on_opções_pressed"]
-[connection signal="pressed" from="menu/port" to="." method="_on_port_pressed"]
-[connection signal="pressed" from="menu/eng" to="." method="_on_eng_pressed"]
-[connection signal="pressed" from="menu/esp" to="." method="_on_esp_pressed"]
 [connection signal="timeout" from="sceneChangingTimer" to="." method="_on_scene_changing_timer_timeout"]
