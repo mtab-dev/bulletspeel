@@ -65,7 +65,7 @@ func _on_opções_pressed():
 
 func _on_scene_changing_timer_timeout():
 	if path == 'play':
-		get_tree().change_scene_to_file("res://scenes/ui/introduction.tscn")	
+		get_tree().change_scene_to_file("res://scenes/ui/chosePlayer.tscn")
 	elif path == 'controls':
 		get_tree().change_scene_to_file("res://scenes/levels/controls.tscn")
 	elif path == 'quit':
