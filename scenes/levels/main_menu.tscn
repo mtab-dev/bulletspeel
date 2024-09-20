@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://7xb8qisie2k1"]
+[gd_scene load_steps=58 format=3 uid="uid://7xb8qisie2k1"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_flcms"]
 [ext_resource type="Texture2D" uid="uid://b2rvvjv20prg7" path="res://sprites/menu/menu rpg1.png" id="2_2cldj"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://b32j1ax6kvytw" path="res://sprites/ui/menu/logo_bullet.webp" id="37_qiues"]
 [ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="38_koc4b"]
 [ext_resource type="Texture2D" uid="uid://ww4m6gg06lt4" path="res://sprites/ui/menu/control_button.webp" id="39_248mq"]
+[ext_resource type="Texture2D" uid="uid://d2y6t0u44tahv" path="res://sprites/ui/menu/options.webp" id="41_8cetq"]
 [ext_resource type="AudioStream" uid="uid://bgxjjvu20e8ai" path="res://assets/fx/musics/menuMain.mp3" id="41_o2sml"]
 [ext_resource type="AudioStream" uid="uid://leo45x77sf2n" path="res://assets/fx/effects/buttonEffect.mp3" id="42_4bb3h"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="43_tdf6v"]
@@ -265,7 +266,7 @@ theme = ExtResource("38_koc4b")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hg8r7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0gcxr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n2cji")
-text = "options"
+icon = ExtResource("41_8cetq")
 alignment = 0
 icon_alignment = 1
 expand_icon = true
@@ -293,12 +294,15 @@ expand_icon = true
 stream = ExtResource("41_o2sml")
 volume_db = -10.0
 autoplay = true
+bus = &"music"
 
 [node name="buttonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("42_4bb3h")
+bus = &"fx"
 
 [node name="sceneMorph" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("43_tdf6v")
+bus = &"fx"
 
 [node name="sceneChangingTimer" type="Timer" parent="."]
 

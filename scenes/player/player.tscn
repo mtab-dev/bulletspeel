@@ -159,10 +159,12 @@ player = NodePath("..")
 [node name="damageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("28_dfbwl")
 volume_db = -10.0
+bus = &"fx"
 
 [node name="walkingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("35_xk8qx")
 volume_db = -20.0
+bus = &"fx"
 
 [node name="deathTimer" type="Timer" parent="."]
 process_mode = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl3ads4edjk2n"]
+[gd_scene load_steps=5 format=3 uid="uid://bffj141np8xv3"]
 
 [ext_resource type="Texture2D" uid="uid://b11rykciqf06i" path="res://sprites/ui/cutscenes/betaEnd.webp" id="1_bq777"]
 [ext_resource type="Script" path="res://scripts/ui/betaEnd.gd" id="1_jr172"]

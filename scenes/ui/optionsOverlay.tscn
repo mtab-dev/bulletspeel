@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qsxwh0klt3t3"]
+[gd_scene load_steps=13 format=3 uid="uid://qsxwh0klt3t3"]
 
 [ext_resource type="Texture2D" uid="uid://dwu18gldx5boy" path="res://sprites/ui/menu/pauseOverlay.webp" id="1_4jq23"]
 [ext_resource type="Script" path="res://scripts/ui/menuOptions.gd" id="1_sn8l3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2kkxsupxyacs" path="res://sprites/ui/menu/brFlag.webp" id="4_rbaf4"]
 [ext_resource type="Texture2D" uid="uid://c76s03pwp8sfl" path="res://sprites/ui/menu/espFlag.webp" id="5_e74mc"]
 [ext_resource type="Texture2D" uid="uid://cxqdk2pun7kyb" path="res://sprites/ui/menu/engFlag.webp" id="6_lo7we"]
+[ext_resource type="PackedScene" uid="uid://bx7njx6t0tchy" path="res://scenes/ui/slider.tscn" id="7_6ugu3"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="7_xei08"]
 
 [sub_resource type="Animation" id="Animation_fkj5i"]
@@ -111,6 +112,26 @@ offset_bottom = 273.0
 theme = ExtResource("3_57hhi")
 text = "IDIOMA:"
 
+[node name="musicBtn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 335.0
+offset_right = 465.0
+offset_bottom = 372.0
+theme = ExtResource("3_57hhi")
+text = "Musica:"
+alignment = 0
+
+[node name="fxBtn" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 369.0
+offset_right = 466.0
+offset_bottom = 406.0
+theme = ExtResource("3_57hhi")
+text = "EFEITOS:"
+alignment = 0
+
 [node name="closeBtn" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 503.0
@@ -122,8 +143,25 @@ theme = ExtResource("3_57hhi")
 theme_override_font_sizes/font_size = 30
 text = "Fechar"
 
+[node name="slider" parent="Panel" instance=ExtResource("7_6ugu3")]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 344.0
+offset_right = 723.0
+offset_bottom = 360.0
+busName = "music"
+
+[node name="slider2" parent="Panel" instance=ExtResource("7_6ugu3")]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 378.0
+offset_right = 724.0
+offset_bottom = 394.0
+busName = "fx"
+
 [node name="selectButton" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_xei08")
+bus = &"fx"
 
 [node name="animation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")

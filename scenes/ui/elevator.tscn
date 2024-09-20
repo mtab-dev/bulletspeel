@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bltn0883iny41"]
+[gd_scene load_steps=11 format=3 uid="uid://tqj5jdegh0er"]
 
 [ext_resource type="Texture2D" uid="uid://ck6ch8o4heb16" path="res://sprites/primeiro andar pronto/Porta elevador/ELEVADOR1.png" id="1_6isgd"]
 [ext_resource type="Script" path="res://scripts/ui/elevator.gd" id="1_aeyi4"]
