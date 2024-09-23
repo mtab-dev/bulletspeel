@@ -136,7 +136,6 @@ scale = Vector2(1.14992, 1)
 shape = SubResource("CapsuleShape2D_ca3ds")
 
 [node name="detectionArea" type="Area2D" parent="."]
-visible = false
 
 [node name="detectionCircle" type="CollisionShape2D" parent="detectionArea"]
 shape = SubResource("CapsuleShape2D_7wf06")
@@ -158,11 +157,10 @@ texture = NodePath("../../bengalAnimation")
 [node name="damage" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_h6jjf")
 volume_db = -20.0
-bus = &"fx"
 
 [node name="shadow" type="Sprite2D" parent="."]
 position = Vector2(-4, 20)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("25_fhe5l")
 
 [node name="flashTimer" type="Timer" parent="."]
@@ -171,6 +169,8 @@ wait_time = 3.0
 [connection signal="animation_finished" from="bengalAnimation" to="stateMachine/chase" method="_on_bengal_animation_animation_finished"]
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_exited"]
 [connection signal="Transitioned" from="stateMachine/Idle" to="stateMachine" method="_on_idle_transitioned"]
 [connection signal="Transitioned" from="stateMachine/chase" to="stateMachine" method="_on_chase_transitioned"]
 [connection signal="timeout" from="flashTimer" to="." method="_on_flash_timer_timeout"]

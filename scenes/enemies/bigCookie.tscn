@@ -415,17 +415,14 @@ text = "BOLACHA"
 [node name="enterBoss" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("58_a4fmr")
 volume_db = -25.0
-bus = &"fx"
 
 [node name="killDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("59_e4sso")
 volume_db = -20.0
-bus = &"fx"
 
 [node name="bossDamage" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("68_7jfre")
 volume_db = -40.0
-bus = &"fx"
 
 [node name="transformTimer" type="Timer" parent="." groups=["Timers"]]
 wait_time = 5.0

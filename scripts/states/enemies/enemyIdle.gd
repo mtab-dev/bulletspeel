@@ -30,3 +30,7 @@ func PhysicsUpdate(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	if direction.length() < 150:
 		Transitioned.emit(self, "chase")
+
+
+func _on_detection_area_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
