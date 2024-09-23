@@ -46,7 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://leo45x77sf2n" path="res://assets/fx/effects/buttonEffect.mp3" id="42_4bb3h"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="43_tdf6v"]
 [ext_resource type="PackedScene" uid="uid://cn2sqjss54663" path="res://scenes/ui/control_overlay.tscn" id="44_p7tby"]
-[ext_resource type="PackedScene" uid="uid://qsxwh0klt3t3" path="res://scenes/ui/optionsOverlay.tscn" id="46_604h3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/optionsOverlay.tscn" id="46_604h3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p16b"]
 animations = [{
@@ -272,7 +272,7 @@ icon = ExtResource("41_8cetq")
 alignment = 0
 icon_alignment = 1
 
-[node name="opções2" type="Button" parent="menu"]
+[node name="controls" type="Button" parent="menu"]
 process_mode = 3
 layout_mode = 0
 offset_left = 460.0
@@ -295,16 +295,13 @@ icon_alignment = 1
 stream = ExtResource("41_o2sml")
 volume_db = -10.0
 autoplay = true
-bus = &"music"
 
 [node name="buttonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("42_4bb3h")
-bus = &"fx"
 
 [node name="sceneMorph" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(2, 2)
 stream = ExtResource("43_tdf6v")
-bus = &"fx"
 
 [node name="sceneChangingTimer" type="Timer" parent="."]
 
@@ -317,5 +314,5 @@ process_mode = 3
 [connection signal="pressed" from="menu/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="menu/sair" to="." method="_on_sair_pressed"]
 [connection signal="pressed" from="menu/opções" to="." method="_on_opções_pressed"]
-[connection signal="pressed" from="menu/opções2" to="." method="_on_opções_pressed"]
+[connection signal="pressed" from="menu/controls" to="." method="_on_controles_pressed"]
 [connection signal="timeout" from="sceneChangingTimer" to="." method="_on_scene_changing_timer_timeout"]

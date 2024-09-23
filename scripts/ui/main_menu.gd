@@ -12,7 +12,7 @@ extends Control
 @onready var playButton: Button = $menu/play
 @onready var exitButton: Button = $menu/sair
 @onready var optionsButton: Button = $"menu/opções"
-@onready var controlsButton: Button = $"menu/opções2"
+@onready var controlsButton: Button = $"menu/controls"
 var path: String
 var canTrackInput: bool = true
 
@@ -82,3 +82,10 @@ func _on_eng_pressed() -> void:
 
 func _on_port_pressed() -> void:
 	Global.lang = "port"
+
+
+func _on_controles_pressed() -> void:
+	if canTrackInput:
+		path = 'controls'
+		clickSound.play()
+		controlOverlay.play('transIn')
