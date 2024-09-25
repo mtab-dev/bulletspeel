@@ -33,3 +33,7 @@ func onChildTransition(state, newStateName):
 	newState.Enter()
 	currentState = newState
 	print("Conectado ao sinal de transição para o estado: ", currentState)
+
+
+func _on_attack_transitioned() -> void:
+	pass # Replace with function body.
