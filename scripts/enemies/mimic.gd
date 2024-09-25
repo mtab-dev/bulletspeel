@@ -8,7 +8,7 @@ var player: CharacterBody2D
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
-	animation.play('goingUp')
+	#animation.play('goingUp')
 	health = 6
 	healthBar.initHealth(health)
 	

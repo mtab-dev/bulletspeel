@@ -32,5 +32,5 @@ func PhysicsUpdate(_delta: float):
 
 
 func _process(delta: float) -> void:
-	var direction = player.global_position - enemy.global_position
+	pass
 	
