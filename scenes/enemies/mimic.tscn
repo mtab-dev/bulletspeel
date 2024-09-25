@@ -204,7 +204,5 @@ texture = NodePath("../../animation")
 [connection signal="animation_finished" from="animation" to="stateMachine/chase" method="_on_animation_animation_finished"]
 [connection signal="animation_finished" from="animation" to="stateMachine/waking" method="_on_animation_animation_finished"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
-[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="hitBox" to="stateMachine/chase" method="_on_hit_box_body_entered"]
-[connection signal="body_exited" from="hitBox" to="." method="_on_hit_box_body_exited"]
 [connection signal="body_exited" from="hitBox" to="stateMachine/chase" method="_on_hit_box_body_exited"]
