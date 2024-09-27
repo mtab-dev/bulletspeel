@@ -377,10 +377,9 @@ shape = SubResource("RectangleShape2D_ehda5")
 script = ExtResource("53_8gel7")
 initialState = NodePath("idle")
 
-[node name="idle" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
+[node name="idle" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("54_xf543")
 enemy = NodePath("../..")
-texture = NodePath("../../animation")
 
 [node name="chase" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
 script = ExtResource("55_vemhm")

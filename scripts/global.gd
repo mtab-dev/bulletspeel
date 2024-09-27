@@ -7,7 +7,7 @@ var life: int = 3
 var isDead: bool = false
 
 ##variavel global do bolachão
-var madCookie: bool = false
+var health: int = 20
 var deadCookie: bool = false
 
 ##itens do player
