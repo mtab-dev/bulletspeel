@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=61 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cu8vgabuo1gw6" path="res://sprites/primeiro andar pronto/andar 1 sem colisão.png" id="4_6ysvh"]
 [ext_resource type="Texture2D" uid="uid://c3740m0duu0uu" path="res://sprites/primeiro andar pronto/andar 1 colisão.png" id="5_luhrd"]
 [ext_resource type="Texture2D" uid="uid://fo8lr1dcihef" path="res://sprites/primeiro andar pronto/andar 1 sombras.png" id="6_gwf0a"]
-[ext_resource type="PackedScene" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
+[ext_resource type="PackedScene" uid="uid://blsa0iy5gtwhh" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
@@ -22,9 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://ckqaytp7sd8wa" path="res://sprites/guns/slingshot/ixtilingui_balangando6.png" id="16_mkmh8"]
 [ext_resource type="Texture2D" uid="uid://b5jcl8ld742m0" path="res://sprites/guns/slingshot/ixtilingui_balangando7.png" id="17_eutyk"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="18_tdmgt"]
+[ext_resource type="PackedScene" uid="uid://obhrgvbxtihi" path="res://scenes/enemies/cookie.tscn" id="20_pire7"]
+[ext_resource type="AudioStream" uid="uid://df6ubp4jwyxax" path="res://assets/fx/effects/enterBossRoom.mp3" id="22_315ks"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
 [ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
-[ext_resource type="PackedScene" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
+[ext_resource type="PackedScene" uid="uid://tqj5jdegh0er" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 50.5)
@@ -1220,6 +1222,8 @@ position = Vector2(-176, 222)
 [node name="bengal7" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(65, 152)
 
+[node name="cookie" parent="." instance=ExtResource("20_pire7")]
+
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
 visible = false
 
@@ -1228,6 +1232,10 @@ process_mode = 3
 stream = ExtResource("13_bf5qo")
 volume_db = -25.0
 autoplay = true
+
+[node name="enterBoss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_315ks")
+volume_db = -25.0
 
 [node name="interactFX" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-33, 3)
@@ -1249,11 +1257,11 @@ color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="." method="_on_enemy_area_exited_body_entered"]
-[connection signal="body_entered" from="enemyAreaExited" to="bigCookie" method="_on_enemy_area_exited_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="player" method="_on_enemy_area_exited_body_entered"]
+[connection signal="body_entered" from="enemyAreaExited" to="cookie" method="_on_enemy_area_exited_body_entered"]
 [connection signal="body_entered" from="enemyAreaEnter" to="." method="_on_enemy_area_enter_body_entered"]
-[connection signal="body_entered" from="enemyAreaEnter" to="bigCookie" method="_on_enemy_area_body_entered"]
 [connection signal="body_entered" from="enemyAreaEnter" to="player" method="_on_enemy_area_enter_body_entered"]
+[connection signal="body_entered" from="enemyAreaEnter" to="cookie" method="_on_enemy_area_enter_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="." method="_on_sling_detect_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="player" method="_on_sling_detect_body_entered"]
 [connection signal="body_exited" from="slingDetect" to="." method="_on_sling_detect_body_exited"]
