@@ -22,9 +22,7 @@ func transform():
 func PhysicsUpdate(_delta: float):
 	if Global.health == 10:
 		transform()
-	var direction = player.global_position - enemy.global_position
-	var distance = direction.length()
-	if distance > 150:
-		enemy.velocity = direction.normalized() * moveSpeed
-	if distance > 300:
-		Transitioned.emit(self, "idle")
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if(body.is_in_group("Player")):
+		Transitioned.emit(self, "attack")

@@ -29,11 +29,8 @@ func Update(delta: float):
 func PhysicsUpdate(_delta: float):
 	if Global.health == 10:
 		enemy.velocity = Vector2.ZERO  
-		Transitioned.emit(self, "transform")
 	else:
 		if enemy:
 			enemy.velocity = moveDirection * moveSpeed
 		if player:
 			var direction = player.global_position - enemy.global_position
-			if direction.length() < 150:
-				Transitioned.emit(self, "chase")

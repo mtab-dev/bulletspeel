@@ -46,7 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://leo45x77sf2n" path="res://assets/fx/effects/buttonEffect.mp3" id="42_4bb3h"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="43_tdf6v"]
 [ext_resource type="PackedScene" uid="uid://cn2sqjss54663" path="res://scenes/ui/control_overlay.tscn" id="44_p7tby"]
-[ext_resource type="PackedScene" uid="uid://qsxwh0klt3t3" path="res://scenes/ui/optionsOverlay.tscn" id="46_604h3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/optionsOverlay.tscn" id="46_604h3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p16b"]
 animations = [{
