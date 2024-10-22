@@ -2,13 +2,13 @@ extends Node
 
 @onready var app: HTTPRequest = $HTTPRequest
 @export var clientFeedback: String
-@export var rating: String
+@export var rating: int
 
-var url = "https://bullet-rating-e4a2d5156cb5.herokuapp.com/new"
+var url = "https://bullet-rating-e4a2d5156cb5.herokuapp.com/api/feedback/new"
 var headers = ["Content-Type: application/json"]
 var data = {
-	"feedback": clientFeedback,
-	"rate": rating
+	"rate": rating,
+	"feedback": clientFeedback
 }
 var json_data = JSON.stringify(data)
 
