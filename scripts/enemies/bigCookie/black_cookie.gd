@@ -1,23 +1,23 @@
 extends CharacterBody2D
+class_name BlackCookie
 
 @onready var animation: AnimatedSprite2D = $animation
 @onready var canvasForBar: CanvasLayer = $canvasBar
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
 @onready var entryRoom: AudioStreamPlayer2D = $enterBoss
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
-var newCookie = preload("res://scenes/enemies/blackCookie.tscn")
 var isPlayerInDetectionArea: bool = false
-var health = 20
+var health = 10
 var player: CharacterBody2D
-var isTransforming: bool = false  
 
 signal cookieTransform
 signal damagePlayer
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
-	health = 20
+	health = 10
 	healthBar.initHealth(health)
+	canvasForBar.visible = true
 
 func _physics_process(delta):
 	if velocity.x > 0:
@@ -26,29 +26,13 @@ func _physics_process(delta):
 		animation.flip_h = true
 	move_and_slide()
 
-func transformCookie():
-	cookieTransform.emit()
-	animation.play('white2black')  
-	
-func atkAnim():
-	if Global.madCookie == true:
-		animation.play('blackAttack')
-	else:
-		animation.play('whiteAttack')
 
-func _process(delta: float) -> void:
-	if health == 10:
-		transformCookie()
-	if health <= 10:
-		Global.madCookie = true
-	else:
-		Global.madCookie = false
 
 func _on_detection_area_body_entered(body):
 	if body.is_in_group('Player'):
 		velocity = Vector2.ZERO
 		isPlayerInDetectionArea = true 
-		atkAnim()
+		animation.play('blackAttack')
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group('Player'):
@@ -62,27 +46,14 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 			Global.deadCookie = true
 			queue_free()
 
-func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
-	if body.is_in_group('Player'):
-		canvasForBar.visible = false
 
 func _on_kill_death_finished() -> void:
 	queue_free()
 
 func hitWhenAnim():
 	if isPlayerInDetectionArea == true:
-		atkAnim()
-		damagePlayer.emit()
-	if animation.animation == 'white2black':
-		var blackCookie = newCookie.instantiate()
-		blackCookie.global_position = self.global_position
-		get_parent().add_child(blackCookie)
-		queue_free()
+		animation.play('blackAttack')
+		Global.life -= 1
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()
-
-func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
-	if body.is_in_group('Player'):
-		entryRoom.play()
-		canvasForBar.visible = true
