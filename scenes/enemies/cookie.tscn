@@ -445,7 +445,5 @@ texture = NodePath("../../anim")
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="animation_finished" from="anim" to="stateMachine/transform" method="_on_anim_animation_finished"]
 [connection signal="animation_finished" from="anim" to="stateMachine/attack" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="cookieIdleState" from="stateMachine/idle" to="anim" method="_on_idle_cookie_idle_state"]
-[connection signal="cookieChaseState" from="stateMachine/chase" to="anim" method="_on_chase_cookie_chase_state"]
 [connection signal="transformCookieState" from="stateMachine/transform" to="anim" method="_on_transform_transform_cookie_state"]
 [connection signal="Transitioned" from="stateMachine/attack" to="stateMachine/attack" method="_on_transitioned"]
