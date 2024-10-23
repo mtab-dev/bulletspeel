@@ -22,10 +22,7 @@ func _process(delta):
 	pass
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
-	print(result)
-	print(response_code)
-	print(body)
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/ui/betaEnd.tscn")
 
 
 func _on_send_pressed() -> void:
@@ -33,7 +30,6 @@ func _on_send_pressed() -> void:
 
 
 func _on_line_edit_text_changed(new_text: String) -> void:
-	print(new_text)
 	clientFeedback = new_text
 
 
