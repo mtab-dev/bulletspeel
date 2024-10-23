@@ -32,7 +32,22 @@ func _on_send_pressed() -> void:
 	requestApi()
 
 
-func _on_text_edit_text_changed(text) -> void:
-	print(text)
+func _on_line_edit_text_changed(new_text: String) -> void:
+	print(new_text)
+	clientFeedback = new_text
+
+
+func _on_button_pressed() -> void:
+	rating = 1
+
+
+func _on_button_2_pressed() -> void:
 	rating = 3
-	clientFeedback = text
+
+
+func _on_button_3_pressed() -> void:
+	rating = 2
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	requestApi()

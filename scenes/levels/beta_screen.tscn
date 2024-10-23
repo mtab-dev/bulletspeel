@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://4h0vqa6ca708"]
+[gd_scene load_steps=10 format=3 uid="uid://4h0vqa6ca708"]
 
 [ext_resource type="Script" path="res://scripts/infra/ratingRequest.gd" id="1_1beo1"]
 [ext_resource type="Texture2D" uid="uid://dwu18gldx5boy" path="res://sprites/ui/menu/pauseOverlay.webp" id="1_uhlcf"]
 [ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="2_mssvs"]
 [ext_resource type="Texture2D" uid="uid://da6ccrc5x1jtn" path="res://sprites/ui/hud/background_container.png" id="3_m0von"]
+[ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="5_0y0hd"]
+[ext_resource type="Texture2D" uid="uid://t14yb677lusv" path="res://sprites/ui/rating/star_16x16.png" id="6_u5kb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lo61j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8f87f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5thxk"]
 
 [node name="betaScreen" type="Control"]
 layout_mode = 3
@@ -25,8 +33,8 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_uhlcf")
 
 [node name="dialogBox" type="Sprite2D" parent="Panel"]
-position = Vector2(552, 356)
-scale = Vector2(1.95508, 1.32031)
+position = Vector2(550.375, 391.25)
+scale = Vector2(1.94238, 0.76953)
 texture = ExtResource("3_m0von")
 
 [node name="title" type="Button" parent="."]
@@ -47,16 +55,51 @@ offset_bottom = 498.0
 theme = ExtResource("2_mssvs")
 text = "ENVIAR"
 
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 321.0
-offset_top = 287.0
-offset_right = 782.0
-offset_bottom = 428.0
-placeholder_text = "Passe sua avaliação (opcional)"
-
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 356.0
+offset_right = 779.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("5_0y0hd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lo61j")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_8f87f")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5thxk")
+placeholder_text = "Envie um comentário (opcional)"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 223.0
+offset_right = 419.0
+offset_bottom = 247.0
+scale = Vector2(3, 3)
+icon = ExtResource("6_u5kb6")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 224.0
+offset_right = 668.0
+offset_bottom = 248.0
+scale = Vector2(3, 3)
+icon = ExtResource("6_u5kb6")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 223.0
+offset_right = 542.0
+offset_bottom = 247.0
+scale = Vector2(3, 3)
+icon = ExtResource("6_u5kb6")
+
 [connection signal="pressed" from="send" to="." method="_on_send_pressed"]
-[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
