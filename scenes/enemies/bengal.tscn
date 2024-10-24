@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://b1km6mhr62sgm" path="res://sprites/enemies/groundShadow.png" id="25_fhe5l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6wjy"]
+resource_local_to_scene = true
 shader = ExtResource("2_iq6pa")
 shader_parameter/blinkColor = Color(1, 1, 1, 1)
 shader_parameter/blinkIntesity = 0.0

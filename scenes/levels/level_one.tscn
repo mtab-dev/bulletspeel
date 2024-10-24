@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="26_3nkdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
-size = Vector2(192, 50.5)
+size = Vector2(192, 45.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_baite"]
 size = Vector2(3, 314)
@@ -46,10 +46,10 @@ size = Vector2(193.5, 27)
 size = Vector2(708.25, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72b63"]
-size = Vector2(206, 71)
+size = Vector2(206, 41.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o21kt"]
-size = Vector2(124, 68.25)
+size = Vector2(124, 42.4375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jn3n0"]
 size = Vector2(11.5, 652.5)
@@ -102,14 +102,14 @@ height = 72.0
 size = Vector2(100, 42.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81h0b"]
-size = Vector2(193, 35)
+size = Vector2(193, 24.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_il1ml"]
 radius = 12.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8m57"]
-size = Vector2(39, 20)
+size = Vector2(25.5, 20)
 
 [sub_resource type="GDScript" id="GDScript_b0guc"]
 script/source = "extends Area2D
@@ -205,7 +205,7 @@ texture = ExtResource("6_gwf0a")
 position = Vector2(394, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(82, 9.75)
+position = Vector2(82, 7.25)
 shape = SubResource("RectangleShape2D_bm27d")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -257,19 +257,19 @@ position = Vector2(395.875, -831)
 shape = SubResource("RectangleShape2D_bow3g")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-348, -52.5)
+position = Vector2(-348, -61.5)
 shape = SubResource("RectangleShape2D_72b63")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-602, -272)
+position = Vector2(-602, -277.75)
 shape = SubResource("RectangleShape2D_72b63")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-644, -53)
+position = Vector2(-644, -63.5625)
 shape = SubResource("RectangleShape2D_o21kt")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-375, -273.875)
+position = Vector2(-375, -276.219)
 shape = SubResource("RectangleShape2D_o21kt")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -505,7 +505,7 @@ position = Vector2(650, -687)
 shape = SubResource("RectangleShape2D_kydtv")
 
 [node name="CollisionShape2D76" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-103, -226)
+position = Vector2(-103, -231.25)
 shape = SubResource("RectangleShape2D_81h0b")
 
 [node name="CollisionShape2D77" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -920,12 +920,12 @@ position = Vector2(-57.5, 128)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D175" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-19, -167)
+position = Vector2(-20, -172)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D176" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-34, -167)
+position = Vector2(-34, -173.75)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
@@ -950,7 +950,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D181" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-316, -355)
+position = Vector2(-316, -359)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
@@ -1070,30 +1070,30 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D182" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-296, -355)
+position = Vector2(-296, -358)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D183" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-391, -355)
+position = Vector2(-391, -360)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D184" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-441, -357)
+position = Vector2(-441, -360)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D185" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-417, -346)
+position = Vector2(-417, -358)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D187" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-535, -347)
+position = Vector2(-535, -355)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D188" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-569, -347)
+position = Vector2(-569, -355)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D191" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -1181,7 +1181,7 @@ position = Vector2(430, -1029)
 shape = SubResource("RectangleShape2D_khe0q")
 
 [node name="slingDetect" type="Area2D" parent="."]
-position = Vector2(293, -1073)
+position = Vector2(695, 368)
 
 [node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
 scale = Vector2(0.8, 0.8)
@@ -1240,13 +1240,14 @@ stream = ExtResource("23_haoyv")
 volume_db = -20.0
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(124, -1027)
+position = Vector2(526, 414)
 speed = 250
 
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]
 position = Vector2(712, -1433)
 
 [node name="mask" type="CanvasModulate" parent="."]
+position = Vector2(0, -12)
 color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [node name="bigCookie" parent="." instance=ExtResource("26_3nkdn")]
