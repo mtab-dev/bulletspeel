@@ -3,15 +3,14 @@ extends CharacterBody2D
 @onready var animation: AnimatedSprite2D = $animation
 @onready var canvasForBar: CanvasLayer = $canvasBar
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
+@onready var entryRoom: AudioStreamPlayer2D = $enterBoss
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
-var newCookie = preload("res://scenes/enemies/blackCookie.tscn")
 var isPlayerInDetectionArea: bool = false
 var health = 20
 var player: CharacterBody2D
-var isTransforming: bool = false  # Para controlar se está em transformação
+var isTransforming: bool = false  
 
 signal cookieTransform
-signal damagePlayer
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -61,10 +60,6 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 			Global.deadCookie = true
 			queue_free()
 
-func _on_enemy_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group('Player'):
-		canvasForBar.visible = true
-
 func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
 		canvasForBar.visible = false
@@ -75,12 +70,12 @@ func _on_kill_death_finished() -> void:
 func hitWhenAnim():
 	if isPlayerInDetectionArea == true:
 		atkAnim()
-		damagePlayer.emit()
-	if animation.animation == 'white2black':
-		var blackCookie = newCookie.instantiate()
-		blackCookie.global_position = self.global_position
-		get_parent().add_child(blackCookie)
-		queue_free()
+		Global.life -= 1
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()
+
+func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
+	if body.is_in_group('Player'):
+		entryRoom.play()
+		canvasForBar.visible = true
