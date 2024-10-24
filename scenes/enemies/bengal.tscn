@@ -130,7 +130,7 @@ script = ExtResource("1_85urr")
 material = SubResource("ShaderMaterial_r6wjy")
 scale = Vector2(1.00796, 0.990647)
 sprite_frames = SubResource("SpriteFrames_l3eov")
-animation = &"idle"
+animation = &"run"
 
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
