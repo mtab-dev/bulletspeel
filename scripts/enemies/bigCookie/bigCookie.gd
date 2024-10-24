@@ -71,6 +71,8 @@ func hitWhenAnim():
 	if isPlayerInDetectionArea == true:
 		atkAnim()
 		Global.life -= 1
+	else:
+		pass
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()
