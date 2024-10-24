@@ -418,6 +418,8 @@ wait_time = 5.0
 [connection signal="body_entered" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]
+[connection signal="cookieIdleState" from="stateMachine/idle" to="anim" method="_on_idle_cookie_idle_state"]
+[connection signal="cookieChaseState" from="stateMachine/chase" to="anim" method="_on_chase_cookie_chase_state"]
 [connection signal="finished" from="killDeath" to="." method="_on_kill_death_finished"]
 [connection signal="timeout" from="transformTimer" to="stateMachine/idle" method="_on_transform_timer_timeout"]
 [connection signal="timeout" from="transformTimer" to="stateMachine/chase" method="_on_transform_timer_timeout"]

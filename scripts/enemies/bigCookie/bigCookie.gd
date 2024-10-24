@@ -3,13 +3,12 @@ extends CharacterBody2D
 @onready var animation: AnimatedSprite2D = $animation
 @onready var canvasForBar: CanvasLayer = $canvasBar
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
-@onready var entryRoom: AudioStreamPlayer2D = $enterBoss
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
 var newCookie = preload("res://scenes/enemies/blackCookie.tscn")
 var isPlayerInDetectionArea: bool = false
 var health = 20
 var player: CharacterBody2D
-var isTransforming: bool = false  
+var isTransforming: bool = false  # Para controlar se está em transformação
 
 signal cookieTransform
 signal damagePlayer
@@ -62,6 +61,10 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 			Global.deadCookie = true
 			queue_free()
 
+func _on_enemy_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group('Player'):
+		canvasForBar.visible = true
+
 func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
 		canvasForBar.visible = false
@@ -81,8 +84,3 @@ func hitWhenAnim():
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()
-
-func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
-	if body.is_in_group('Player'):
-		entryRoom.play()
-		canvasForBar.visible = true
