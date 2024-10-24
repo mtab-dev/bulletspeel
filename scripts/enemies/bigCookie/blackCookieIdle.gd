@@ -1,5 +1,5 @@
 extends State
-class_name CookieIdle
+class_name BlackCookieIdle
 
 var player: CharacterBody2D
 var transformTimer: Timer 
@@ -7,7 +7,6 @@ var isTransforming: bool = false
 @export var enemy: CharacterBody2D 
 @export var moveSpeed: int = 5
 @export var texture: AnimatedSprite2D
-var newCookie = preload("res://scenes/enemies/bigCookie.tscn")
 
 var moveDirection: Vector2
 var wanderTime: float
@@ -23,10 +22,7 @@ func Enter():
 	transformTimer.one_shot = true  
 	add_child(transformTimer)  
 	transformTimer.connect("timeout", Callable(self, "_on_transform_timer_timeout"))
-	if Global.madCookie:
-		texture.play('blackIdle')
-	else:
-		texture.play('whiteIdle')
+	texture.play('blackIdle')
 	randomizeWander()
 
 func Update(delta: float):
@@ -44,19 +40,4 @@ func PhysicsUpdate(_delta: float):
 		var direction = player.global_position - enemy.global_position
 		if direction.length() < 150:
 			Transitioned.emit(self, "chase")
-		if Global.madCookie:
-			texture.play('blackIdle')
-		else:
-			texture.play('whiteIdle')
-
-func _process(delta: float) -> void:
-	var direction = player.global_position - enemy.global_position
-
-func _on_big_cookie_cookie_transform() -> void:
-	if transformTimer:
-		transformTimer.start()
-		isTransforming = true
-		texture.play("white2black")  
-
-func _on_transform_timer_timeout() -> void:
-	isTransforming = false  
+		texture.play('blackIdle')

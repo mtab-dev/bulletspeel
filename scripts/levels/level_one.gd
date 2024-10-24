@@ -60,7 +60,7 @@ func _on_chest_area_area_entered(area: Area2D) -> void:
 	print('bateu')
 
 
-func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
+func _on_enemy_area_enter_body_entered(body: Node2D) -> void: 
 	if body.is_in_group("Player"):
 		entryRoomFX.play()
 		mask.visible = false
