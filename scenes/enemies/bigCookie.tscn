@@ -154,9 +154,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("23_oe8ey")
 }],
-"loop": true,
+"loop": false,
 "name": &"blackAttack",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -343,7 +343,7 @@ debug_color = Color(0.818469, 0.333316, 0.594779, 0.42)
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
-animation = &"white2black"
+animation = &"blackAttack"
 
 [node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4)
