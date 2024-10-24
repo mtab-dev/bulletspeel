@@ -31,5 +31,5 @@ func onChildTransition(state, newStateName):
 	if currentState:
 		currentState.Exit()
 	newState.Enter()
+	print(newState)
 	currentState = newState
-	print("Conectado ao sinal de transição para o estado: ", currentState)

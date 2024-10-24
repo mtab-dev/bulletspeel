@@ -27,6 +27,5 @@ func updateLife(life):
 		spr1.texture = load("res://sprites/ui/hud/sugar-destroyed.png")
 
 func _process(delta):
-	hideLife
+	hideLife()
 	updateLife(life)
-

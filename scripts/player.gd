@@ -6,14 +6,14 @@ extends CharacterBody2D
 @onready var ammun: Control = get_node("hud/items/ammunation/ammunlabel")
 @onready var money: Control = get_node("hud/money/labelMoney")
 @onready var stats: Control = get_node("hud/life/control")
+@onready var light: PointLight2D = $lighter
 @onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
 @onready var walkingFX: AudioStreamPlayer2D = $walkingSound
 @onready var deathTimer: Timer = $deathTimer
 @onready var lolli: Sprite2D = get_node('hud/items/loli')
+@onready var boots: Sprite2D = get_node("hud/items/boots")
 const SLINGSHOT= preload('res://scenes/objects/guns/slingshot.tscn')
 var moneyCount: int = 0
-var hasLolli: bool = false
-var isDead: bool = false
 var isWalking: bool = false
 var anim: String = 'idle'
 
@@ -34,17 +34,17 @@ func horizontalMovement() -> void:
 	velocity.x = input_direction * speed
 	if velocity.x != 0:
 		isWalking = true
-	print(velocity.x)
+
 	
 func verticalMovement() -> void:
 	var input_direction: float = Input.get_action_strength("down") - Input.get_action_strength("up")
 	velocity.y = input_direction * speed
 	if velocity.y != 0:
 		isWalking = true
-	print(velocity.y)
+
 	
 func movement():
-	if(not isDead):
+	if(not Global.isDead):
 		verticalMovement()
 		horizontalMovement()
 
@@ -53,24 +53,31 @@ func moneyManagement():
 	
 func ammunManagement():
 	ammun.text = str(Global.ammunation)
-	
-func updateItems():
-	if hasLolli:
-		lolli.visible = true
 
 func lifeManagement():
 	if(Global.life <= 0):
-		isDead = true
+		Global.isDead = true
 		get_tree().paused = true
 		collision.disabled = true
 		timeAfterDeath()
 	stats.updateLife(Global.life)
+	
+	
+func enterElevator(elevatorPosition):
+	animation.play('up')
+	moveToElevator(elevatorPosition)
+
+func moveToElevator(elevatorPosition):
+	var target_position  = elevatorPosition
+	var direction = (target_position - position).normalized()
+	var distance_to_target = position.distance_to(target_position)
+	velocity = direction * speed
+	move_and_slide()
+
 
 func _ready():
 	pass
 
-func _process(delta):
-	updateItems()
 
 func _physics_process(delta):
 	ammunManagement()
@@ -83,9 +90,24 @@ func _physics_process(delta):
 	
 func _on_death_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
+	Global.isDead = false
 
 
 func _on_sling_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
 		var newSling = SLINGSHOT.instantiate()
 		add_child(newSling)
+
+
+func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		light.enabled = false
+
+
+func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		light.enabled = true
+
+
+func _on_big_cookie_damage_player() -> void:
+	Global.life -= 1

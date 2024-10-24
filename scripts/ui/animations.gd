@@ -5,7 +5,12 @@ var is_dead: bool = false
 
 func animate(direction: Vector2, life: int) -> void:
 	if life == 0 and not is_dead:
-		play("death")
+		if Global.playerColor == 'W':
+			play("whiteDeath")
+		if Global.playerColor == 'M':
+			play("midDeath")
+		if Global.playerColor == 'B':
+			play("blackDeath")
 		is_dead = true
 		return
 	
@@ -26,14 +31,34 @@ func verify_position(direction: Vector2) -> void:
 
 func vertical_behavior(direction: Vector2) -> void:
 	if direction.y < 0: 
-		play("up")
+		if Global.playerColor == 'W':
+			play("whiteUp")
+		if Global.playerColor == 'M':
+			play("midUp")
+		if Global.playerColor == 'B':
+			play("blackUp")
 	elif direction.y > 0:
-		play("down")
+		if Global.playerColor == 'W':
+			play("whiteDown")
+		if Global.playerColor == 'M':
+			play("midDown")
+		if Global.playerColor == 'B':
+			play("blackDown")
 
 
 func horizontal_behavior(direction: Vector2) -> void:
 	if direction.x != 0:
-		play("run")
+		if Global.playerColor == 'W':
+			play("whiteRun")
+		if Global.playerColor == 'M':
+			play("midRun")
+		if Global.playerColor == 'B':
+			play("blackRun")
 
 func idle_behavior() -> void:
-	play("idle")
+	if Global.playerColor == 'W':
+		play("whiteIdle")
+	if Global.playerColor == 'M':
+		play("midIdle")
+	if Global.playerColor == 'B':
+		play("blackIdle")

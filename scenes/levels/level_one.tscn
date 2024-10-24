@@ -1,13 +1,13 @@
-[gd_scene load_steps=57 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=60 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
 [ext_resource type="Script" path="res://scripts/levels/level_one.gd" id="1_stlsi"]
 [ext_resource type="Texture2D" uid="uid://bpp13dcogdove" path="res://sprites/primeiro andar pronto/andar 1 chão.png" id="1_yfrhe"]
-[ext_resource type="Texture2D" uid="uid://boc58ttlx5c0c" path="res://sprites/primeiro andar pronto/1andar sem colisao.png" id="3_pe0el"]
-[ext_resource type="Texture2D" uid="uid://b1yn52nxvcwet" path="res://sprites/primeiro andar pronto/1andar  colisao completo.png" id="3_sdwrh"]
-[ext_resource type="Texture2D" uid="uid://j6gte2fprari" path="res://sprites/primeiro andar pronto/1andar sombras  completo.png" id="4_fpllv"]
-[ext_resource type="Texture2D" uid="uid://btnmnii02xhhh" path="res://sprites/ui/chests/chest.webp" id="7_0ah01"]
+[ext_resource type="Texture2D" uid="uid://cu8vgabuo1gw6" path="res://sprites/primeiro andar pronto/andar 1 sem colisão.png" id="4_6ysvh"]
+[ext_resource type="Texture2D" uid="uid://c3740m0duu0uu" path="res://sprites/primeiro andar pronto/andar 1 colisão.png" id="5_luhrd"]
+[ext_resource type="Texture2D" uid="uid://fo8lr1dcihef" path="res://sprites/primeiro andar pronto/andar 1 sombras.png" id="6_gwf0a"]
+[ext_resource type="PackedScene" uid="uid://blsa0iy5gtwhh" path="res://scenes/objects/chestArea.tscn" id="7_1bxyg"]
 [ext_resource type="PackedScene" uid="uid://bqacurjfbfx4i" path="res://scenes/ui/store.tscn" id="7_a0now"]
 [ext_resource type="Texture2D" uid="uid://cbvmmnkibdiru" path="res://sprites/tela de compra/merchant.webp" id="8_vffmp"]
 [ext_resource type="PackedScene" uid="uid://bybpcigtcc037" path="res://scenes/enemies/bengal.tscn" id="9_egtin"]
@@ -22,11 +22,13 @@
 [ext_resource type="Texture2D" uid="uid://ckqaytp7sd8wa" path="res://sprites/guns/slingshot/ixtilingui_balangando6.png" id="16_mkmh8"]
 [ext_resource type="Texture2D" uid="uid://b5jcl8ld742m0" path="res://sprites/guns/slingshot/ixtilingui_balangando7.png" id="17_eutyk"]
 [ext_resource type="FontFile" uid="uid://l2iyicn4hyea" path="res://assets/font/thaleah_fat.ttf" id="18_tdmgt"]
+[ext_resource type="AudioStream" uid="uid://df6ubp4jwyxax" path="res://assets/fx/effects/enterBossRoom.mp3" id="22_315ks"]
 [ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="23_haoyv"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/bigCookie.tscn" id="24_h0x2e"]
+[ext_resource type="PackedScene" uid="uid://tqj5jdegh0er" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
+[ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="26_3nkdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
-size = Vector2(192, 61)
+size = Vector2(192, 45.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_baite"]
 size = Vector2(3, 314)
@@ -35,7 +37,7 @@ size = Vector2(3, 314)
 size = Vector2(5, 270.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50w1f"]
-size = Vector2(4, 159.5)
+size = Vector2(6, 151)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1m2o"]
 size = Vector2(193.5, 27)
@@ -44,10 +46,10 @@ size = Vector2(193.5, 27)
 size = Vector2(708.25, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72b63"]
-size = Vector2(206, 71)
+size = Vector2(206, 41.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o21kt"]
-size = Vector2(124, 68.25)
+size = Vector2(124, 42.4375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jn3n0"]
 size = Vector2(11.5, 652.5)
@@ -100,17 +102,14 @@ height = 72.0
 size = Vector2(100, 42.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81h0b"]
-size = Vector2(193, 35)
+size = Vector2(193, 24.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_il1ml"]
 radius = 12.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8m57"]
-size = Vector2(39, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_au8gn"]
-size = Vector2(59, 33)
+size = Vector2(25.5, 20)
 
 [sub_resource type="GDScript" id="GDScript_b0guc"]
 script/source = "extends Area2D
@@ -135,6 +134,12 @@ func _on_body_entered(body):
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yramo"]
 size = Vector2(186, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdb3e"]
+size = Vector2(20, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khe0q"]
+size = Vector2(43, 86)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_esvlm"]
 animations = [{
@@ -186,22 +191,21 @@ texture = ExtResource("1_yfrhe")
 
 [node name="noCollision" type="Sprite2D" parent="lvlDesign"]
 position = Vector2(12, -500)
-texture = ExtResource("3_pe0el")
+texture = ExtResource("4_6ysvh")
 
 [node name="decoration" type="Sprite2D" parent="lvlDesign"]
-position = Vector2(12, -497)
-texture = ExtResource("3_sdwrh")
+position = Vector2(12, -498)
+texture = ExtResource("5_luhrd")
 
 [node name="shadows" type="Sprite2D" parent="lvlDesign"]
 position = Vector2(12, -497)
-texture = ExtResource("4_fpllv")
+texture = ExtResource("6_gwf0a")
 
 [node name="collision" type="StaticBody2D" parent="lvlDesign"]
-visible = false
 position = Vector2(394, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(82, 15)
+position = Vector2(82, 7.25)
 shape = SubResource("RectangleShape2D_bm27d")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -217,7 +221,7 @@ position = Vector2(371.5, 17.875)
 shape = SubResource("RectangleShape2D_wxprg")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(174, -38.25)
+position = Vector2(175, -42.5)
 shape = SubResource("RectangleShape2D_50w1f")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -253,19 +257,19 @@ position = Vector2(395.875, -831)
 shape = SubResource("RectangleShape2D_bow3g")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-348, -52.5)
+position = Vector2(-348, -61.5)
 shape = SubResource("RectangleShape2D_72b63")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-602, -272)
+position = Vector2(-602, -277.75)
 shape = SubResource("RectangleShape2D_72b63")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-644, -53)
+position = Vector2(-644, -63.5625)
 shape = SubResource("RectangleShape2D_o21kt")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-375, -273.875)
+position = Vector2(-375, -276.219)
 shape = SubResource("RectangleShape2D_o21kt")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -501,7 +505,7 @@ position = Vector2(650, -687)
 shape = SubResource("RectangleShape2D_kydtv")
 
 [node name="CollisionShape2D76" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-103, -226)
+position = Vector2(-103, -231.25)
 shape = SubResource("RectangleShape2D_81h0b")
 
 [node name="CollisionShape2D77" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -916,12 +920,12 @@ position = Vector2(-57.5, 128)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D175" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-19, -167)
+position = Vector2(-20, -172)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D176" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-34, -167)
+position = Vector2(-34, -173.75)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
@@ -946,7 +950,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D181" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-316, -355)
+position = Vector2(-316, -359)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
@@ -1066,30 +1070,30 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D182" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-296, -355)
+position = Vector2(-296, -358)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D183" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-391, -355)
+position = Vector2(-391, -360)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D184" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-441, -357)
+position = Vector2(-441, -360)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D185" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-417, -346)
+position = Vector2(-417, -358)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D187" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-535, -347)
+position = Vector2(-535, -355)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D188" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-569, -347)
+position = Vector2(-569, -355)
 shape = SubResource("RectangleShape2D_y8m57")
 
 [node name="CollisionShape2D191" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -1145,38 +1149,11 @@ shape = SubResource("RectangleShape2D_y8m57")
 position = Vector2(-678, 107)
 shape = SubResource("CapsuleShape2D_il1ml")
 
-[node name="chest1" type="Area2D" parent="lvlDesign/collision"]
-
-[node name="chest" type="Sprite2D" parent="lvlDesign/collision/chest1"]
-position = Vector2(-1293, -862)
-texture = ExtResource("7_0ah01")
-
-[node name="collision" type="CollisionShape2D" parent="lvlDesign/collision/chest1"]
-position = Vector2(-1292.5, -858.5)
-shape = SubResource("RectangleShape2D_au8gn")
-
-[node name="chest2" type="Area2D" parent="lvlDesign/collision"]
-
-[node name="chest2" type="Sprite2D" parent="lvlDesign/collision/chest2"]
-position = Vector2(-1211, -862)
-texture = ExtResource("7_0ah01")
-
-[node name="collision2" type="CollisionShape2D" parent="lvlDesign/collision/chest2"]
-position = Vector2(-1210, -858)
-shape = SubResource("RectangleShape2D_au8gn")
-
-[node name="chest3" type="Area2D" parent="lvlDesign/collision"]
-
-[node name="chest3" type="Sprite2D" parent="lvlDesign/collision/chest3"]
-position = Vector2(-1129, -862)
-texture = ExtResource("7_0ah01")
-
-[node name="collision4" type="CollisionShape2D" parent="lvlDesign/collision/chest3"]
-position = Vector2(-1128, -858)
-shape = SubResource("RectangleShape2D_au8gn")
+[node name="chestArea" parent="." instance=ExtResource("7_1bxyg")]
+position = Vector2(-900, -511)
 
 [node name="loja" type="Area2D" parent="."]
-position = Vector2(64, -1182)
+position = Vector2(65, -1182)
 script = SubResource("GDScript_b0guc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loja"]
@@ -1190,8 +1167,21 @@ player = NodePath("../../player")
 position = Vector2(2, -52)
 texture = ExtResource("8_vffmp")
 
+[node name="enemyAreaExited" type="Area2D" parent="."]
+position = Vector2(240, -1091)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyAreaExited"]
+position = Vector2(27, 35)
+shape = SubResource("RectangleShape2D_tdb3e")
+
+[node name="enemyAreaEnter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyAreaEnter"]
+position = Vector2(430, -1029)
+shape = SubResource("RectangleShape2D_khe0q")
+
 [node name="slingDetect" type="Area2D" parent="."]
-position = Vector2(613, 388)
+position = Vector2(640, 395)
 
 [node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
 scale = Vector2(0.8, 0.8)
@@ -1213,10 +1203,6 @@ theme_override_fonts/font = ExtResource("18_tdmgt")
 theme_override_font_sizes/font_size = 16
 text = "PRESSIONE E PARA PEGAR"
 
-[node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(665, 414)
-speed = 250
-
 [node name="bengal" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(254, 414)
 
@@ -1232,9 +1218,6 @@ position = Vector2(-225, 419)
 [node name="bengal5" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(-176, 222)
 
-[node name="bengal6" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(-15, 26)
-
 [node name="bengal7" parent="." instance=ExtResource("9_egtin")]
 position = Vector2(65, 152)
 
@@ -1247,18 +1230,36 @@ stream = ExtResource("13_bf5qo")
 volume_db = -25.0
 autoplay = true
 
+[node name="enterBoss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_315ks")
+volume_db = -25.0
+
 [node name="interactFX" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-33, 3)
 stream = ExtResource("23_haoyv")
 volume_db = -20.0
 
-[node name="bigCookie" parent="." instance=ExtResource("24_h0x2e")]
-position = Vector2(747, -1295)
+[node name="player" parent="." instance=ExtResource("1_bvwrk")]
+position = Vector2(698, 413)
+speed = 250
 
-[connection signal="body_entered" from="lvlDesign/collision/chest1" to="." method="_on_chest_1_body_entered"]
-[connection signal="body_entered" from="lvlDesign/collision/chest2" to="." method="_on_chest_2_body_entered"]
-[connection signal="body_entered" from="lvlDesign/collision/chest3" to="." method="_on_chest_3_body_entered"]
+[node name="elevator" parent="." instance=ExtResource("25_uf2ca")]
+position = Vector2(712, -1433)
+
+[node name="mask" type="CanvasModulate" parent="."]
+position = Vector2(0, -12)
+color = Color(0.47788, 0.47788, 0.47788, 1)
+
+[node name="bigCookie" parent="." instance=ExtResource("26_3nkdn")]
+position = Vector2(743, -1044)
+
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
+[connection signal="body_entered" from="enemyAreaExited" to="." method="_on_enemy_area_exited_body_entered"]
+[connection signal="body_entered" from="enemyAreaExited" to="player" method="_on_enemy_area_exited_body_entered"]
+[connection signal="body_entered" from="enemyAreaExited" to="bigCookie" method="_on_enemy_area_exited_body_entered"]
+[connection signal="body_entered" from="enemyAreaEnter" to="." method="_on_enemy_area_enter_body_entered"]
+[connection signal="body_entered" from="enemyAreaEnter" to="player" method="_on_enemy_area_enter_body_entered"]
+[connection signal="body_entered" from="enemyAreaEnter" to="bigCookie" method="_on_enemy_area_enter_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="." method="_on_sling_detect_body_entered"]
 [connection signal="body_entered" from="slingDetect" to="player" method="_on_sling_detect_body_entered"]
 [connection signal="body_exited" from="slingDetect" to="." method="_on_sling_detect_body_exited"]

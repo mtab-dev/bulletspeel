@@ -1,0 +1,430 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctrintefmalic"]
+
+[ext_resource type="Texture2D" uid="uid://bbndqluwju2qv" path="res://sprites/lvlTwo/levelTwo/andar 2 completo.png" id="1_xe6f7"]
+[ext_resource type="Texture2D" uid="uid://7fnaaxqmtnm6" path="res://sprites/lvlTwo/levelTwo/segundo andar sem colisao.png" id="2_8okrb"]
+[ext_resource type="Texture2D" uid="uid://cba4tlqy5a3sm" path="res://sprites/lvlTwo/levelTwo/segundo andar com colisao.png" id="3_dsqnw"]
+[ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="4_2axp4"]
+[ext_resource type="PackedScene" uid="uid://cjabs2o3kadip" path="res://scenes/ui/level_menu.tscn" id="5_vi41y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa02u"]
+size = Vector2(252, 79.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ap4"]
+size = Vector2(64, 61.5)
+
+[node name="leve_two" type="Node"]
+
+[node name="lvlDesign" type="Node" parent="."]
+
+[node name="structure" type="Sprite2D" parent="lvlDesign"]
+texture = ExtResource("1_xe6f7")
+
+[node name="noCollision" type="Sprite2D" parent="lvlDesign"]
+texture = ExtResource("2_8okrb")
+
+[node name="decoration" type="Sprite2D" parent="lvlDesign"]
+texture = ExtResource("3_dsqnw")
+
+[node name="collisions" type="StaticBody2D" parent="lvlDesign"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-294, -871.125)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(645, -304)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(970, -304)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(703, 499)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D81" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(806, 498)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(1089, 64)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(524, 59)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(150, -9)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-295, -6)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-588, 121)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-591, 98)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-927, 385)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-607, 386)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-609, 439)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-925, 435)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-925, 435)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-802, 27)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-1004, 104)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-1005, 121)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(668, -871)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(846, -885)
+shape = SubResource("RectangleShape2D_oa02u")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-574, 509.75)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-511, 572)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-1022, 507)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-1021, 525)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-954, 712)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-955, 640)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-639, 641)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-638, 698)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-640, 966)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-639, 895)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-955, 886)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-955, 953)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-1086, 1075)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-1022, 1141)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-574, 1142)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-509, 1078)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(306, 129)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(367, 130)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(431, 130)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-9, 65)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-137, 63)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-447, 130)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-386, 125)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-331, 125)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-453, 67)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-166, 326)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-166, 308)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-15, 325)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-80, 323)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-105, 323)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(721, 356)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(800, 354)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(771, 355)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(1124, 368)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D82" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(936, 561)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D83" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(998, 627)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D84" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(999, 572)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D85" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(555, 559)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D86" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(942, 1017)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D87" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(550, 1016)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D88" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(1001, 765)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D89" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(992, 387)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D90" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(423, 262)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D91" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(311, 261)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D92" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(364, 262)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D93" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-459, 262)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D94" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-572, 262)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D95" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-521, 262)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D96" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-572, 317)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D97" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-459, 316)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D98" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-459, 316)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(1159, 128)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(937, -198)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(617, -785)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(902, -470)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(909, -470)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(649, -484)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-134, -562)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-71, -510)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-5, -445)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-220, -258)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-157, -258)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-93, -258)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-92, -281)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-157, -282)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-218, -281)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D72" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-389, -139)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D73" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(291, -405)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(746, 250)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(748, 227)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(809, 227)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(809, 227)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(809, 252)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D79" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(870, 251)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D80" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(869, 227)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-573, 1123)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(-1083, 570)
+shape = SubResource("RectangleShape2D_y4ap4")
+
+[node name="player" parent="." instance=ExtResource("4_2axp4")]
+position = Vector2(869, -825)
+speed = 250
+
+[node name="mask" type="CanvasModulate" parent="."]
+color = Color(0.47788, 0.47788, 0.47788, 1)
+
+[node name="levelMenu" parent="." instance=ExtResource("5_vi41y")]
+visible = false

@@ -1,0 +1,215 @@
+[gd_scene load_steps=33 format=3 uid="uid://caq6g7ot52f6i"]
+
+[ext_resource type="Script" path="res://scripts/ui/chosePlayer.gd" id="1_o5jkr"]
+[ext_resource type="Texture2D" uid="uid://dwu18gldx5boy" path="res://sprites/ui/menu/pauseOverlay.webp" id="1_qgvrw"]
+[ext_resource type="Texture2D" uid="uid://1jh5twgehce8" path="res://sprites/player/jaopreto/Jaoparado/jaoparado1.png" id="3_8l0ou"]
+[ext_resource type="Texture2D" uid="uid://crqyjpv2p15xt" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado1.png" id="3_45b2n"]
+[ext_resource type="Texture2D" uid="uid://texr7ix83oq8" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado2.png" id="4_gqmmg"]
+[ext_resource type="Texture2D" uid="uid://cy70li6wkamli" path="res://sprites/player/jaopreto/Jaoparado/jaoparado2.png" id="4_iinqr"]
+[ext_resource type="Texture2D" uid="uid://ypwnyx7cauid" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado3.png" id="5_5q26r"]
+[ext_resource type="Texture2D" uid="uid://6clqj8v3a5nb" path="res://sprites/player/jaopreto/Jaoparado/jaoparado3.png" id="5_xprp6"]
+[ext_resource type="Texture2D" uid="uid://c0km8lvngh8lb" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado4.png" id="6_6whfl"]
+[ext_resource type="Texture2D" uid="uid://dcvra41ej2s66" path="res://sprites/player/jaopreto/Jaoparado/jaoparado4.png" id="6_fgm3o"]
+[ext_resource type="Texture2D" uid="uid://br2yhtpqlenvs" path="res://sprites/player/jaopreto/Jaoparado/jaoparado5.png" id="7_r5wwh"]
+[ext_resource type="Texture2D" uid="uid://c5xx8aa3s2cc" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado5.png" id="7_t8d7g"]
+[ext_resource type="Texture2D" uid="uid://d22weuf6pmxf7" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado6.png" id="8_0vg1d"]
+[ext_resource type="Texture2D" uid="uid://bvwjni7lx8jdp" path="res://sprites/player/jaopreto/Jaoparado/jaoparado6.png" id="8_ravc7"]
+[ext_resource type="Texture2D" uid="uid://dbmn6f17yvxes" path="res://sprites/player/jaopreto/Jaoparado/jaoparado7.png" id="9_08oqx"]
+[ext_resource type="Texture2D" uid="uid://bx3qp3qygexmb" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado7.png" id="9_fnah6"]
+[ext_resource type="Texture2D" uid="uid://blnag6tm3k32t" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado8.png" id="10_cmt4j"]
+[ext_resource type="Texture2D" uid="uid://dndu8ydtows8x" path="res://sprites/player/jaopreto/Jaoparado/jaoparado8.png" id="10_m4xi8"]
+[ext_resource type="Texture2D" uid="uid://n2n481dwfbrv" path="res://sprites/player/jaobranco/Jaoparado/jaoparado1.png" id="11_rtnpo"]
+[ext_resource type="Texture2D" uid="uid://bfc2dgqjfdk18" path="res://sprites/player/jaobranco/Jaoparado/jaoparado2.png" id="12_pvm6n"]
+[ext_resource type="Texture2D" uid="uid://cg85ks26y0qej" path="res://sprites/player/jaobranco/Jaoparado/jaoparado3.png" id="13_li222"]
+[ext_resource type="Texture2D" uid="uid://b2k2ontn8o1mn" path="res://sprites/player/jaobranco/Jaoparado/jaoparado4.png" id="14_vmrpw"]
+[ext_resource type="Texture2D" uid="uid://bjxwtfsc4jopx" path="res://sprites/player/jaobranco/Jaoparado/jaoparado5.png" id="15_bla2f"]
+[ext_resource type="Texture2D" uid="uid://ds6yav160evui" path="res://sprites/player/jaobranco/Jaoparado/jaoparado6.png" id="16_v7sit"]
+[ext_resource type="Texture2D" uid="uid://dyf3uqhndfk4d" path="res://sprites/player/jaobranco/Jaoparado/jaoparado7.png" id="17_0tcm7"]
+[ext_resource type="Texture2D" uid="uid://cclnu3hb0qme5" path="res://sprites/player/jaobranco/Jaoparado/jaoparado8.png" id="18_dr7wq"]
+[ext_resource type="Theme" uid="uid://cjoyqre1lp47" path="res://assets/themes/buttons.tres" id="19_2isa1"]
+[ext_resource type="AudioStream" uid="uid://dneutqaxaf50y" path="res://assets/fx/effects/changeScene.mp3" id="20_lvs44"]
+[ext_resource type="Texture2D" uid="uid://dfel1u0p421x4" path="res://sprites/ui/menu/mid.webp" id="28_55a10"]
+[ext_resource type="Texture2D" uid="uid://dhucm86bc56l5" path="res://sprites/ui/menu/black.webp" id="29_elmyw"]
+[ext_resource type="Texture2D" uid="uid://t1ie7snvdv3x" path="res://sprites/ui/menu/white.webp" id="30_4alw1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6r56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8l0ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iinqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xprp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fgm3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r5wwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ravc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_08oqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m4xi8")
+}],
+"loop": true,
+"name": &"blackIdle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_45b2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gqmmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5q26r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6whfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t8d7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0vg1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fnah6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cmt4j")
+}],
+"loop": true,
+"name": &"midIdle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rtnpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pvm6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_li222")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vmrpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bla2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_v7sit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0tcm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dr7wq")
+}],
+"loop": true,
+"name": &"whiteIdle",
+"speed": 6.0
+}]
+
+[node name="chosePlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5jkr")
+
+[node name="panel" type="Sprite2D" parent="."]
+position = Vector2(586, 285)
+scale = Vector2(5, 5)
+texture = ExtResource("1_qgvrw")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(584, 340)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_f6r56")
+animation = &"blackIdle"
+
+[node name="startBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 509.0
+offset_right = 647.0
+offset_bottom = 556.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("19_2isa1")
+theme_override_font_sizes/font_size = 50
+text = "JOGAR"
+
+[node name="midColor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 405.0
+offset_right = 837.0
+offset_bottom = 705.0
+scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
+theme = ExtResource("19_2isa1")
+theme_override_colors/font_color = Color(0.764706, 0.498039, 0.305882, 1)
+theme_override_font_sizes/font_size = 100
+icon = ExtResource("28_55a10")
+flat = true
+
+[node name="blackColor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 406.0
+offset_right = 937.0
+offset_bottom = 706.0
+scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
+theme = ExtResource("19_2isa1")
+theme_override_colors/font_color = Color(0.427451, 0.254902, 0.133333, 1)
+theme_override_font_sizes/font_size = 100
+icon = ExtResource("29_elmyw")
+flat = true
+
+[node name="whiteColor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 406.0
+offset_right = 734.0
+offset_bottom = 706.0
+scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
+theme = ExtResource("19_2isa1")
+theme_override_colors/font_color = Color(1, 0.827451, 0.701961, 1)
+theme_override_font_sizes/font_size = 100
+icon = ExtResource("30_4alw1")
+
+[node name="label" type="Button" parent="."]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 156.0
+offset_right = 908.0
+offset_bottom = 203.0
+theme = ExtResource("19_2isa1")
+theme_override_font_sizes/font_size = 50
+text = "escolha a cor do seu player
+"
+
+[node name="select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_lvs44")
+bus = &"fx"
+
+[connection signal="pressed" from="startBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="midColor" to="." method="_on_mid_color_pressed"]
+[connection signal="pressed" from="blackColor" to="." method="_on_black_color_pressed"]
+[connection signal="pressed" from="whiteColor" to="." method="_on_white_color_pressed"]

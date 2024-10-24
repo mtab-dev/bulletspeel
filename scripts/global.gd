@@ -1,8 +1,22 @@
 extends Node
 
-var ammunation: int = 30
-var money: int = 0
+##variaveis de estatistica
+var ammunation: int = 150
+var money: int = 150
 var life: int = 3
-var madCookie: bool
+var isDead: bool = false
 
-var items: Array = []
+##variavel global do bolachão
+var health: int = 20
+var deadCookie: bool = false
+var madCookie: bool = false
+
+##itens do player
+var hasLolli: bool = false
+var hasBoots: bool = false
+
+#cor do joão
+var playerColor: String = "W"
+
+#var de linguagem
+var lang: String = "port"
