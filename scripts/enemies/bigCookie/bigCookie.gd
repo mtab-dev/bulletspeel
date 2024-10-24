@@ -11,6 +11,7 @@ var player: CharacterBody2D
 var isTransforming: bool = false  
 
 signal cookieTransform
+signal normalBehaviour
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -72,7 +73,7 @@ func hitWhenAnim():
 		atkAnim()
 		Global.life -= 1
 	else:
-		pass
+		normalBehaviour.emit()
 
 func _on_animation_animation_finished() -> void:
 	hitWhenAnim()

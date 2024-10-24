@@ -40,3 +40,10 @@ func _on_big_cookie_cookie_transform() -> void:
 
 func _on_transform_timer_timeout() -> void:
 	isTransforming = false  
+
+
+func _on_big_cookie_normal_behaviour() -> void:
+	if Global.madCookie == true:
+		texture.play('blackRun')
+	else:
+		texture.play('whiteRun')

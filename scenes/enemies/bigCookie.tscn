@@ -429,6 +429,8 @@ wait_time = 5.0
 
 [connection signal="cookieTransform" from="." to="stateMachine/idle" method="_on_big_cookie_cookie_transform"]
 [connection signal="cookieTransform" from="." to="stateMachine/chase" method="_on_big_cookie_cookie_transform"]
+[connection signal="normalBehaviour" from="." to="stateMachine/idle" method="_on_big_cookie_normal_behaviour"]
+[connection signal="normalBehaviour" from="." to="stateMachine/chase" method="_on_big_cookie_normal_behaviour"]
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_entered"]
