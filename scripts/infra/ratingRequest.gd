@@ -14,7 +14,6 @@ var clientFeedback: String = "aaaaaaaa"
 
 
 func _ready():
-	Global.lang = 'eng'
 	if Global.lang == "port":
 		title.text = "AVALIA AI PRA NOIS"
 		send.text = "ENVIAR"
