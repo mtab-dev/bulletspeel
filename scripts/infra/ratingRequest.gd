@@ -2,11 +2,25 @@ extends Node
 
 @onready var app: HTTPRequest = $HTTPRequest
 @export var rating: int
+@onready var title: Button = $title
+@onready var send: Button = $send
+@onready var lineText: LineEdit = $LineEdit
 var clientFeedback: String = "aaaaaaaa"
 
 
 func _ready():
-	pass
+	if Global.lang == "port":
+		title.text = "AVALIA AI PRA NOIS"
+		send.text = "ENVIAR"
+		lineText.placeholder_text = "Mande um comentário (opcional)"
+	if Global.lang == "eng":
+		title.text = "GIVE US A RATING"
+		send.text = "SEND"
+		lineText.placeholder_text = "Write down a feedback (optional)"
+	if Global.lang == "esp":
+		title.text = "ENVÍANOS UNA CALIFICACIÓN"
+		send.text = "ENVIAR"
+		lineText.placeholder_text = "Escriba un comentario (opcional)"
 
 func requestApi():
 	var url = "https://bullet-rating-e4a2d5156cb5.herokuapp.com/api/feedback/new"
