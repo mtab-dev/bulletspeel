@@ -6,6 +6,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.gameOn == true and !get_tree().paused:
 		Global.time += delta
-		print(Global.time)
 	else:
 		pass
