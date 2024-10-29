@@ -167,6 +167,7 @@ func _on_item_3_mouse_entered():
 	if Global.life < 3:
 		candyText(Global.lang)
 	else:
+		bt3.add_theme_color_override("icon", Color(1, 0, 0))
 		alreadyMax(Global.lang)
 
 func _on_item_3_mouse_exited():
