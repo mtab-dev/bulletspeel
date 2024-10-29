@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var entryRoom: AudioStreamPlayer2D = $enterBoss
 @onready var afterDeath: AudioStreamPlayer2D = $killDeath
 var isPlayerInDetectionArea: bool = false
-var health = 50
+var health = 50.0
 var player: CharacterBody2D
 var isTransforming: bool = false  
 
@@ -15,7 +15,7 @@ signal normalBehaviour
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
-	health = 50
+	health = 50.0
 	healthBar.initHealth(health)
 
 func _physics_process(delta):
@@ -36,9 +36,9 @@ func atkAnim():
 		animation.play('whiteAttack')
 
 func _process(delta: float) -> void:
-	if health == 25:
+	if health == 25.0:
 		transformCookie()
-	if health <= 25:
+	if health <= 25.0:
 		Global.madCookie = true
 	else:
 		Global.madCookie = false
@@ -55,7 +55,10 @@ func _on_detection_area_body_exited(body):
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
-		health -= 1
+		if Global.hasLolli:
+			health -= 1.5
+		else:
+			health -= 1.0
 		healthBar.health = health
 		if health <= 0:
 			Global.deadCookie = true

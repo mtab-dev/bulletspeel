@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var speed: int = 10
 @onready var animation: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var collision: CollisionShape2D = $collision
 @onready var ammun: Control = get_node("hud/items/ammunation/ammunlabel")
@@ -15,6 +14,7 @@ const SLINGSHOT= preload('res://scenes/objects/guns/slingshot.tscn')
 var moneyCount: int = 0
 var isWalking: bool = false
 var anim: String = 'idle'
+var speed: int = 200
 
 func walkingEffect():
 	isWalking = velocity.x != 0 or velocity.y != 0
@@ -76,6 +76,9 @@ func moveToElevator(elevatorPosition):
 func _ready():
 	pass
 
+func _process(delta: float) -> void:
+	if Global.hasBoots:
+		speed = 250
 
 func _physics_process(delta):
 	ammunManagement()

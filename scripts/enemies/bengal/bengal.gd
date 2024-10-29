@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var damageSound: AudioStreamPlayer = $damage
 @onready var flash: Timer = $flashTimer
 var player: CharacterBody2D
-var bengalLife: int = 4
+var bengalLife: float = 4.0
 const COIN = preload("res://scenes/objects/drops/coin.tscn")
 const AMMUN = preload("res://scenes/objects/drops/ammunation.tscn")
 
@@ -51,7 +51,10 @@ func _on_detection_area_body_entered(body):
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
-		bengalLife -= 1
+		if Global.hasLolli:
+			bengalLife -= 1.5
+		else:
+			bengalLife -= 1.0
 		var tween = get_tree().create_tween()
 		tween.tween_method(setShader, 1.0, 0.0, 0.2)
 		flash.start()

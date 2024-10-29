@@ -1226,8 +1226,7 @@ volume_db = -20.0
 bus = &"fx"
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(130, -1051)
-speed = 250
+position = Vector2(677, 390)
 
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]
 position = Vector2(712, -1433)

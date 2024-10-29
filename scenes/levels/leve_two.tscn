@@ -421,7 +421,6 @@ shape = SubResource("RectangleShape2D_y4ap4")
 
 [node name="player" parent="." instance=ExtResource("4_2axp4")]
 position = Vector2(869, -825)
-speed = 250
 
 [node name="mask" type="CanvasModulate" parent="."]
 color = Color(0.47788, 0.47788, 0.47788, 1)
