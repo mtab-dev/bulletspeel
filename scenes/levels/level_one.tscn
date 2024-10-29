@@ -242,7 +242,7 @@ position = Vector2(393, -452)
 shape = SubResource("RectangleShape2D_bow3g")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(344, -1795)
+position = Vector2(344, -1799)
 shape = SubResource("RectangleShape2D_bow3g")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -254,7 +254,7 @@ position = Vector2(-334, -1555.5)
 shape = SubResource("RectangleShape2D_bow3g")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(395.875, -831)
+position = Vector2(395.875, -842)
 shape = SubResource("RectangleShape2D_bow3g")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -262,7 +262,7 @@ position = Vector2(-348, -61.5)
 shape = SubResource("RectangleShape2D_72b63")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="lvlDesign/collision"]
-position = Vector2(-602, -277.75)
+position = Vector2(-602, -284.75)
 shape = SubResource("RectangleShape2D_72b63")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="lvlDesign/collision"]
@@ -1154,17 +1154,14 @@ shape = SubResource("CapsuleShape2D_il1ml")
 position = Vector2(-900, -511)
 
 [node name="loja" type="Area2D" parent="."]
-visible = false
 position = Vector2(65, -1182)
 script = SubResource("GDScript_b0guc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loja"]
-visible = false
 position = Vector2(6, 10.5)
 shape = SubResource("RectangleShape2D_yramo")
 
 [node name="store" parent="loja" node_paths=PackedStringArray("player") instance=ExtResource("7_a0now")]
-visible = false
 player = NodePath("../../player")
 
 [node name="merchant" type="Sprite2D" parent="loja"]
@@ -1229,7 +1226,7 @@ volume_db = -20.0
 bus = &"fx"
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(698, 413)
+position = Vector2(130, -1051)
 speed = 250
 
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]

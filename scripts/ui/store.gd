@@ -8,15 +8,41 @@ var budget: int
 @onready var buyLabel: Button = $Panel/buy
 @onready var moneyLabel: RichTextLabel = $Panel/moneyLabel
 @onready var buySound: AudioStreamPlayer2D = $buySound
+@onready var bt1: Button = $Panel/item1
+@onready var bt2: Button = $Panel/item2
+@onready var bt3: Button = $Panel/item3
 @export var player: CharacterBody2D = null
+var tween_duration: float = 0.3
+var tween_intensity: float = 1.2
+var bt1Scale := Vector2.ONE
+var bt2Scale := Vector2.ONE
+var bt3Scale := Vector2.ONE
 
 
+func startTween(object: Object, property: String, final_val: Variant, duration: float):
+	var tween = create_tween()
+	tween.tween_property(object, property, final_val, duration)
+
+func btn_hovered(button: Button, scale):
+	button.pivot_offset = button.scale / 2
+	if button.is_hovered():
+		startTween(button, "scale", scale * tween_intensity, tween_duration)
+	else:
+		startTween(button, "scale", scale, tween_duration)
 
 func _ready() -> void:
+	
 	initText(Global.lang)
+	bt1Scale = bt1.scale
+	bt2Scale = bt2.scale
+	bt3Scale = bt3.scale
 
 func _process(delta):
 	moneyLabel.text = str(Global.money)
+	btn_hovered(bt1, bt1Scale)
+	btn_hovered(bt2, bt2Scale)
+	btn_hovered(bt3, bt3Scale)
+	
 
 func initText(lang):
 	if lang == 'port':
@@ -125,7 +151,6 @@ func _on_item_1_mouse_entered():
 
 func _on_item_1_mouse_exited():
 	mouseHover(Global.lang)
-
 
 func _on_item_2_mouse_entered():
 	bootsText(Global.lang)
