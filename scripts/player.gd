@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var collision: CollisionShape2D = $collision
 @onready var ammun: Control = get_node("hud/items/ammunation/ammunlabel")
 @onready var money: Control = get_node("hud/money/labelMoney")
-@onready var stats: Control = get_node("hud/life/control")
 @onready var light: PointLight2D = $lighter
 @onready var damageFX: AudioStreamPlayer2D = get_node("damageSound")
 @onready var walkingFX: AudioStreamPlayer2D = $walkingSound
@@ -60,7 +59,6 @@ func lifeManagement():
 		get_tree().paused = true
 		collision.disabled = true
 		timeAfterDeath()
-	stats.updateLife(Global.life)
 	
 	
 func enterElevator(elevatorPosition):

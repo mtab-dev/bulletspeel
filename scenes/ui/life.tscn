@@ -1,30 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c66pdwsw13cig"]
+[gd_scene load_steps=3 format=3 uid="uid://c66pdwsw13cig"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_0sl5v"]
 [ext_resource type="Texture2D" uid="uid://cfudvdex267jh" path="res://sprites/ui/hud/sugar-life.png" id="2_jixhs"]
 
-[sub_resource type="GDScript" id="GDScript_o13rl"]
-script/source = "extends Control
-
-class_name PlayerHud
-
-@export var spr1: TextureRect = null
-@export var spr2: TextureRect = null
-@export var spr3: TextureRect = null
-
-func updateLife(life):
-	if(life == 2):
-		spr3.texture = load(\"res://sprites/ui/hud/sugar-destroyed.png\")
-	if(life == 1):
-		spr2.texture = load(\"res://sprites/ui/hud/sugar-destroyed.png\")
-	if(life == 0):
-		spr1.texture = load(\"res://sprites/ui/hud/sugar-destroyed.png\")
-
-func _process(delta):
-	updateLife(Global.life)
-"
-
 [node name="life" type="Control" node_paths=PackedStringArray("spr1", "spr2", "spr3")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_0sl5v")
@@ -32,15 +12,11 @@ spr1 = NodePath("control/life1")
 spr2 = NodePath("control/life2")
 spr3 = NodePath("control/life3")
 
-[node name="control" type="Control" parent="." node_paths=PackedStringArray("spr1", "spr2", "spr3")]
+[node name="control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = SubResource("GDScript_o13rl")
-spr1 = NodePath("life1")
-spr2 = NodePath("life2")
-spr3 = NodePath("life3")
 
 [node name="life1" type="TextureRect" parent="control"]
 layout_mode = 0

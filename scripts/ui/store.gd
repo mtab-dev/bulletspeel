@@ -18,7 +18,6 @@ var bt1Scale := Vector2.ONE
 var bt2Scale := Vector2.ONE
 var bt3Scale := Vector2.ONE
 
-
 func startTween(object: Object, property: String, final_val: Variant, duration: float):
 	var tween = create_tween()
 	tween.tween_property(object, property, final_val, duration)
@@ -31,7 +30,6 @@ func btn_hovered(button: Button, scale):
 		startTween(button, "scale", scale, tween_duration)
 
 func _ready() -> void:
-	
 	initText(Global.lang)
 	bt1Scale = bt1.scale
 	bt2Scale = bt2.scale
