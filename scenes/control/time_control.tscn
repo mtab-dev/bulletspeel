@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnajuetuyb05c"]
+
+[ext_resource type="Script" path="res://scripts/infra/time_control.gd" id="1_ad5kc"]
+
+[node name="timeControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ad5kc")

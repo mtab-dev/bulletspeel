@@ -13,7 +13,8 @@ var passedFirstDoor: bool = false
 func _ready():
 	slingAnim.play('default')
 	ambientFX.play()
-
+	if player:
+		Global.gameOn = true
 
 func _process(delta):
 	if Global.life <= 0:

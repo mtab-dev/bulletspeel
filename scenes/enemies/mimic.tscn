@@ -170,7 +170,7 @@ shape = SubResource("RectangleShape2D_l1msd")
 
 [node name="HealthBar" parent="." instance=ExtResource("32_5yc26")]
 offset_left = -23.0
-offset_top = -30.0
+offset_top = -31.0
 offset_right = 22.0
 offset_bottom = -27.0
 
@@ -188,10 +188,12 @@ initialState = NodePath("waking")
 [node name="idle" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
 script = ExtResource("34_1s0x5")
 enemy = NodePath("../..")
+moveSpeed = 6
 texture = NodePath("../../animation")
 
 [node name="chase" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
 script = ExtResource("35_y4i3l")
+moveSpeed = 115
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
 

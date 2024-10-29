@@ -20,3 +20,8 @@ var playerColor: String = "W"
 
 #var de linguagem
 var lang: String = "port"
+
+
+#time control
+var gameOn: bool = false
+var time: float = 0.0

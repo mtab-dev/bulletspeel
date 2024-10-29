@@ -237,6 +237,7 @@ context_menu_enabled = true
 
 [node name="buySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_o1wg2")
+bus = &"fx"
 
 [connection signal="mouse_entered" from="Panel/item1" to="." method="_on_item_1_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/item1" to="." method="_on_item_1_mouse_exited"]

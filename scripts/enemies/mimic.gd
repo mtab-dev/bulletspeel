@@ -3,12 +3,12 @@ extends CharacterBody2D
 @onready var animation: AnimatedSprite2D = $animation
 @onready var healthBar: ProgressBar = $HealthBar
 var isInHit: bool = false
-var health = 7
+var health = 25
 var player: CharacterBody2D
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
-	health = 6
+	health = 25
 	healthBar.initHealth(health)
 	
 func _physics_process(delta):

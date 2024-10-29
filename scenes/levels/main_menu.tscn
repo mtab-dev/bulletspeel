@@ -295,13 +295,16 @@ icon_alignment = 1
 stream = ExtResource("41_o2sml")
 volume_db = -10.0
 autoplay = true
+bus = &"music"
 
 [node name="buttonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("42_4bb3h")
+bus = &"fx"
 
 [node name="sceneMorph" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(2, 2)
 stream = ExtResource("43_tdf6v")
+bus = &"fx"
 
 [node name="sceneChangingTimer" type="Timer" parent="."]
 
