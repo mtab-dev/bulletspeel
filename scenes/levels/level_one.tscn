@@ -1154,14 +1154,17 @@ shape = SubResource("CapsuleShape2D_il1ml")
 position = Vector2(-900, -511)
 
 [node name="loja" type="Area2D" parent="."]
+visible = false
 position = Vector2(65, -1182)
 script = SubResource("GDScript_b0guc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loja"]
+visible = false
 position = Vector2(6, 10.5)
 shape = SubResource("RectangleShape2D_yramo")
 
 [node name="store" parent="loja" node_paths=PackedStringArray("player") instance=ExtResource("7_a0now")]
+visible = false
 player = NodePath("../../player")
 
 [node name="merchant" type="Sprite2D" parent="loja"]
@@ -1204,24 +1207,6 @@ theme_override_fonts/font = ExtResource("18_tdmgt")
 theme_override_font_sizes/font_size = 16
 text = "PRESSIONE E PARA PEGAR"
 
-[node name="bengal" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(254, 414)
-
-[node name="bengal2" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(37, 414)
-
-[node name="bengal3" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(196, 316)
-
-[node name="bengal4" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(-225, 419)
-
-[node name="bengal5" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(-176, 222)
-
-[node name="bengal7" parent="." instance=ExtResource("9_egtin")]
-position = Vector2(65, 152)
-
 [node name="levelMenu" parent="." instance=ExtResource("10_u4k6n")]
 visible = false
 
@@ -1258,6 +1243,49 @@ color = Color(0.47788, 0.47788, 0.47788, 1)
 position = Vector2(743, -1044)
 
 [node name="timeControl" parent="." instance=ExtResource("27_wbmri")]
+
+[node name="rm_3_enemies" type="Node2D" parent="."]
+position = Vector2(290, -513)
+
+[node name="bengal" parent="rm_3_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(238, 262)
+
+[node name="bengal2" parent="rm_3_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(352, 106)
+
+[node name="bengal3" parent="rm_3_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(500, 286)
+
+[node name="bengal4" parent="rm_3_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(675, 160)
+
+[node name="rm_2_enemies" type="Node2D" parent="."]
+
+[node name="bengal" parent="rm_2_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(-200, -207)
+
+[node name="bengal2" parent="rm_2_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(290, -513)
+
+[node name="rm_1_enemies" type="Node2D" parent="."]
+
+[node name="bengal" parent="rm_1_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(254, 414)
+
+[node name="bengal2" parent="rm_1_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(37, 414)
+
+[node name="bengal3" parent="rm_1_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(196, 316)
+
+[node name="bengal4" parent="rm_1_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(-225, 419)
+
+[node name="bengal5" parent="rm_1_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(-176, 222)
+
+[node name="bengal7" parent="rm_1_enemies" instance=ExtResource("9_egtin")]
+position = Vector2(65, 152)
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="." method="_on_enemy_area_exited_body_entered"]
