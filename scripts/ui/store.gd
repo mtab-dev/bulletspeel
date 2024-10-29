@@ -1,8 +1,5 @@
 extends CanvasLayer
 
-var item: int
-var budget: int
-
 @onready var dialogSprite: Sprite2D = $dialogBox
 @onready var dialogLabel: RichTextLabel = $dialogBox/label
 @onready var buyLabel: Button = $Panel/buy
@@ -17,6 +14,8 @@ var tween_intensity: float = 1.2
 var bt1Scale := Vector2.ONE
 var bt2Scale := Vector2.ONE
 var bt3Scale := Vector2.ONE
+var item: int
+var budget: int
 
 func startTween(object: Object, property: String, final_val: Variant, duration: float):
 	var tween = create_tween()
@@ -40,19 +39,17 @@ func _process(delta):
 	btn_hovered(bt1, bt1Scale)
 	btn_hovered(bt2, bt2Scale)
 	btn_hovered(bt3, bt3Scale)
-	
 
 func initText(lang):
 	if lang == 'port':
 		dialogLabel.text = "Olá, bem vindo à loja!"
 		buyLabel.text = "COMPRAR"
 	if lang == 'esp':
-		dialogLabel.text = "Bienvenido a la	tienda!"
+		dialogLabel.text = "Bienvenido a la tienda!"
 		buyLabel.text = "COMPRAR"
 	if lang == 'eng':
 		dialogLabel.text = "Welcome to the sugary shop!"
 		buyLabel.text = "BUY"
-
 
 func candyText(lang):
 	if lang == 'port':
@@ -62,7 +59,6 @@ func candyText(lang):
 	if lang == 'eng':
 		dialogLabel.text = "SweetHeart: +1 life!"
 
-
 func bootsText(lang):
 	if lang == 'port':
 		dialogLabel.text = "Bota Veloz: +10 de velocidade"
@@ -70,7 +66,6 @@ func bootsText(lang):
 		dialogLabel.text = "Bota da Velocidade: +10 velocidad"
 	if lang == 'eng':
 		dialogLabel.text = "Fast Boots: +10 speed!"
-
 
 func lolliText(lang):
 	if lang == 'port':
@@ -80,7 +75,6 @@ func lolliText(lang):
 	if lang == 'eng':
 		dialogLabel.text = "Lolli: +1 attack!"
 
-
 func mouseHover(lang):
 	if lang == 'port':
 		dialogLabel.text = "Passe o mouse sobre os itens"
@@ -88,7 +82,6 @@ func mouseHover(lang):
 		dialogLabel.text = "Coloca el cursor sobre los elementos"
 	if lang == 'eng':
 		dialogLabel.text = "Hover over items!"
-
 
 func item1Translate(lang):
 	if lang == 'port':
@@ -104,15 +97,24 @@ func item2Translate(lang):
 	if lang == 'esp':
 		dialogLabel.text = "Usted eres la velocidad!"
 	if lang == 'eng':
-		dialogLabel.text = "You're gonna be the fatest man alive!"
+		dialogLabel.text = "You're gonna be the fastest man alive!"
 
 func item3Translate(lang):
 	if lang == 'port':
 		dialogLabel.text = "Assim como um gato, você tem 7 vidas"
 	if lang == 'esp':
-		dialogLabel.text = "Usted tienes muchas vidas, eres imortal!"
+		dialogLabel.text = "Usted tienes muchas vidas, eres inmortal!"
 	if lang == 'eng':
-		dialogLabel.text = "Like a cat, you got seven lifes!"
+		dialogLabel.text = "Like a cat, you got seven lives!"
+
+func alreadyMax(lang):
+	if lang == 'port':
+		dialogLabel.text = "Voce ja esta bem de vida"
+	if lang == 'esp':
+		dialogLabel.text = "Ya eres inmortal, vampiro."
+	if lang == 'eng':
+		dialogLabel.text = "Life is not a candy that you can but anytime"
+	buyLabel.add_theme_color_override("font_color", Color(1, 0, 0))
 
 func budgetTranslate(lang):
 	if lang == 'port':
@@ -135,54 +137,58 @@ func buyItem(price: int, budget: int, item: int):
 			player.speed = 300
 			Global.hasBoots = true
 		elif item == 3:
-			item3Translate(Global.lang)
-			Global.life += 1
+			if Global.life < 3:
+				item3Translate(Global.lang)
+				Global.life += 1
+			else:
+				alreadyMax(Global.lang)
 	else:
 		budgetTranslate(Global.lang)
 
 func _on_exit_pressed():
 	get_node("animation").play("transOut")
-	get_tree().paused = false;
+	get_tree().paused = false
 
 func _on_item_1_mouse_entered():
 	lolliText(Global.lang)
+	buyLabel.add_theme_color_override("font_color", Color(1, 1, 1))
 
 func _on_item_1_mouse_exited():
 	mouseHover(Global.lang)
 
 func _on_item_2_mouse_entered():
 	bootsText(Global.lang)
-
+	buyLabel.add_theme_color_override("font_color", Color(1, 1, 1))
 
 func _on_item_2_mouse_exited():
 	mouseHover(Global.lang)
 
-
 func _on_item_3_mouse_entered():
-	candyText(Global.lang)
-
+	if Global.life < 3:
+		candyText(Global.lang)
+	else:
+		alreadyMax(Global.lang)
 
 func _on_item_3_mouse_exited():
 	mouseHover(Global.lang)
+	if item != 3:
+		buyLabel.add_theme_color_override("font_color", Color(1, 1, 1))
+	
 
 func _on_item_1_pressed():
 	lolliText(Global.lang)
 	budget = 10
 	item = 1
 
-
 func _on_item_2_pressed():
 	bootsText(Global.lang)
 	budget = 5
 	item = 2
-	
-
 
 func _on_item_3_pressed():
 	candyText(Global.lang)
 	budget = 15
 	item = 3
-
 
 func _on_buy_pressed() -> void:
 	buyItem(budget, Global.money, item)
