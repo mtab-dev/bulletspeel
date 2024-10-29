@@ -7,7 +7,7 @@ var isTransforming: bool = false
 @export var enemy: CharacterBody2D 
 @export var moveSpeed: int = 5
 @export var texture: AnimatedSprite2D
-
+var distance
 var moveDirection: Vector2
 var wanderTime: float
 
@@ -41,7 +41,8 @@ func PhysicsUpdate(_delta: float):
 		if enemy:
 			enemy.velocity = moveDirection * moveSpeed
 		var direction = player.global_position - enemy.global_position
-		if direction.length() < 150:
+		var distance = direction.length()
+		if distance < 300:
 			Transitioned.emit(self, "chase")
 		if Global.madCookie:
 			texture.play('blackIdle')

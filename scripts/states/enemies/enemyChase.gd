@@ -13,7 +13,7 @@ func followPlayer():
 		return  	
 	var direction = player.global_position - enemy.global_position
 	var distance = direction.length()
-	if distance < 200:
+	if distance < 300:
 		enemy.velocity = direction.normalized() * moveSpeed
 		texture.play('run')
 	else:

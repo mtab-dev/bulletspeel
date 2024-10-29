@@ -1,4 +1,3 @@
-
 extends State
 class_name CookieChase
 
@@ -23,7 +22,7 @@ func PhysicsUpdate(_delta: float):
 	else:
 		var direction = player.global_position - enemy.global_position
 		var distance = direction.length()
-		if distance > 150:
+		if distance < 300:  # Permitir a perseguição quando o player está a uma distância menor
 			enemy.velocity = direction.normalized() * moveSpeed
 			if Global.madCookie:
 				texture.play("blackRun")
@@ -41,9 +40,8 @@ func _on_big_cookie_cookie_transform() -> void:
 func _on_transform_timer_timeout() -> void:
 	isTransforming = false  
 
-
 func _on_big_cookie_normal_behaviour() -> void:
-	if Global.madCookie == true:
+	if Global.madCookie:
 		texture.play('blackRun')
 	else:
 		texture.play('whiteRun')
