@@ -124,6 +124,7 @@ height = 36.0
 
 [node name="bengal" type="CharacterBody2D"]
 motion_mode = 1
+wall_min_slide_angle = 0.174533
 script = ExtResource("1_85urr")
 
 [node name="bengalAnimation" type="AnimatedSprite2D" parent="."]

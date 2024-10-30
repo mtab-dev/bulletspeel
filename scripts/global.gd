@@ -21,6 +21,8 @@ var playerColor: String = "W"
 #var de linguagem
 var lang: String = "port"
 
+#counting deaths
+var death: int = 0
 
 #time control
 var gameOn: bool = false
