@@ -22,7 +22,9 @@ func PhysicsUpdate(_delta: float):
 	else:
 		var direction = player.global_position - enemy.global_position
 		var distance = direction.length()
-		if distance < 300:  # Permitir a perseguição quando o player está a uma distância menor
+		if distance < 60:
+			Transitioned.emit(self, "attack")
+		if distance < 300:
 			enemy.velocity = direction.normalized() * moveSpeed
 			if Global.madCookie:
 				texture.play("blackRun")

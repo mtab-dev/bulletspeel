@@ -44,6 +44,8 @@ func PhysicsUpdate(_delta: float):
 		var distance = direction.length()
 		if distance < 300:
 			Transitioned.emit(self, "chase")
+		if distance < 60:
+			Transitioned.emit(self, "attack")
 		if Global.madCookie:
 			texture.play('blackIdle')
 		else:

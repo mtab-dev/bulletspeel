@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name BigCookie
 
 @onready var animation: AnimatedSprite2D = $animation
 @onready var canvasForBar: CanvasLayer = $canvasBar
@@ -28,12 +29,6 @@ func _physics_process(delta):
 func transformCookie():
 	cookieTransform.emit()
 	animation.play('white2black')  
-	
-func atkAnim():
-	if Global.madCookie == true:
-		animation.play('blackAttack')
-	else:
-		animation.play('whiteAttack')
 
 func _process(delta: float) -> void:
 	if health == 25.0:
@@ -42,16 +37,6 @@ func _process(delta: float) -> void:
 		Global.madCookie = true
 	else:
 		Global.madCookie = false
-
-func _on_detection_area_body_entered(body):
-	if body.is_in_group('Player'):
-		velocity = Vector2.ZERO
-		isPlayerInDetectionArea = true 
-		atkAnim()
-
-func _on_detection_area_body_exited(body):
-	if body.is_in_group('Player'):
-		isPlayerInDetectionArea = false
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
@@ -70,16 +55,6 @@ func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
 
 func _on_kill_death_finished() -> void:
 	queue_free()
-
-func hitWhenAnim():
-	if isPlayerInDetectionArea == true:
-		atkAnim()
-		Global.life -= 1
-	else:
-		normalBehaviour.emit()
-
-func _on_animation_animation_finished() -> void:
-	hitWhenAnim()
 
 func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
