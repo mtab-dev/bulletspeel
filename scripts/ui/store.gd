@@ -125,25 +125,26 @@ func budgetTranslate(lang):
 		dialogLabel.text = "You can't buy this, you're poor!"
 
 func buyItem(price: int, budget: int, item: int):
-	if budget >= price:
-		buySound.play()
-		Global.money -= price
-		if item == 1: 
-			item1Translate(Global.lang)
-			Global.life += 1
-			Global.hasLolli = true
-		elif item == 2:
-			item2Translate(Global.lang)
-			player.speed = 300
-			Global.hasBoots = true
-		elif item == 3:
-			if Global.life < 3:
-				item3Translate(Global.lang)
+	if item == 3 and Global.life >= 3:
+		alreadyMax(Global.lang) 
+	else: 
+		if budget >= price:
+			buySound.play()
+			Global.money -= price
+			if item == 1: 
+				item1Translate(Global.lang)
 				Global.life += 1
-			else:
-				alreadyMax(Global.lang)
-	else:
-		budgetTranslate(Global.lang)
+				Global.hasLolli = true
+			elif item == 2:
+				item2Translate(Global.lang)
+				player.speed = 300
+				Global.hasBoots = true
+			elif item == 3:
+				if Global.life < 3:
+					item3Translate(Global.lang)
+					Global.life += 1
+		else:
+			budgetTranslate(Global.lang)
 
 func _on_exit_pressed():
 	get_node("animation").play("transOut")
@@ -167,7 +168,6 @@ func _on_item_3_mouse_entered():
 	if Global.life < 3:
 		candyText(Global.lang)
 	else:
-		bt3.add_theme_color_override("icon", Color(1, 0, 0))
 		alreadyMax(Global.lang)
 
 func _on_item_3_mouse_exited():

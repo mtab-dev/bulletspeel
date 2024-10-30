@@ -34,14 +34,11 @@ func _on_chest_2_body_entered(body):
 		if chest:
 			chest.queue_free()
 
-
-
 func _on_chest_3_body_entered(body):
 	if body.is_in_group('Player'):
 		var chest = get_node('lvlDesign/collision/chest3/chest3')
 		if chest:
 			chest.queue_free()
-
 
 func _on_sling_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):

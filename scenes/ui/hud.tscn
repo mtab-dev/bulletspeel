@@ -34,6 +34,7 @@ position = Vector2(31, 7)
 texture = ExtResource("3_ljc6p")
 
 [node name="labelMoney" type="RichTextLabel" parent="money"]
+process_mode = 3
 layout_mode = 0
 offset_left = -27.0
 offset_top = -2.0
@@ -45,6 +46,7 @@ text = "0
 "
 
 [node name="items" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1104.0
