@@ -45,4 +45,5 @@ func _on_eng_btn_pressed() -> void:
 
 
 func _on_close_btn_pressed() -> void:
+	get_tree().paused = false
 	anim.play('transOut')

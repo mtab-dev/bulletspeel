@@ -57,6 +57,7 @@ func _on_sair_pressed():
 		timerAwait(0.1)
 
 func _on_opções_pressed():
+	get_tree().paused = true
 	if canTrackInput:
 		path = 'controls'
 		clickSound.play()
@@ -85,6 +86,7 @@ func _on_port_pressed() -> void:
 
 
 func _on_controles_pressed() -> void:
+	get_tree().paused = true
 	if canTrackInput:
 		path = 'controls'
 		clickSound.play()
