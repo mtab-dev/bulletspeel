@@ -5,6 +5,8 @@ func restartGame():
 	Global.ammunation = 150
 	Global.money = 150
 	Global.gameOn = false
+	Global.hasBoots = false
+	Global.hasLolli = false
 	Global.death += 1
 	print(Global.death)
 	get_tree().paused = false
