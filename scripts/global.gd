@@ -18,6 +18,9 @@ var hasBoots: bool = false
 #cor do joão
 var playerColor: String = "W"
 
+#counting kills
+var enemiesKilled: int = 0
+
 #var de linguagem
 var lang: String = "port"
 

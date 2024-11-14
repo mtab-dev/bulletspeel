@@ -42,6 +42,7 @@ func _physics_process(delta):
 
 func _process(delta: float) -> void:
 	if bengalLife <= 0:
+		Global.enemiesKilled += 1;
 		randomDrop()
 		queue_free()
 

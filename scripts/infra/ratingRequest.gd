@@ -27,6 +27,23 @@ func _ready():
 		send.text = "ENVIAR"
 		lineText.placeholder_text = "Escriba un comentario (opcional)"
 
+func sendSession():
+	var url = "https://fromhel-sessions-e536f7c7bd6c.herokuapp.com/session"
+	var headers = ["Content-Type: application/json"]
+	var data = {
+		"gameName": "bulletspeel",
+		"timespent": Global.time,
+		"deaths": Global.death,
+		"colorPicked": Global.playerColor,
+		"enemysKilled": 0,
+		"gameFinished": true,
+		"money": Global.money,
+		"ammunation": Global.ammunation,
+		"items": true
+	}
+	var json_data = JSON.stringify(data)
+	var response = app.request(url, headers, HTTPClient.METHOD_POST, json_data)
+
 func requestApi():
 	var url = "https://bullet-rating-e4a2d5156cb5.herokuapp.com/api/feedback/new"
 	var headers = ["Content-Type: application/json"]
@@ -83,6 +100,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 
 
 func _on_send_pressed() -> void:
+	sendSession()
 	requestApi()
 
 
@@ -108,4 +126,5 @@ func _on_button_5_pressed() -> void:
 	rating = 5
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
+	sendSession()
 	requestApi()
