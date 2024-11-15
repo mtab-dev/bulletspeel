@@ -133,7 +133,6 @@ func buyItem(price: int, budget: int, item: int):
 			Global.money -= price
 			if item == 1: 
 				item1Translate(Global.lang)
-				Global.life += 1
 				Global.hasLolli = true
 			elif item == 2:
 				item2Translate(Global.lang)
