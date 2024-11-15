@@ -1,6 +1,7 @@
 extends Node
 
 @onready var app: HTTPRequest = $HTTPRequest
+@onready var app2: HTTPRequest = $HTTPRequest2
 @export var rating: int
 @onready var title: Button = $title
 @onready var send: Button = $send
@@ -26,6 +27,14 @@ func _ready():
 		title.text = "ENVIANOS UNA CALIFICACION"
 		send.text = "ENVIAR"
 		lineText.placeholder_text = "Escriba un comentario (opcional)"
+		
+func getColor():
+	if Global.playerColor == "B":
+		return 2
+	if Global.playerColor == "M":
+		return 1
+	if Global.playerColor == "W":
+		return 0
 
 func sendSession():
 	var url = "https://fromhel-sessions-e536f7c7bd6c.herokuapp.com/session"
@@ -34,8 +43,8 @@ func sendSession():
 		"gameName": "bulletspeel",
 		"timespent": Global.time,
 		"deaths": Global.death,
-		"colorPicked": Global.playerColor,
-		"enemysKilled": 0,
+		"colorPicked": getColor(),
+		"enemysKilled": Global.enemiesKilled,
 		"gameFinished": true,
 		"money": Global.money,
 		"ammunation": Global.ammunation,
@@ -45,14 +54,16 @@ func sendSession():
 	var response = app.request(url, headers, HTTPClient.METHOD_POST, json_data)
 
 func requestApi():
-	var url = "https://bullet-rating-e4a2d5156cb5.herokuapp.com/api/feedback/new"
+	var url = "https://fromhel-sessions-e536f7c7bd6c.herokuapp.com/rating"
 	var headers = ["Content-Type: application/json"]
 	var data = {
-		"rate": rating,
+		"gameName": "bulletspeel",
+		"rating": rating,
 		"feedback": clientFeedback
-	}
+}
 	var json_data = JSON.stringify(data)
-	var response = app.request(url, headers,HTTPClient.METHOD_POST, json_data)
+	var response = app2.request(url, headers,HTTPClient.METHOD_POST, json_data)
+	print(response)
 	
 func fillStars():
 	if rating == 0:
@@ -97,7 +108,6 @@ func _process(delta: float) -> void:
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/betaEnd.tscn")
-
 
 func _on_send_pressed() -> void:
 	sendSession()

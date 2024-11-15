@@ -57,6 +57,8 @@ text = "ENVIAR"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[node name="HTTPRequest2" type="HTTPRequest" parent="."]
+
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 321.0
@@ -125,7 +127,7 @@ theme = ExtResource("2_mssvs")
 icon = ExtResource("6_caxc3")
 
 [connection signal="pressed" from="send" to="." method="_on_send_pressed"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="request_completed" from="HTTPRequest2" to="." method="_on_http_request_request_completed"]
 [connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
