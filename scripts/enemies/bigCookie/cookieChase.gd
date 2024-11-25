@@ -23,7 +23,8 @@ func PhysicsUpdate(_delta: float):
 		var direction = player.global_position - enemy.global_position
 		var distance = direction.length()
 		if distance < 60:
-			Transitioned.emit(self, "attack")
+			#Transitioned.emit(self, "attack")
+			Transitioned.emit(self, "shoot")
 		if distance < 300:
 			enemy.velocity = direction.normalized() * moveSpeed
 			if Global.madCookie:
