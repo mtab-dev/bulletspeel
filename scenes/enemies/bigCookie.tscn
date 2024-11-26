@@ -385,53 +385,24 @@ script = ExtResource("54_xf543")
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
 
-[node name="chase" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
+[node name="chase" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture", "shotTimer")]
 script = ExtResource("55_vemhm")
 moveSpeed = 150
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
+shotTimer = NodePath("../../startShots")
 
 [node name="attack" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
 script = ExtResource("72_fe8hx")
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
 
-[node name="shoot" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "shootTimer")]
+[node name="shoot" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "animation", "shootTimer", "rotator")]
 script = ExtResource("73_371ta")
 enemy = NodePath("../..")
+animation = NodePath("../../animation")
 shootTimer = NodePath("../../shootTimer")
-
-[node name="bulletPivots" type="Node2D" parent="."]
-
-[node name="pivot1" type="Marker2D" parent="bulletPivots"]
-position = Vector2(0, -34)
-
-[node name="pivot2" type="Marker2D" parent="bulletPivots"]
-position = Vector2(17, -24)
-
-[node name="pivot3" type="Marker2D" parent="bulletPivots"]
-position = Vector2(28, -4)
-
-[node name="pivot4" type="Marker2D" parent="bulletPivots"]
-position = Vector2(24, 11)
-
-[node name="pivot5" type="Marker2D" parent="bulletPivots"]
-position = Vector2(12, 21)
-
-[node name="pivot6" type="Marker2D" parent="bulletPivots"]
-position = Vector2(-2, 26)
-
-[node name="pivot7" type="Marker2D" parent="bulletPivots"]
-position = Vector2(-16, 22)
-
-[node name="pivot8" type="Marker2D" parent="bulletPivots"]
-position = Vector2(-27, 11)
-
-[node name="pivot9" type="Marker2D" parent="bulletPivots"]
-position = Vector2(-25, -22)
-
-[node name="pivot10" type="Marker2D" parent="bulletPivots"]
-position = Vector2(-33, -3)
+rotator = NodePath("../../rotator")
 
 [node name="canvasBar" type="CanvasLayer" parent="."]
 visible = false
@@ -480,6 +451,11 @@ wait_time = 5.0
 wait_time = 2.0
 one_shot = true
 
+[node name="startShots" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="rotator" type="Node2D" parent="."]
+
 [connection signal="cookieTransform" from="." to="stateMachine/idle" method="_on_big_cookie_cookie_transform"]
 [connection signal="cookieTransform" from="." to="stateMachine/chase" method="_on_big_cookie_cookie_transform"]
 [connection signal="normalBehaviour" from="." to="stateMachine/idle" method="_on_big_cookie_normal_behaviour"]
@@ -494,3 +470,4 @@ one_shot = true
 [connection signal="timeout" from="transformTimer" to="stateMachine/idle" method="_on_transform_timer_timeout"]
 [connection signal="timeout" from="transformTimer" to="stateMachine/chase" method="_on_transform_timer_timeout"]
 [connection signal="timeout" from="shootTimer" to="stateMachine/shoot" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="startShots" to="stateMachine/chase" method="_on_start_shots_timeout"]
