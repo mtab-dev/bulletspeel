@@ -1,6 +1,6 @@
 extends Node2D
 
-const speed = 100
+const speed = 200
 
 func _process(delta: float) -> void:
 	position += transform.x * speed * delta
@@ -12,8 +12,8 @@ func _on_kill_timer_timeout() -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		Global.life -= 1
 		queue_free()
+		Global.life -= 1
 	else: queue_free()
 
 
