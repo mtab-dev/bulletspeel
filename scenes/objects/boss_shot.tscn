@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://byw58738iuctb"]
+[gd_scene load_steps=7 format=3 uid="uid://dxem7xepe1h7l"]
 
 [ext_resource type="Texture2D" uid="uid://k0fwm2gwhyvu" path="res://sprites/bullets/green/BALASdearmaVERDE1.png" id="1_gmf8v"]
 [ext_resource type="Script" path="res://scripts/object/boss_shot.gd" id="1_huvup"]
@@ -25,7 +25,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ea0l1"]
 radius = 7.0
 
-[node name="bossShot" type="Node2D"]
+[node name="bossShot" type="Node2D" groups=["Bullets"]]
 script = ExtResource("1_huvup")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
