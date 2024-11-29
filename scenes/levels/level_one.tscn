@@ -1233,7 +1233,7 @@ position = Vector2(712, -1433)
 
 [node name="mask" type="CanvasModulate" parent="."]
 position = Vector2(0, -12)
-color = Color(0.47788, 0.47788, 0.47788, 1)
+color = Color(0.458405, 0.458405, 0.458405, 1)
 
 [node name="bigCookie" parent="." instance=ExtResource("26_3nkdn")]
 position = Vector2(743, -1044)
