@@ -194,7 +194,6 @@ grow_vertical = 2
 script = ExtResource("1_flcms")
 
 [node name="bground" type="AnimatedSprite2D" parent="."]
-process_mode = 3
 position = Vector2(569, 325)
 scale = Vector2(3.03684, 2.78333)
 sprite_frames = SubResource("SpriteFrames_2p16b")
@@ -214,7 +213,7 @@ offset_right = 40.0
 offset_bottom = 27.0
 
 [node name="play" type="Button" parent="menu"]
-process_mode = 1
+process_mode = 3
 layout_mode = 2
 offset_left = 505.0
 offset_top = 343.0
@@ -232,7 +231,7 @@ icon = ExtResource("3_nd371")
 icon_alignment = 1
 
 [node name="sair" type="Button" parent="menu"]
-process_mode = 1
+process_mode = 3
 layout_mode = 2
 offset_left = 530.0
 offset_top = 520.0
@@ -250,7 +249,7 @@ icon = ExtResource("4_65ocu")
 icon_alignment = 1
 
 [node name="opções" type="Button" parent="menu"]
-process_mode = 1
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -274,7 +273,7 @@ alignment = 0
 icon_alignment = 1
 
 [node name="controls" type="Button" parent="menu"]
-process_mode = 1
+process_mode = 3
 layout_mode = 0
 offset_left = 460.0
 offset_top = 458.0
@@ -296,16 +295,13 @@ icon_alignment = 1
 stream = ExtResource("41_o2sml")
 volume_db = -10.0
 autoplay = true
-bus = &"music"
 
 [node name="buttonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("42_4bb3h")
-bus = &"fx"
 
 [node name="sceneMorph" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(2, 2)
 stream = ExtResource("43_tdf6v")
-bus = &"fx"
 
 [node name="sceneChangingTimer" type="Timer" parent="."]
 

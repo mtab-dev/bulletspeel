@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxem7xepe1h7l"]
+
+[ext_resource type="Texture2D" uid="uid://k0fwm2gwhyvu" path="res://sprites/bullets/green/BALASdearmaVERDE1.png" id="1_gmf8v"]
+[ext_resource type="Script" path="res://scripts/object/boss_shot.gd" id="1_huvup"]
+[ext_resource type="Texture2D" uid="uid://clgbuhw6vkmpr" path="res://sprites/bullets/green/BALASdearmaVERDE2.png" id="2_tk7sw"]
+[ext_resource type="Texture2D" uid="uid://cjnh7x3gxy8hb" path="res://sprites/bullets/green/BALASdearmaVERDE3.png" id="3_mfoy4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d41s5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gmf8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tk7sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mfoy4")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ea0l1"]
+radius = 7.0
+
+[node name="bossShot" type="Node2D" groups=["Bullets"]]
+script = ExtResource("1_huvup")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_d41s5")
+animation = &"shoot"
+
+[node name="killTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="collisor" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_ea0l1")
+
+[connection signal="timeout" from="killTimer" to="." method="_on_kill_timer_timeout"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

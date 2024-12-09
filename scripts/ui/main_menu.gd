@@ -19,6 +19,8 @@ var canTrackInput: bool = true
 func _ready():
 	optionsTable.offset.y = -1000
 	bgroundSprite.play("menu-anim")
+	print_rich("[color=green]BulletSpeel by FromHel Studio![/color]")
+
 	
 func _process(delta: float) -> void:
 	if Global.lang == 'eng':
