@@ -32,6 +32,5 @@ func PhysicsUpdate(_delta: float):
 		Transitioned.emit(self, "chase")
 
 
-func _process(delta: float) -> void:
-	pass
-	
+func _on_mimic_dead() -> void:
+	Transitioned.emit(self, "death")

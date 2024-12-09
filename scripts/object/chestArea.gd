@@ -50,12 +50,15 @@ func detectHit(chest):
 
 
 func _on_chst_1_area_entered(area: Area2D) -> void:
-	detectHit(chestOne)
+	if area.is_in_group('Bullets'):
+		detectHit(chestOne)
 
 
 func _on_chst_2_area_entered(area: Area2D) -> void:
-	detectHit(chestTwo)
+	if area.is_in_group('Bullets'):
+		detectHit(chestTwo)
 
 
 func _on_chst_3_area_entered(area: Area2D) -> void:
-	detectHit(chestThree)
+	if area.is_in_group('Bullets'):
+		detectHit(chestThree)

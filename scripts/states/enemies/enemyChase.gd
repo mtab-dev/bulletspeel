@@ -1,5 +1,5 @@
 extends State
-class_name EnemyChase
+class_name BengalChase
 
 @export var moveSpeed = 150
 @export var enemy: CharacterBody2D
@@ -10,7 +10,7 @@ var cooldownTimer: float = 0.0
 
 func followPlayer():
 	if player == null:
-		return  	
+		return  
 	var direction = player.global_position - enemy.global_position
 	var distance = direction.length()
 	if distance < 300:
