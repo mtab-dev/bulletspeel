@@ -25,6 +25,5 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
 		health -= 1
 		if health <= 0:
-			healthBar.queue_free()
 			dead.emit()
 		if health >= 1: healthBar.health = health  
