@@ -59,7 +59,3 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_method(setShader, 1.0, 0.0, 0.2)
 		flash.start()
-
-
-func _on_flash_timer_timeout() -> void:
-	pass
