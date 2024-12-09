@@ -13,7 +13,7 @@ var cooldownTimer: float = 0.0
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	if player == null:
-		pass
+		Transitioned.emit(self, "idle")
 
 func Update(_delta: float):
 	if player == null:

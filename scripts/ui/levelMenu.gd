@@ -24,12 +24,6 @@ func _ready():
 		mainMenuButton.text = 'MENU PRINCIPAL'
 		quitButton.text = 'SALIR'
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
-
 func _unhandled_input(event):
 	if(event.is_action_pressed('esc')):
 		get_tree().paused = !get_tree().paused
@@ -52,4 +46,12 @@ func _on_btn_1_pressed():
 
 func _on_btn_4_pressed() -> void:
 	get_tree().paused = false
+	Global.life = 3
+	Global.ammunation = 150
+	Global.money = 150
+	Global.gameOn = false
+	Global.hasBoots = false
+	Global.hasLolli = false
+	Global.death += 1
 	get_tree().change_scene_to_file("res://scenes/levels/level_one.tscn")
+	

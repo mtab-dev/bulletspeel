@@ -31,5 +31,4 @@ func onChildTransition(state, newStateName):
 	if currentState:
 		currentState.Exit()
 	newState.Enter()
-	print(newState)
 	currentState = newState

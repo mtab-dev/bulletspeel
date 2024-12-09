@@ -1182,7 +1182,7 @@ position = Vector2(430, -1029)
 shape = SubResource("RectangleShape2D_khe0q")
 
 [node name="slingDetect" type="Area2D" parent="."]
-position = Vector2(-531, -251)
+position = Vector2(641, 396)
 
 [node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
 scale = Vector2(0.8, 0.8)
@@ -1226,14 +1226,14 @@ volume_db = -20.0
 bus = &"fx"
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(-469, -238)
+position = Vector2(703, 409)
 
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]
 position = Vector2(712, -1433)
 
 [node name="mask" type="CanvasModulate" parent="."]
 position = Vector2(0, -12)
-color = Color(0.47788, 0.47788, 0.47788, 1)
+color = Color(0.458405, 0.458405, 0.458405, 1)
 
 [node name="bigCookie" parent="." instance=ExtResource("26_3nkdn")]
 position = Vector2(743, -1044)
