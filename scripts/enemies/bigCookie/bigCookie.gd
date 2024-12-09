@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name BigCookie
 
+signal deadCookie
+
 @onready var animation: AnimatedSprite2D = $animation
 @onready var canvasForBar: CanvasLayer = $canvasBar
 @onready var healthBar: ProgressBar = $canvasBar/HealthBar
@@ -44,10 +46,10 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 			health -= 1.5
 		else:
 			health -= 1.0
-		healthBar.health = health
 		if health <= 0:
 			Global.deadCookie = true
-			queue_free()
+			deadCookie.emit()
+		if health >= 1: healthBar.health = health
 
 func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
