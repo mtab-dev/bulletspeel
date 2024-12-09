@@ -38,3 +38,7 @@ func _on_animation_animation_finished() -> void:
 	if isInHit == true:
 		Global.life -= 1 
 		texture.play('attack')
+
+
+func _on_mimic_dead() -> void:
+	Transitioned.emit(self, "death")

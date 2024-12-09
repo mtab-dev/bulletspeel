@@ -1182,7 +1182,7 @@ position = Vector2(430, -1029)
 shape = SubResource("RectangleShape2D_khe0q")
 
 [node name="slingDetect" type="Area2D" parent="."]
-position = Vector2(630, 395)
+position = Vector2(-531, -251)
 
 [node name="slingTexture" type="AnimatedSprite2D" parent="slingDetect"]
 scale = Vector2(0.8, 0.8)
@@ -1226,7 +1226,7 @@ volume_db = -20.0
 bus = &"fx"
 
 [node name="player" parent="." instance=ExtResource("1_bvwrk")]
-position = Vector2(692, 408)
+position = Vector2(-469, -238)
 
 [node name="elevator" parent="." instance=ExtResource("25_uf2ca")]
 position = Vector2(712, -1433)
