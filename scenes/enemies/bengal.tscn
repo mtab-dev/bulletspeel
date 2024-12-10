@@ -157,15 +157,18 @@ script = ExtResource("23_87u8o")
 enemy = NodePath("../..")
 texture = NodePath("../../bengalAnimation")
 
-[node name="attack" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
+[node name="attack" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture", "fx")]
 script = ExtResource("25_adbba")
 enemy = NodePath("../..")
 texture = NodePath("../../bengalAnimation")
+fx = NodePath("../../damage")
 
-[node name="damage" type="AudioStreamPlayer" parent="."]
+[node name="damage" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_h6jjf")
 volume_db = -20.0
 bus = &"fx"
+
+[node name="bengalDeath" type="AudioStreamPlayer2D" parent="."]
 
 [node name="shadow" type="Sprite2D" parent="."]
 position = Vector2(-4, 20)

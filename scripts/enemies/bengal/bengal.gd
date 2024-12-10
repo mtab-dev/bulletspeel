@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @onready var animation: AnimatedSprite2D = $bengalAnimation
-@onready var damageSound: AudioStreamPlayer = $damage
 @onready var flash: Timer = $flashTimer
+@onready var deathFx: AudioStreamPlayer2D = $bengalDeath
 var player: CharacterBody2D
 var bengalLife: float = 4.0
 const COIN = preload("res://scenes/objects/drops/coin.tscn")
@@ -13,7 +13,7 @@ func dropCoin():
 	var newCoin = COIN.instantiate()
 	newCoin.position = drop_position
 	get_tree().current_scene.add_child(newCoin)  
-	
+
 func dropAmmun():
 	var drop_position = self.global_position
 	var newAmmun = AMMUN.instantiate()
@@ -43,6 +43,7 @@ func _physics_process(delta):
 func _process(delta: float) -> void:
 	if bengalLife <= 0:
 		Global.enemiesKilled += 1;
+		deathFx.play()
 		randomDrop()
 		queue_free()
 

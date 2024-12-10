@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=90 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -57,7 +57,6 @@
 [ext_resource type="Texture2D" uid="uid://dhinxar4mxc0y" path="res://sprites/enemies/bigCookie/death/trakingMorrendo4.png" id="39_wn5bx"]
 [ext_resource type="Texture2D" uid="uid://dxgiawtl4ywp5" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco3.png" id="40_3bsv5"]
 [ext_resource type="Texture2D" uid="uid://bt6444s3ajch5" path="res://sprites/enemies/bigCookie/death/trakingMorrendo5.png" id="40_n5stx"]
-[ext_resource type="Texture2D" uid="uid://cgadvhe2iy6n6" path="res://sprites/enemies/bigCookie/death/trakingMorrendo7.png" id="41_k6qhw"]
 [ext_resource type="Texture2D" uid="uid://cm7qfr6txt6dn" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco4.png" id="41_o875m"]
 [ext_resource type="Texture2D" uid="uid://b45o3nsfphymx" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco5.png" id="42_1ygl0"]
 [ext_resource type="Texture2D" uid="uid://dr4a45nmhjsdv" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco6.png" id="43_jn1b3"]
@@ -234,9 +233,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("40_n5stx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_k6qhw")
 }],
 "loop": false,
 "name": &"death",
@@ -393,6 +389,8 @@ shape = SubResource("RectangleShape2D_ehda5")
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
 animation = &"death"
+frame = 4
+frame_progress = 1.0
 
 [node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4)

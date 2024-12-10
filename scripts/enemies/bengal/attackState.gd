@@ -3,6 +3,7 @@ class_name AttackState
 
 @export var enemy: CharacterBody2D
 @export var texture: AnimatedSprite2D
+@export var fx: AudioStreamPlayer2D
 
 var attackCooldown = 1.0
 var attackRange = 40
@@ -34,6 +35,7 @@ func Update(_delta: float):
 
 func attack():
 	texture.play('attack')
+	fx.play()
 	Global.life -= 1
 
 func Exit():
