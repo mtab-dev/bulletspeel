@@ -48,3 +48,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 func _on_bengal_animation_animation_finished() -> void:
 	if texture.animation == 'run':
 		texture.set_frame(8)
+
+
+func _on_bengal_dead_bengal() -> void:
+	Transitioned.emit(self, "death")
