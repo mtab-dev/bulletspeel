@@ -35,9 +35,10 @@ func Update(_delta: float):
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player') and cooldownTimer <= 0:
-		enemy.velocity = Vector2.ZERO
-		texture.play('attack')
-		Transitioned.emit(self, "attack")
+		if enemy.bengalLife > 0:
+			enemy.velocity = Vector2.ZERO
+			texture.play('attack')
+			Transitioned.emit(self, "attack")
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group('Player'):
