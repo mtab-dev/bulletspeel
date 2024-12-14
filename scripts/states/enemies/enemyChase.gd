@@ -42,8 +42,9 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group('Player'):
-		followPlayer()
-		texture.play('run')
+		if enemy.bengalLife > 0:
+			followPlayer()
+			texture.play('run')
 
 
 func _on_bengal_animation_animation_finished() -> void:
