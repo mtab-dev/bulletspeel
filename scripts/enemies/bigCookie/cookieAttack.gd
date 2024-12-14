@@ -33,13 +33,14 @@ func Exit():
 
 
 func _on_animation_animation_finished() -> void:
-	var distance = player.global_position.distance_to(enemy.global_position)
-	if texture.animation == 'whiteAttack' or 'blackAttack':
-		if distance > attackRange:
-			Transitioned.emit(self, "chase")
-		else:
-			Global.life -= 1
-			attack()
+	if player and enemy:
+		var distance = player.global_position.distance_to(enemy.global_position)
+		if texture.animation == 'whiteAttack' or 'blackAttack':
+			if distance > attackRange:
+				Transitioned.emit(self, "chase")
+			else:
+				Global.life -= 1
+				attack()
 
 
 func _on_big_cookie_dead_cookie() -> void:
