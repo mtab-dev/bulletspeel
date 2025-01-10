@@ -194,6 +194,7 @@ grow_vertical = 2
 script = ExtResource("1_flcms")
 
 [node name="bground" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 position = Vector2(569, 325)
 scale = Vector2(3.03684, 2.78333)
 sprite_frames = SubResource("SpriteFrames_2p16b")
@@ -292,16 +293,20 @@ alignment = 0
 icon_alignment = 1
 
 [node name="menuAmbient" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("41_o2sml")
 volume_db = -10.0
 autoplay = true
+bus = &"music"
 
 [node name="buttonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("42_4bb3h")
+bus = &"fx"
 
 [node name="sceneMorph" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(2, 2)
 stream = ExtResource("43_tdf6v")
+bus = &"fx"
 
 [node name="sceneChangingTimer" type="Timer" parent="."]
 
