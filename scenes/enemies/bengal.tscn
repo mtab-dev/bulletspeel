@@ -198,6 +198,7 @@ volume_db = -20.0
 bus = &"fx"
 
 [node name="bengalDeath" type="AudioStreamPlayer2D" parent="."]
+bus = &"fx"
 
 [node name="shadow" type="Sprite2D" parent="."]
 position = Vector2(-4, 20)
