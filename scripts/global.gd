@@ -1,7 +1,7 @@
 extends Node
 
 ##variaveis de estatistica
-var ammunation: int = 150
+var ammunation: int = 180
 var money: int = 150
 var life: int = 3
 var isDead: bool = false

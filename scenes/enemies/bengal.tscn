@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bybpcigtcc037"]
+[gd_scene load_steps=37 format=3 uid="uid://bybpcigtcc037"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bengal/bengal.gd" id="1_85urr"]
 [ext_resource type="Texture2D" uid="uid://ct7garay0ylf8" path="res://sprites/enemies/bengal/attack/2c92ec91-f50c-4794-8949-dfbf6256135d.png" id="1_daq7n"]
@@ -13,8 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://deagdrnx2j3i7" path="res://sprites/enemies/bengal/idle/b4030940-72d2-4407-b26f-f179b6faa023.png" id="9_00uhu"]
 [ext_resource type="Texture2D" uid="uid://bac3lxatu3vgg" path="res://sprites/enemies/bengal/idle/f5a7e798-d164-4a94-8c0c-48a7deef6f1b.png" id="10_p8cdv"]
 [ext_resource type="Texture2D" uid="uid://cjvyiqgkextny" path="res://sprites/enemies/bengal/run/08b37347-5c6d-45de-9078-ff7ece71f539.png" id="11_i045q"]
+[ext_resource type="Texture2D" uid="uid://c52vsolpirnq1" path="res://sprites/enemies/bengal/death/bengalaMorrendo1.png" id="11_ksgix"]
 [ext_resource type="Texture2D" uid="uid://n1dqlbdkhhv0" path="res://sprites/enemies/bengal/run/a5036d95-51c1-4626-ac2a-db789cb54b3b.png" id="12_w0frw"]
+[ext_resource type="Texture2D" uid="uid://duxd3wrgjtwge" path="res://sprites/enemies/bengal/death/bengalaMorrendo2.png" id="12_xaqrr"]
 [ext_resource type="Texture2D" uid="uid://du35do7objaw3" path="res://sprites/enemies/bengal/run/a8951941-5a43-4c0d-b21d-3ab005443234.png" id="13_8wafe"]
+[ext_resource type="Texture2D" uid="uid://bl276qp7tui0g" path="res://sprites/enemies/bengal/death/bengalaMorrendo3.png" id="13_p4ql6"]
+[ext_resource type="Texture2D" uid="uid://dnl10jkp0ea7l" path="res://sprites/enemies/bengal/death/bengalaMorrendo4.png" id="14_3bwjg"]
 [ext_resource type="Texture2D" uid="uid://bxp0ohvmx5ra7" path="res://sprites/enemies/bengal/run/b12399bc-2f94-4b96-906e-dda4c3cb12bb.png" id="14_xl22g"]
 [ext_resource type="Texture2D" uid="uid://eml7rhrnm8pb" path="res://sprites/enemies/bengal/run/c28906ec-11d3-4443-b193-9a1b11be5b06.png" id="15_qcv2r"]
 [ext_resource type="Texture2D" uid="uid://cs4dvny84c8nj" path="res://sprites/enemies/bengal/run/d5a8d651-b256-4c76-8330-9b0caa8f85cb.png" id="16_4deyg"]
@@ -27,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://db7w840tomvgc" path="res://assets/fx/effects/bengalDamageEffect.mp3" id="24_h6jjf"]
 [ext_resource type="Script" path="res://scripts/enemies/bengal/attackState.gd" id="25_adbba"]
 [ext_resource type="Texture2D" uid="uid://b1km6mhr62sgm" path="res://sprites/enemies/groundShadow.png" id="25_fhe5l"]
+[ext_resource type="Script" path="res://scripts/enemies/bengal/deadBengal.gd" id="30_6l3gs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6wjy"]
 resource_local_to_scene = true
@@ -57,6 +62,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ksgix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xaqrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p4ql6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3bwjg")
+}],
+"loop": false,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [],
@@ -131,7 +153,9 @@ script = ExtResource("1_85urr")
 material = SubResource("ShaderMaterial_r6wjy")
 scale = Vector2(1.00796, 0.990647)
 sprite_frames = SubResource("SpriteFrames_l3eov")
-animation = &"run"
+animation = &"death"
+frame = 3
+frame_progress = 1.0
 
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
@@ -157,15 +181,23 @@ script = ExtResource("23_87u8o")
 enemy = NodePath("../..")
 texture = NodePath("../../bengalAnimation")
 
-[node name="attack" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
+[node name="attack" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture", "fx")]
 script = ExtResource("25_adbba")
 enemy = NodePath("../..")
 texture = NodePath("../../bengalAnimation")
+fx = NodePath("../../damage")
 
-[node name="damage" type="AudioStreamPlayer" parent="."]
+[node name="death" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "anim")]
+script = ExtResource("30_6l3gs")
+enemy = NodePath("../..")
+anim = NodePath("../../bengalAnimation")
+
+[node name="damage" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_h6jjf")
 volume_db = -20.0
 bus = &"fx"
+
+[node name="bengalDeath" type="AudioStreamPlayer2D" parent="."]
 
 [node name="shadow" type="Sprite2D" parent="."]
 position = Vector2(-4, 20)
@@ -175,9 +207,12 @@ texture = ExtResource("25_fhe5l")
 [node name="flashTimer" type="Timer" parent="."]
 wait_time = 3.0
 
+[connection signal="deadBengal" from="." to="stateMachine/Idle" method="_on_bengal_dead_bengal"]
+[connection signal="deadBengal" from="." to="stateMachine/chase" method="_on_bengal_dead_bengal"]
+[connection signal="deadBengal" from="." to="stateMachine/attack" method="_on_bengal_dead_bengal"]
 [connection signal="animation_finished" from="bengalAnimation" to="stateMachine/chase" method="_on_bengal_animation_animation_finished"]
+[connection signal="animation_finished" from="bengalAnimation" to="stateMachine/death" method="_on_bengal_animation_animation_finished"]
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
-[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="stateMachine/chase" method="_on_detection_area_body_exited"]
 [connection signal="Transitioned" from="stateMachine/Idle" to="stateMachine" method="_on_idle_transitioned"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dl201q1fnrtle"]
+[gd_scene load_steps=90 format=3 uid="uid://dl201q1fnrtle"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/bigCookie.gd" id="1_1dg2b"]
 [ext_resource type="Texture2D" uid="uid://fc1pc0w02dm7" path="res://sprites/enemies/bigCookie/white/idle/trakingBparado1.png" id="1_8ahuy"]
@@ -48,10 +48,15 @@
 [ext_resource type="Texture2D" uid="uid://dd1jfv4a06gr3" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform8.png" id="35_kqp8y"]
 [ext_resource type="Texture2D" uid="uid://b4rkabmx82fme" path="res://sprites/enemies/bigCookie/black/run/trakingparadopreto8.png" id="35_punda"]
 [ext_resource type="Texture2D" uid="uid://r0w3woyx68p3" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform9.png" id="36_m1ivy"]
+[ext_resource type="Texture2D" uid="uid://cq2w0tofh86s6" path="res://sprites/enemies/bigCookie/death/trakingMorrendo1.png" id="36_wujrn"]
+[ext_resource type="Texture2D" uid="uid://c3jftjvq35l03" path="res://sprites/enemies/bigCookie/death/trakingMorrendo2.png" id="37_pwg3i"]
 [ext_resource type="Texture2D" uid="uid://bpa56pgaudflm" path="res://sprites/enemies/bigCookie/white/transform/trakingBtransform10.png" id="37_y3ywg"]
+[ext_resource type="Texture2D" uid="uid://ca67a0fvh7aqu" path="res://sprites/enemies/bigCookie/death/trakingMorrendo3.png" id="38_fpacr"]
 [ext_resource type="Texture2D" uid="uid://d1xa8vht8hbml" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco1.png" id="38_su00f"]
 [ext_resource type="Texture2D" uid="uid://nh0g8usklu5w" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco2.png" id="39_0ufgi"]
+[ext_resource type="Texture2D" uid="uid://dhinxar4mxc0y" path="res://sprites/enemies/bigCookie/death/trakingMorrendo4.png" id="39_wn5bx"]
 [ext_resource type="Texture2D" uid="uid://dxgiawtl4ywp5" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco3.png" id="40_3bsv5"]
+[ext_resource type="Texture2D" uid="uid://bt6444s3ajch5" path="res://sprites/enemies/bigCookie/death/trakingMorrendo5.png" id="40_n5stx"]
 [ext_resource type="Texture2D" uid="uid://cm7qfr6txt6dn" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco4.png" id="41_o875m"]
 [ext_resource type="Texture2D" uid="uid://b45o3nsfphymx" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco5.png" id="42_1ygl0"]
 [ext_resource type="Texture2D" uid="uid://dr4a45nmhjsdv" path="res://sprites/enemies/bigCookie/white/attack/trakingATAQUEbranco6.png" id="43_jn1b3"]
@@ -77,6 +82,8 @@
 [ext_resource type="Texture2D" uid="uid://b7stc7b53ceis" path="res://sprites/enemies/bigCookie/white/run/trakingAndando3 (6).png" id="60_24r6t"]
 [ext_resource type="AudioStream" uid="uid://xo6ais462mb5" path="res://assets/fx/effects/bossDamage.mp3" id="68_7jfre"]
 [ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieAttack.gd" id="72_fe8hx"]
+[ext_resource type="Script" path="res://scripts/enemies/bigCookie/cookieShoot.gd" id="73_371ta"]
+[ext_resource type="Script" path="res://scripts/enemies/bigCookie/deadCookie.gd" id="80_xw173"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4satg"]
 radius = 54.4518
@@ -210,6 +217,26 @@ animations = [{
 "loop": true,
 "name": &"blackRun",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_wujrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_pwg3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_fpacr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_wn5bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_n5stx")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -361,7 +388,9 @@ shape = SubResource("RectangleShape2D_ehda5")
 [node name="animation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_ciu81")
-animation = &"white2black"
+animation = &"death"
+frame = 4
+frame_progress = 1.0
 
 [node name="collisor" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4)
@@ -384,16 +413,29 @@ script = ExtResource("54_xf543")
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
 
-[node name="chase" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
+[node name="chase" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture", "shotTimer")]
 script = ExtResource("55_vemhm")
 moveSpeed = 150
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
+shotTimer = NodePath("../../startShots")
 
 [node name="attack" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "texture")]
 script = ExtResource("72_fe8hx")
 enemy = NodePath("../..")
 texture = NodePath("../../animation")
+
+[node name="shoot" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "animation", "shootTimer", "rotator")]
+script = ExtResource("73_371ta")
+enemy = NodePath("../..")
+animation = NodePath("../../animation")
+shootTimer = NodePath("../../shootTimer")
+rotator = NodePath("../../rotator")
+
+[node name="death" type="Node" parent="stateMachine" node_paths=PackedStringArray("enemy", "anim")]
+script = ExtResource("80_xw173")
+enemy = NodePath("../..")
+anim = NodePath("../../animation")
 
 [node name="canvasBar" type="CanvasLayer" parent="."]
 visible = false
@@ -438,8 +480,21 @@ bus = &"fx"
 [node name="transformTimer" type="Timer" parent="." groups=["Timers"]]
 wait_time = 5.0
 
+[node name="shootTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="startShots" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="rotator" type="Node2D" parent="."]
+
 [connection signal="cookieTransform" from="." to="stateMachine/idle" method="_on_big_cookie_cookie_transform"]
 [connection signal="cookieTransform" from="." to="stateMachine/chase" method="_on_big_cookie_cookie_transform"]
+[connection signal="deadCookie" from="." to="stateMachine/idle" method="_on_big_cookie_dead_cookie"]
+[connection signal="deadCookie" from="." to="stateMachine/chase" method="_on_big_cookie_dead_cookie"]
+[connection signal="deadCookie" from="." to="stateMachine/attack" method="_on_big_cookie_dead_cookie"]
+[connection signal="deadCookie" from="." to="stateMachine/shoot" method="_on_big_cookie_dead_cookie"]
 [connection signal="normalBehaviour" from="." to="stateMachine/idle" method="_on_big_cookie_normal_behaviour"]
 [connection signal="normalBehaviour" from="." to="stateMachine/chase" method="_on_big_cookie_normal_behaviour"]
 [connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
@@ -448,6 +503,9 @@ wait_time = 5.0
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]
 [connection signal="animation_finished" from="animation" to="stateMachine/attack" method="_on_animation_animation_finished"]
+[connection signal="animation_finished" from="animation" to="stateMachine/death" method="_on_animation_animation_finished"]
 [connection signal="finished" from="killDeath" to="." method="_on_kill_death_finished"]
 [connection signal="timeout" from="transformTimer" to="stateMachine/idle" method="_on_transform_timer_timeout"]
 [connection signal="timeout" from="transformTimer" to="stateMachine/chase" method="_on_transform_timer_timeout"]
+[connection signal="timeout" from="shootTimer" to="stateMachine/shoot" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="startShots" to="stateMachine/chase" method="_on_start_shots_timeout"]

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-@onready var joystick: CanvasLayer = $"Test/UI"
+@onready var mobileLayer: CanvasLayer = $"Test/UI"
+@onready var controlJoystick: Control = $"Test/UI/Virtual joystick left"
 @onready var pauseButton: Button = $Test/UI/pauseScene
 @onready var lolli: Sprite2D = $items/loli
 @onready var boots: Sprite2D = $items/boots
@@ -10,10 +11,10 @@ extends CanvasLayer
 func _ready():
 	levelMenu = get_tree().get_first_node_in_group('levelMenu')
 	if(OS.get_name() == 'Android'):
-		joystick.visible = true
+		mobileLayer.visible = true
 	else:
-		joystick.visible = false
-	print(OS.get_name())
+		mobileLayer.visible = false
+		controlJoystick.queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

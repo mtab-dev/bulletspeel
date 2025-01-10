@@ -6,6 +6,8 @@ var isInHit: bool = false
 var health = 25
 var player: CharacterBody2D
 
+signal dead
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	health = 25
@@ -22,6 +24,6 @@ func _physics_process(delta):
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
 		health -= 1
-		healthBar.health = health  
 		if health <= 0:
-			queue_free()
+			dead.emit()
+		if health >= 1: healthBar.health = health  

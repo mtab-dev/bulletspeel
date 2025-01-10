@@ -1,5 +1,5 @@
 extends State
-class_name EnemyChase
+class_name BengalChase
 
 @export var moveSpeed = 150
 @export var enemy: CharacterBody2D
@@ -10,7 +10,7 @@ var cooldownTimer: float = 0.0
 
 func followPlayer():
 	if player == null:
-		return  	
+		return  
 	var direction = player.global_position - enemy.global_position
 	var distance = direction.length()
 	if distance < 300:
@@ -35,16 +35,22 @@ func Update(_delta: float):
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player') and cooldownTimer <= 0:
-		enemy.velocity = Vector2.ZERO
-		texture.play('attack')
-		Transitioned.emit(self, "attack")
+		if enemy.bengalLife > 0:
+			enemy.velocity = Vector2.ZERO
+			texture.play('attack')
+			Transitioned.emit(self, "attack")
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group('Player'):
-		followPlayer()
-		texture.play('run')
+		if enemy.bengalLife > 0:
+			followPlayer()
+			texture.play('run')
 
 
 func _on_bengal_animation_animation_finished() -> void:
 	if texture.animation == 'run':
 		texture.set_frame(8)
+
+
+func _on_bengal_dead_bengal() -> void:
+	Transitioned.emit(self, "death")

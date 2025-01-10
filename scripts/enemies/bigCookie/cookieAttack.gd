@@ -13,7 +13,7 @@ var cooldownTimer: float = 0.0
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	if player == null:
-		pass
+		Transitioned.emit(self, "idle")
 
 func Update(_delta: float):
 	if player == null:
@@ -33,10 +33,15 @@ func Exit():
 
 
 func _on_animation_animation_finished() -> void:
-	var distance = player.global_position.distance_to(enemy.global_position)
-	if texture.animation == 'whiteAttack' or 'blackAttack':
-		if distance > attackRange:
-			Transitioned.emit(self, "chase")
-		else:
-			Global.life -= 1
-			attack()
+	if player and enemy:
+		var distance = player.global_position.distance_to(enemy.global_position)
+		if texture.animation == 'whiteAttack' or 'blackAttack':
+			if distance > attackRange:
+				Transitioned.emit(self, "chase")
+			else:
+				Global.life -= 1
+				attack()
+
+
+func _on_big_cookie_dead_cookie() -> void:
+	Transitioned.emit(self, "death")

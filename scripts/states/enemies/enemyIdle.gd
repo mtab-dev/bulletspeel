@@ -34,3 +34,7 @@ func PhysicsUpdate(_delta: float):
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_bengal_dead_bengal() -> void:
+	Transitioned.emit(self, "death")

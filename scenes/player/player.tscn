@@ -58,7 +58,6 @@
 [ext_resource type="AudioStream" uid="uid://dn16hwrf6rnmt" path="res://assets/fx/effects/playerDamage.mp3" id="28_dfbwl"]
 [ext_resource type="Texture2D" uid="uid://bvwjni7lx8jdp" path="res://sprites/player/jaopreto/Jaoparado/jaoparado6.png" id="28_kds0g"]
 [ext_resource type="Texture2D" uid="uid://d22weuf6pmxf7" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado6.png" id="28_rr04u"]
-[ext_resource type="Texture2D" uid="uid://b5hmplcy3j70f" path="res://assets/particles/light.png" id="29_7m3hi"]
 [ext_resource type="Texture2D" uid="uid://bx3qp3qygexmb" path="res://sprites/player/jaomoreno/Jaoparado/jaoparado7.png" id="29_ibpuq"]
 [ext_resource type="Texture2D" uid="uid://dbmn6f17yvxes" path="res://sprites/player/jaopreto/Jaoparado/jaoparado7.png" id="29_q5fva"]
 [ext_resource type="Texture2D" uid="uid://dndu8ydtows8x" path="res://sprites/player/jaopreto/Jaoparado/jaoparado8.png" id="30_4r8o2"]
@@ -127,6 +126,7 @@
 [ext_resource type="Texture2D" uid="uid://dl526logtgtj5" path="res://sprites/player/jaobranco/jaoandano/jaoandandoCOSTAs4.png" id="79_l2bjp"]
 [ext_resource type="Texture2D" uid="uid://dd3alijodc5v3" path="res://sprites/player/jaobranco/jaoandano/jaoandandoCOSTAs5.png" id="80_wb2l4"]
 [ext_resource type="Texture2D" uid="uid://b2dx30onq3joe" path="res://sprites/player/jaobranco/jaoandano/jaoandandoCOSTAs6.png" id="81_18g24"]
+[ext_resource type="Texture2D" uid="uid://dnjxa662cjqgy" path="res://assets/particles/luz.webp" id="127_lbqxg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drh78"]
 height = 36.0
@@ -616,8 +616,10 @@ wait_time = 2.0
 one_shot = true
 
 [node name="lighter" type="PointLight2D" parent="."]
+position = Vector2(2, 0)
 color = Color(0.600166, 0.530579, 0.283367, 1)
 energy = 0.8
-texture = ExtResource("29_7m3hi")
+texture = ExtResource("127_lbqxg")
+texture_scale = 0.6
 
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
