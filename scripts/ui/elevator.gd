@@ -25,4 +25,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_timer_after_death_timeout() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/levels/beta_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/leve_two.tscn")
+	#get_tree().change_scene_to_file("res://scenes/levels/beta_screen.tscn")

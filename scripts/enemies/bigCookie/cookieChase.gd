@@ -55,3 +55,7 @@ func _on_big_cookie_normal_behaviour() -> void:
 
 func _on_start_shots_timeout() -> void:
 	Transitioned.emit(self, "shoot")
+
+
+func _on_big_cookie_dead_cookie() -> void:
+	Transitioned.emit(self, "death")

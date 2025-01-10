@@ -46,3 +46,7 @@ func _on_shoot_timer_timeout() -> void:
 		newBullet.position = s.global_position
 		newBullet.rotation = s.global_rotation
 	Transitioned.emit(self, "chase")
+
+
+func _on_big_cookie_dead_cookie() -> void:
+	Transitioned.emit(self, "death")

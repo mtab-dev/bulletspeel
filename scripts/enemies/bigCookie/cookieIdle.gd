@@ -69,3 +69,7 @@ func _on_big_cookie_normal_behaviour() -> void:
 		texture.play('blackIdle')
 	else:
 		texture.play('whiteIdle')
+
+
+func _on_big_cookie_dead_cookie() -> void:
+	Transitioned.emit(self, "death")

@@ -1,37 +1,25 @@
 extends CharacterBody2D
+class_name Bengal
 
 @onready var animation: AnimatedSprite2D = $bengalAnimation
-@onready var damageSound: AudioStreamPlayer = $damage
 @onready var flash: Timer = $flashTimer
+@onready var deathFx: AudioStreamPlayer2D = $bengalDeath
 var player: CharacterBody2D
 var bengalLife: float = 4.0
-const COIN = preload("res://scenes/objects/drops/coin.tscn")
-const AMMUN = preload("res://scenes/objects/drops/ammunation.tscn")
+var _bengalLife: float: 
+	set(value): 
+		bengalLife = value
+		_set_bengal_life(value)
+	get: return bengalLife
 
-func dropCoin():
-	var drop_position = self.global_position
-	var newCoin = COIN.instantiate()
-	newCoin.position = drop_position
-	get_tree().current_scene.add_child(newCoin)  
-	
-func dropAmmun():
-	var drop_position = self.global_position
-	var newAmmun = AMMUN.instantiate()
-	newAmmun.position = drop_position
-	get_tree().current_scene.add_child(newAmmun)
-
-func randomDrop():
-	var randomize = randi() % 2  
-	if randomize == 0:
-		dropCoin()
-	else:
-		dropAmmun()
+signal deadBengal
 
 func setShader(newValue: float):
 	animation.material.set_shader_parameter("blinkIntesity", newValue)
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	bengalLife = 4.0  # Inicializa a vida
 
 func _physics_process(delta):
 	if velocity.x > 0:
@@ -40,22 +28,23 @@ func _physics_process(delta):
 		animation.flip_h = true
 	move_and_slide()
 
-func _process(delta: float) -> void:
+func _set_bengal_life(value: float) -> void:
+	bengalLife = value
 	if bengalLife <= 0:
-		Global.enemiesKilled += 1;
-		randomDrop()
-		queue_free()
+		die()
 
-func _on_detection_area_body_entered(body):
-	if body.is_in_group('Player'):
-		pass
+func die():
+	deadBengal.emit()
+	Global.enemiesKilled += 1
+	deathFx.play()
+
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
 		if Global.hasLolli:
-			bengalLife -= 1.5
+			_set_bengal_life(bengalLife - 1.5)
 		else:
-			bengalLife -= 1.0
+			_set_bengal_life(bengalLife - 1.0)
 		var tween = get_tree().create_tween()
 		tween.tween_method(setShader, 1.0, 0.0, 0.2)
 		flash.start()
