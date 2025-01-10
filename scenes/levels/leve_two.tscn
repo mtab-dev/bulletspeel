@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ctrintefmalic"]
+[gd_scene load_steps=35 format=3 uid="uid://ctrintefmalic"]
 
 [ext_resource type="Texture2D" uid="uid://bbndqluwju2qv" path="res://sprites/lvlTwo/levelTwo/andar 2 completo.png" id="1_xe6f7"]
 [ext_resource type="Texture2D" uid="uid://7fnaaxqmtnm6" path="res://sprites/lvlTwo/levelTwo/segundo andar sem colisao.png" id="2_8okrb"]
@@ -10,7 +10,7 @@
 size = Vector2(194, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ap4"]
-size = Vector2(48.5, 76)
+size = Vector2(74, 24.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b88uu"]
 size = Vector2(24, 156)
@@ -86,18 +86,28 @@ radius = 37.1214
 radius = 11.0
 height = 36.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js86i"]
+size = Vector2(129.5, 7.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn0bt"]
 size = Vector2(144, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0til2"]
+size = Vector2(4.5, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08pmj"]
+size = Vector2(60.5, 49)
 
 [node name="leve_two" type="Node"]
 
 [node name="lvlDesign" type="Node" parent="."]
 
 [node name="structure" type="Sprite2D" parent="lvlDesign"]
-position = Vector2(19, 1)
+position = Vector2(1, 1)
 texture = ExtResource("1_xe6f7")
 
 [node name="noCollision" type="Sprite2D" parent="lvlDesign"]
+position = Vector2(1, 0)
 texture = ExtResource("2_8okrb")
 
 [node name="decoration" type="Sprite2D" parent="lvlDesign"]
@@ -174,11 +184,11 @@ position = Vector2(-1005, 121)
 shape = SubResource("RectangleShape2D_oa02u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvlDesign/collisions"]
-position = Vector2(669, -880)
+position = Vector2(683, -879)
 shape = SubResource("RectangleShape2D_oa02u")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="lvlDesign/collisions"]
-position = Vector2(846, -892.438)
+position = Vector2(872, -874)
 shape = SubResource("RectangleShape2D_oa02u")
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="lvlDesign/collisions"]
@@ -277,10 +287,6 @@ shape = SubResource("RectangleShape2D_b88uu")
 position = Vector2(297, 308)
 shape = SubResource("RectangleShape2D_b88uu")
 
-[node name="CollisionShape2D115" type="CollisionShape2D" parent="lvlDesign/collisions"]
-position = Vector2(764, -365)
-shape = SubResource("RectangleShape2D_b88uu")
-
 [node name="CollisionShape2D47" type="CollisionShape2D" parent="lvlDesign/collisions"]
 position = Vector2(-453, 67)
 shape = SubResource("RectangleShape2D_y4ap4")
@@ -365,12 +371,8 @@ shape = SubResource("RectangleShape2D_y4ap4")
 position = Vector2(935, -201.5)
 shape = SubResource("RectangleShape2D_y4ap4")
 
-[node name="CollisionShape2D59" type="CollisionShape2D" parent="lvlDesign/collisions"]
-position = Vector2(619, -790)
-shape = SubResource("RectangleShape2D_y4ap4")
-
 [node name="CollisionShape2D61" type="CollisionShape2D" parent="lvlDesign/collisions"]
-position = Vector2(905, -482.625)
+position = Vector2(906, -488.25)
 shape = SubResource("RectangleShape2D_y4ap4")
 
 [node name="CollisionShape2D63" type="CollisionShape2D" parent="lvlDesign/collisions"]
@@ -522,7 +524,7 @@ position = Vector2(-1154, 793)
 shape = SubResource("RectangleShape2D_ypuk3")
 
 [node name="CollisionShape2D132" type="CollisionShape2D" parent="lvlDesign/collisions"]
-position = Vector2(548, -688)
+position = Vector2(552, -688)
 shape = SubResource("RectangleShape2D_ypuk3")
 
 [node name="CollisionShape2D133" type="CollisionShape2D" parent="lvlDesign/collisions"]
@@ -685,12 +687,32 @@ shape = SubResource("CapsuleShape2D_7d1mt")
 position = Vector2(564, 277)
 shape = SubResource("CapsuleShape2D_7d1mt")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(908.25, -468.75)
+shape = SubResource("RectangleShape2D_js86i")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(711, -468)
+shape = SubResource("RectangleShape2D_js86i")
+
 [node name="CollisionShape2D155" type="CollisionShape2D" parent="lvlDesign/collisions"]
 position = Vector2(760, 339.5)
 shape = SubResource("RectangleShape2D_rn0bt")
 
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(845.75, -373)
+shape = SubResource("RectangleShape2D_0til2")
+
+[node name="CollisionShape2D81" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(774, -377)
+shape = SubResource("RectangleShape2D_0til2")
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="lvlDesign/collisions"]
+position = Vector2(619, -787)
+shape = SubResource("RectangleShape2D_08pmj")
+
 [node name="player" parent="." instance=ExtResource("4_2axp4")]
-position = Vector2(853, -818)
+position = Vector2(883, -894)
 
 [node name="mask" type="CanvasModulate" parent="."]
 position = Vector2(10, 98)
