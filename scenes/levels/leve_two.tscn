@@ -1,8 +1,9 @@
-[gd_scene load_steps=97 format=3 uid="uid://ctrintefmalic"]
+[gd_scene load_steps=98 format=3 uid="uid://ctrintefmalic"]
 
 [ext_resource type="Texture2D" uid="uid://bbndqluwju2qv" path="res://sprites/lvlTwo/levelTwo/andar 2 completo.png" id="1_xe6f7"]
 [ext_resource type="Texture2D" uid="uid://7fnaaxqmtnm6" path="res://sprites/lvlTwo/levelTwo/segundo andar sem colisao.png" id="2_8okrb"]
 [ext_resource type="Texture2D" uid="uid://cba4tlqy5a3sm" path="res://sprites/lvlTwo/levelTwo/segundo andar com colisao.png" id="3_dsqnw"]
+[ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="4_2axp4"]
 [ext_resource type="PackedScene" uid="uid://cjabs2o3kadip" path="res://scenes/ui/level_menu.tscn" id="5_vi41y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isctv"]
@@ -288,7 +289,7 @@ size = Vector2(64, 52)
 radius = 12.0
 height = 36.0
 
-[node name="leve_two" type="Node"]
+[node name="level_two" type="Node"]
 
 [node name="lvlDesign" type="Node" parent="."]
 
@@ -1245,3 +1246,5 @@ color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [node name="levelMenu" parent="." instance=ExtResource("5_vi41y")]
 visible = false
+
+[node name="player" parent="." instance=ExtResource("4_2axp4")]

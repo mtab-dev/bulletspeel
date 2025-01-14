@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=3 uid="uid://clh64akakowm6"]
+
+[ext_resource type="Texture2D" uid="uid://bvxl2o10r6nvi" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE1.png" id="1_dmmux"]
+[ext_resource type="Texture2D" uid="uid://dac6aya2n12kb" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE2.png" id="2_gcymr"]
+[ext_resource type="Texture2D" uid="uid://csxtuceuu2qh6" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE3.png" id="3_xg4eh"]
+[ext_resource type="Texture2D" uid="uid://c74dkbb86n7v7" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE4.png" id="4_gi5tm"]
+[ext_resource type="Texture2D" uid="uid://chwbh0hnlnxsy" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE5.png" id="5_lv0sc"]
+[ext_resource type="Texture2D" uid="uid://c626gkl1dk2yr" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE6.png" id="6_lnhyc"]
+[ext_resource type="Texture2D" uid="uid://wcf64f0yaa3j" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE7.png" id="7_iafgw"]
+[ext_resource type="Texture2D" uid="uid://cmlxq5ucmvsjk" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE8.png" id="8_md12v"]
+[ext_resource type="Texture2D" uid="uid://u12u2vr2q756" path="res://sprites/enemies/springmallow/attack/side/marshATAQUE9.png" id="9_o6ixh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uiouh"]
+load_path = "res://.godot/imported/marsh1.png-a6ccc302ff8f2a4ea6b2b720fa6c0991.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o4who"]
+load_path = "res://.godot/imported/marsh2.png-fb4bfdcb39ee4985e01fdd5e3f0c3e78.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jek8x"]
+load_path = "res://.godot/imported/marsh3.png-7199a2ab426b8784dac7cf2dd14bf97a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2r3oa"]
+load_path = "res://.godot/imported/marsh4.png-c9a4328075b516dcff3382257f654adb.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1nen"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_uiouh")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_o4who")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_jek8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_2r3oa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dmmux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gcymr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xg4eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gi5tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lv0sc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lnhyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iafgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_md12v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o6ixh")
+}],
+"loop": false,
+"name": &"sideAttack",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4fek"]
+radius = 12.0
+height = 32.0
+
+[node name="springmallow" type="CharacterBody2D"]
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-29, -1)
+sprite_frames = SubResource("SpriteFrames_m1nen")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_j4fek")
