@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dxbh7ps7n8olg"]
+[gd_scene load_steps=62 format=3 uid="uid://dxbh7ps7n8olg"]
 
 [ext_resource type="Texture2D" uid="uid://cbxfk8rpf2aow" path="res://sprites/primeiro andar pronto/andar 1 paredes.png" id="1_5iv1b"]
 [ext_resource type="PackedScene" uid="uid://ixll8salrlv2" path="res://scenes/player/player.tscn" id="1_bvwrk"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://tqj5jdegh0er" path="res://scenes/ui/elevator.tscn" id="25_uf2ca"]
 [ext_resource type="PackedScene" uid="uid://dl201q1fnrtle" path="res://scenes/enemies/bigCookie.tscn" id="26_3nkdn"]
 [ext_resource type="PackedScene" uid="uid://cnajuetuyb05c" path="res://scenes/control/time_control.tscn" id="27_wbmri"]
+[ext_resource type="PackedScene" uid="uid://clh64akakowm6" path="res://scenes/enemies/springmallow.tscn" id="28_60k3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm27d"]
 size = Vector2(192, 45.5)
@@ -1282,6 +1283,9 @@ position = Vector2(-176, 222)
 
 [node name="bengal7" parent="rm_1_enemies" instance=ExtResource("9_egtin")]
 position = Vector2(65, 152)
+
+[node name="springmallow" parent="." instance=ExtResource("28_60k3y")]
+position = Vector2(653, 456)
 
 [connection signal="body_entered" from="loja" to="loja" method="_on_body_entered"]
 [connection signal="body_entered" from="enemyAreaExited" to="." method="_on_enemy_area_exited_body_entered"]
