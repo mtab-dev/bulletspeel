@@ -69,6 +69,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }} 
           CHANNEL: "windows"  
-          ITCH_GAME: "BulletSpell"  
+          ITCH_GAME: "bulletspell-qas"  
           ITCH_USER: "dev-fromhelstudio"  
           PACKAGE: ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe 
