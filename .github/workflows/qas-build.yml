@@ -1,5 +1,5 @@
 name: BulletSpell CI/CD
-run-name: Building for Windows
+run-name: Building for Windows and Deploying to Itch.io
 
 on:
   push:
@@ -13,6 +13,7 @@ env:
   EXPORT_FOLDER_WINDOWS: export/windows
   GODOT_PROJECT_LOCATION: .
   APPLICATION_NAME: BulletSpell
+  ITCH_IO_API_KEY: ${{ secrets.ITCH_IO_API_KEY }}  # Chave de API para Itch.io
 
 jobs:
   build-windows:
@@ -42,29 +43,32 @@ jobs:
           unzip -o godot_export_templates.tpz -d ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
           mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
 
-
       - name: Create export directory
         run: mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
 
       - name: Export Game for Windows
         run: |
-          ./godot --headless --path ${{ env.GODOT_PROJECT_LOCATION }} --export-release "Windows Desktop" ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+          ./godot --headless --no-window --path ${{ env.GODOT_PROJECT_LOCATION }} --export-release "Windows Desktop" ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
 
       - name: Upload Exported Game
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APPLICATION_NAME }}-windows
           path: ${{ env.EXPORT_FOLDER_WINDOWS }}
-  
+
   deploy-itch-io:
-      runs-on: ubuntu-latest
-      needs: build-windows 
-  
-      steps:
-        - name: Deploy to Itch.io
-          uses: jakejarvis/itchio-upload-action@v1
-          with:
-            api_key: ${{ secrets.ITCH_IO_API_KEY }}
-            game_id: bulletspell-qas
-            file: ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
-            upload_type: "game" 
+    runs-on: ubuntu-latest
+    needs: build-windows 
+
+    steps:
+      - name: Install Itch.io CLI
+        run: |
+          wget https://broth.itch.ovh/itch-setup-linux-amd64 -O itch-setup
+          chmod +x itch-setup
+          ./itch-setup
+
+      - name: Deploy to Itch.io
+        run: |
+          ./itch upload ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe \
+          --api-key ${{ secrets.ITCH_IO_API_KEY }} \
+          --game bulletspell-qas  # ID do seu jogo na Itch.io
