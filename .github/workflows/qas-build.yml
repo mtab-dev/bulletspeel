@@ -55,3 +55,16 @@ jobs:
         with:
           name: ${{ env.APPLICATION_NAME }}-windows
           path: ${{ env.EXPORT_FOLDER_WINDOWS }}
+  
+  deploy-itch-io:
+      runs-on: ubuntu-latest
+      needs: build-windows 
+  
+      steps:
+        - name: Deploy to Itch.io
+          uses: jakejarvis/itchio-upload-action@v1
+          with:
+            api_key: ${{ secrets.ITCH_IO_API_KEY }}
+            game_id: bulletspell-qas
+            file: ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+            upload_type: "game" 
