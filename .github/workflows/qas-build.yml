@@ -63,6 +63,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Download Artifact Game
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.APPLICATION_NAME }}-windows
+          path: ${{ env.EXPORT_FOLDER_WINDOWS }}
   
       - name: Deploy to Itch.io
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
