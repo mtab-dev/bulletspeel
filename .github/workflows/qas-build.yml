@@ -1,0 +1,80 @@
+name: BulletSpell CI/CD
+run-name: Building for Windows and Deploying
+
+on:
+  push:
+    branches: [ "qas" ]
+  pull_request:
+    branches: [ "qas" ]
+  workflow_dispatch:
+
+env: 
+  GODOT_VERSION: 4.3
+  EXPORT_FOLDER_WINDOWS: export/windows
+  GODOT_PROJECT_LOCATION: .
+  APPLICATION_NAME: BulletSpell
+  ITCH_IO_API_KEY: ${{ secrets.ITCH_IO_API_KEY }}  # Chave de API para Itch.io
+
+jobs:
+  build-windows:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm pkgconf git bash yasm python python-pip scons gcc diffutils make wget unzip tar ffmpeg x264 x265 libwebp pulseaudio
+
+      - name: Download and install Godot
+        run: |
+          wget -q -O godot.zip https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+          unzip godot.zip
+          mv Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 godot
+          chmod +x godot
+
+      - name: Download and configure export templates
+        run: |
+          wget -q -O godot_export_templates.tpz https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
+          mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+          unzip -o godot_export_templates.tpz -d ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+          mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
+
+      - name: Create export directory
+        run: mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
+
+      - name: Export Game for Windows
+        run: |
+          ./godot --headless --no-window --path ${{ env.GODOT_PROJECT_LOCATION }} --export-release "Windows Desktop" ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+
+      - name: Upload Exported Game
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.APPLICATION_NAME }}-windows
+          path: ${{ env.EXPORT_FOLDER_WINDOWS }}
+
+  deploy-itch-io:
+    runs-on: ubuntu-latest
+    needs: build-windows  
+  
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Artifact Game
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.APPLICATION_NAME }}-windows
+          path: ${{ env.EXPORT_FOLDER_WINDOWS }}
+  
+      - name: Deploy to Itch.io
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }} 
+          CHANNEL: "windows"  
+          ITCH_GAME: "bulletspell-qas"  
+          ITCH_USER: "dev-fromhelstudio"  
+          PACKAGE: ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe 
