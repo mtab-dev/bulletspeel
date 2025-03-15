@@ -46,7 +46,7 @@ jobs:
 
       - name: Export Game for Windows
         run: |
-          ./godot --headless --path ${{ env.GODOT_PROJECT_LOCATION }} --export-release "Windows" ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+          ./godot --headless --path ${{ env.GODOT_PROJECT_LOCATION }} --export-release "Windows Desktop" ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
 
       - name: Upload Exported Game
         uses: actions/upload-artifact@v4
