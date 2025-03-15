@@ -1,5 +1,5 @@
 name: BulletSpell CI/CD
-run-name: Building for Windows and Deploying to Itch.io
+run-name: Building for Windows and Deploying
 
 on:
   push:
@@ -58,17 +58,19 @@ jobs:
 
   deploy-itch-io:
     runs-on: ubuntu-latest
-    needs: build-windows 
-
+    needs: build-windows  
+  
     steps:
-      - name: Install Itch.io CLI
+      - name: Install Homebrew 
         run: |
-          wget https://broth.itch.ovh/itch-setup-linux-amd64 -O itch-setup
-          chmod +x itch-setup
-          ./itch-setup
-
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  
+      - name: Install Itch.io CLI using Homebrew
+        run: |
+          brew install itch
+  
       - name: Deploy to Itch.io
         run: |
-          ./itch upload ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe \
+          itch upload ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe \
           --api-key ${{ secrets.ITCH_IO_API_KEY }} \
           --game bulletspell-qas  # ID do seu jogo na Itch.io
