@@ -72,10 +72,6 @@ func moveToElevator(elevatorPosition):
 	velocity = direction * speed
 	move_and_slide()
 
-
-func _ready():
-	pass
-
 func _process(delta: float) -> void:
 	if Global.hasBoots:
 		speed = 250
@@ -93,22 +89,18 @@ func _on_death_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
 	Global.isDead = false
 
-
 func _on_sling_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
 		var newSling = SLINGSHOT.instantiate()
 		add_child(newSling)
 
-
 func _on_enemy_area_enter_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		light.enabled = false
 
-
 func _on_enemy_area_exited_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		light.enabled = true
-
 
 func _on_big_cookie_damage_player() -> void:
 	Global.life -= 1

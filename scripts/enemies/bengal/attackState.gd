@@ -41,6 +41,5 @@ func attack():
 func Exit():
 	texture.stop()
 
-
 func _on_bengal_dead_bengal() -> void:
 	Transitioned.emit(self, "death")
