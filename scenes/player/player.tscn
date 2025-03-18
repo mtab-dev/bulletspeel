@@ -624,5 +624,5 @@ energy = 0.8
 texture = ExtResource("127_lbqxg")
 texture_scale = 0.6
 
-[connection signal="bigDamage" from="." to="Camera2D" method="_on_player_big_damage"]
+[connection signal="shakeCamera" from="." to="Camera2D" method="_on_player_shake_camera"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

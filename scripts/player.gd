@@ -15,7 +15,7 @@ var moneyCount: int = 0
 var isWalking: bool = false
 var anim: String = 'idle'
 var speed: int = 200
-signal bigDamage
+signal shakeCamera
 
 func walkingEffect():
 	isWalking = velocity.x != 0 or velocity.y != 0

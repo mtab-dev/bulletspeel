@@ -19,6 +19,5 @@ func _process(delta: float) -> void:
 func randomOffset() -> Vector2:
 	return Vector2(rnd.randf_range(-shakeStrenght, shakeStrenght), rnd.randf_range(-shakeStrenght, shakeStrenght))
 
-
-func _on_player_big_damage() -> void:
+func _on_player_shake_camera() -> void:
 	applyShake()
