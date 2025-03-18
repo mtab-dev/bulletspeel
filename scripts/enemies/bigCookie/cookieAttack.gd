@@ -42,6 +42,5 @@ func _on_animation_animation_finished() -> void:
 				Global.life -= 1
 				attack()
 
-
 func _on_big_cookie_dead_cookie() -> void:
 	Transitioned.emit(self, "death")

@@ -26,7 +26,6 @@ func dropBoots(position):
 	var newBoots = BOOTS.instantiate()
 	newBoots.position = drop_position
 	get_tree().current_scene.add_child(newBoots)
-	
 
 func randomDrop(position):
 	if avaibleDrop.size() == 0:
@@ -43,21 +42,17 @@ func randomDrop(position):
 			dropBoots(position)
 	avaibleDrop.remove_at(randomIndex)
 
-
 func detectHit(chest):
 	randomDrop(chest.global_position)
 	chest.queue_free()
-
 
 func _on_chst_1_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
 		detectHit(chestOne)
 
-
 func _on_chst_2_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
 		detectHit(chestTwo)
-
 
 func _on_chst_3_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Bullets'):
