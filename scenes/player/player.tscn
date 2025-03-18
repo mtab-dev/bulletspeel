@@ -1,7 +1,8 @@
-[gd_scene load_steps=130 format=3 uid="uid://ixll8salrlv2"]
+[gd_scene load_steps=131 format=3 uid="uid://ixll8salrlv2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qne2s"]
 [ext_resource type="Texture2D" uid="uid://2pw1ydkhu3jl" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno1.png" id="2_agyhs"]
+[ext_resource type="Script" path="res://scripts/player/playerCamera.gd" id="2_jsehq"]
 [ext_resource type="Texture2D" uid="uid://c41p2iha1bcjm" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno1.png" id="2_qrcdv"]
 [ext_resource type="Texture2D" uid="uid://bfctwe5pkp3ip" path="res://sprites/player/jaomoreno/jaoMortin/jaomorreno2.png" id="3_28062"]
 [ext_resource type="Texture2D" uid="uid://dgml64tdenitj" path="res://sprites/player/jaopreto/jaoMortin/jaomorreno2.png" id="3_ok0ak"]
@@ -586,6 +587,7 @@ zoom = Vector2(2, 2)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
+script = ExtResource("2_jsehq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
@@ -622,4 +624,5 @@ energy = 0.8
 texture = ExtResource("127_lbqxg")
 texture_scale = 0.6
 
+[connection signal="shakeCamera" from="." to="Camera2D" method="_on_player_shake_camera"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

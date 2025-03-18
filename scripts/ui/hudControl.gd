@@ -7,7 +7,6 @@ extends CanvasLayer
 @onready var boots: Sprite2D = $items/boots
 @onready var levelMenu: CanvasLayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	levelMenu = get_tree().get_first_node_in_group('levelMenu')
 	if(OS.get_name() == 'Android'):
@@ -17,7 +16,6 @@ func _ready():
 		controlJoystick.queue_free()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Global.hasLolli == true:
 		lolli.visible = true
